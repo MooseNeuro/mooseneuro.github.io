@@ -2,28 +2,27 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FAQ from "../components/Faq.astro";
 import header from "/public/moose_logo.png";
 
-const faq = await import.meta.glob("../content/faq.md", { eager: true });
 const team = await import.meta.glob("../content/team.md", { eager: true });
-
 interface Item {
   name: string;
   designation: string;
   image: string;
 }
 
-interface FaqItem {
-  question: string;
-  answer: string;
-}
 
 const teamData = Object.values(team)[0] as { frontmatter: { team: Item[] } };
-const faqData = Object.values(faq)[0] as {
-  frontmatter: { title: string; items: FaqItem[] };
-};
 const Team = teamData.frontmatter.team;
+
+const support = await import.meta.glob("../content/support.md", { eager: true });
+interface SupportItem {
+  description: string;
+  urltext: string;
+};
+
+const supportData = Object.values(support)[0] as {frontmatter: { title: string; description: string; entry: SupportItem[] }};
+const Support = supportData.frontmatter.items;
 ---
 
 <BaseLayout title="Community">
@@ -100,18 +99,39 @@ const Team = teamData.frontmatter.team;
       <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
         <div
           class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10"
-        >
-          <a href="#"
-            >Community Guidelines <span aria-hidden="true">&rarr;</span></a
-          >
-          <a href="#team"
-            >The MOOSE Team<span aria-hidden="true">&rarr;</span></a
-          >
+          >	  
+          <a href="#">Community Guidelines <span aria-hidden="true">&rarr;</span></a>
+	  <a href="#">Discussions and Support <span aria-hidden="true">&rarr;</span></a>
+          <a href="#team">The MOOSE Team<span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
     </div>
   </div>
-  <!-- Team section -->
+  <!-- Support section -->
+  <div class="bg-white py-24 sm:py-32" id="support">
+    <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-2">
+      <div class="max-w-xl">
+        <h2 class="text-3xl font-semibold text-gray-900 sm:text-4xl">
+          {supportData.frontmatter.title}
+        </h2>
+        <p>{supportData.frontmatter.description}</p>
+        <ul role="list"  class="list-disc pl-5 space-y-3">
+          {Support.map((entry) => (
+            <li key={entry.url}>
+              <div>
+                <h3 class="text-base/7 font-semibold text-gray-900">
+                  {entry.description}
+                </h3>
+                <p class="text-sm/6 font-semibold text-indigo-600">
+                  <a href={entry.url}>{entry.urltext}</a>
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>  <!-- Team section -->
   <div class="bg-white py-24 sm:py-32" id="team">
     <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-2">
       <div class="max-w-xl">
@@ -151,24 +171,6 @@ const Team = teamData.frontmatter.team;
           ))
         }
       </ul>
-    </div>
-  </div>
-
-  <!-- FAQ section -->
-  <div class="bg-gray-50 py-16 px-6 sm:px-12">
-    <h2 class="text-2xl font-bold mb-6 text-center text-gray-900">
-      {faqData.frontmatter.title}
-    </h2>
-    <div class="space-y-4 max-w-3xl mx-auto">
-      {
-        faqData.frontmatter.items.map((item: FaqItem, index: number) => (
-          <FAQ
-            title={item.question}
-            content={item.answer}
-            isOpen={index === 0}
-          />
-        ))
-      }
     </div>
   </div>
 
