@@ -15,6 +15,8 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "astro": "^5.7.6",
+    "bibtex-parse": "^2.1.0",
+    "citeproc": "^2.4.63",
     "lucide-react": "^0.503.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
