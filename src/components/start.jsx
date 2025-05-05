@@ -5,33 +5,21 @@ import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 const carouselItems = [
   {
     id: "1",
-    title: "Turing Pattern Oscillator in One Dimension",
-    description: "A test pattern.",
-    link: "/turing-pattern",
+    title: "Chemical Oscillators",
+    description: "Tutorial on modling chemical systems in which the concentrations of one or more reactants undergoes periodic changes.",
+    link: "https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html",
   },
   {
     id: "2",
-    title: "Calcium Dynamics",
-    description: "Modeling calcium flow.",
-    link: "/calcium-dynamics",
+    title: "Chemical Bistable Systems",
+    description: "Tutorials on modeling bistable chemical systems",
+    link: "https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalBistables.html"
   },
   {
     id: "3",
-    title: "Neural Network Visualization",
-    description: "Interactive visualization of neural network architecture.",
-    link: "/neural-network",
-  },
-  {
-    id: "4",
-    title: "Quantum Computing Basics",
-    description: "An introduction to quantum computing principles.",
-    link: "/quantum-computing",
-  },
-  {
-    id: "5",
-    title: "DNA Sequencing Algorithms",
-    description: "Visual representation of common DNA sequencing approaches.",
-    link: "/dna-sequencing",
+    title: "Squid Giant AxonNeural Network Visualization",
+    description: "Graphical Tool for Simulating Hodgkin and Huxley's Classic Experiments on the Squid Giant Axon",
+    link: "https://moose.ncbs.res.in/readthedocs/user/py/tutorials/Squid.html",
   },
 ];
 

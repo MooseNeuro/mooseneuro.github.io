@@ -50,8 +50,10 @@ import type { CollectionEntry } from "astro:content";
       </h3>
       <p class="prose lg:prose-xl">{mostRecentArticle.data.description}</p>
     </div>
-    <div class="col-span-2 row-span-2 p-10 prose lg:prose-p">
+    <div class="flex flex-row">
+    <div class="prose prose-lg basis-full">
       <Content />
+    </div>
     </div>
 <!--
     <div class="bg-slate-100 px-2 py-10 max-w-full">

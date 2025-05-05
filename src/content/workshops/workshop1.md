@@ -1,6 +1,7 @@
 ---
 title: "Upcoming: Multiscale Modeling with MOOSE, September 25-26, 2025 at CHINTA, Kolkata"
-description: The first two-days hands-on workshop on MOOSE. This workshop is open to undergraduate, masters, and PhD students, and postdoctoral researchers. The sessions will consist of lectures introducing relevant topics in neuroscience followed by hands on computational modeling and simulation with MOOSE. 
+description: The first two-days hands-on workshop on MOOSE. This workshop is open to undergraduate, masters, and PhD students, and postdoctoral researchers. The sessions will consist of lectures introducing relevant topics in neuroscience followed by hands on computational modeling and simulation with MOOSE. See below for details and application.
+
 url: https://docs.google.com/forms/d/e/1FAIpQLSdc1yLm6ZBL6QKIC54gKrIRS_F_Ble1Q9qhhYeyxvKs78YwCg/viewform?usp=sharing
 image: "/assets/workshops/flyer_kolkata_2025_09_25_workshop.png"
 pubDate: 2024-05-01
@@ -11,15 +12,15 @@ id: "workshop1"
 ## Venue: 
 CHINTA, 2nd Floor, Tower 1, Bengal Eco Intelligent Park, Block EM, Sector V, Saltlake, Kolkata 700091, West Bengal, INDIA
 
-## To apply, complete this  and submit: [Application form - to be linked]
+## To apply, complete this  and submit: [Application form](https://docs.google.com/forms/d/e/1FAIpQLSdc1yLm6ZBL6QKIC54gKrIRS_F_Ble1Q9qhhYeyxvKs78YwCg/viewform)
 
-## Workshop Agenda
+## Application deadline: *31 May 2025, 11:59 PM IST.*
+## Workshop highlights
 
-To be announced.
+- Introduction to MOOSE: architecture, capabilities, and applications.
+- Hands-on sessions in simulating signaling pathways, single-cell models, and network dynamics.
+- Empowering participants to build models spanning from molecular interactions to neural circuits.
 
-## Speakers
-
-To be announced.
 
 ## Funders
 
