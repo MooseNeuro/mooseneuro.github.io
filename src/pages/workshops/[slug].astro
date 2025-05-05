@@ -34,15 +34,14 @@ if (entry === undefined) {
 // TypeScript needs explicit type assertion since entry could be undefined
 const { Content } = await entry.render();
 
-const allWorkshops = await getCollection("workshops");
+// const allWorkshops = await getCollection("workshops");
 
-// Prepare slides for carousel
+// // Prepare slides for carousel
 // const chunkSize = 4;
 // const slides = [];
 // for (let i = 0; i < allWorkshops.length; i += chunkSize) {
 //   slides.push(
 //     allWorkshops.slice(i, i + chunkSize).map((item) => ({
-//       slug: item.data.slug,
 //       image: item.data.image,
 //       title: item.data.title,
 //       description: item.data.description,
@@ -87,7 +86,7 @@ const allWorkshops = await getCollection("workshops");
     <h2 class="text-2xl text-center font-bold mb-6 text-gray-800">
       More Workshops
     </h2>
-    <!-- <WorkshopComponent slides={slides} client:load /> -->
+    <WorkshopComponent slides={slides} client:load />
   </div>
 </BaseLayout>
 <script>

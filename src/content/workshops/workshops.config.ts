@@ -1,6 +1,6 @@
 import { z, defineCollection } from "astro:content";
 
-const workshop = defineCollection({
+const workshops = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
@@ -8,8 +8,7 @@ const workshop = defineCollection({
     url: z.string(),
     image: z.string(),
     pubDate: z.date(),
-    slug: z.string(),
   }),
 });
 
-export default workshop;
+export default workshops;

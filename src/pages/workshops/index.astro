@@ -1,16 +1,32 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import WorkshopComponent from "../../components/Allworkshop.astro";
 import picture from "../../assets/Gallery_Moose_Multiscale.webp";
 import { SITE_URL } from "../../constants";
-const allWorkshops = (await getCollection("workshops")).sort();
+
+import WorkshopComponent from "../../components/Allworkshop.astro";
 const Sortedworkshops: CollectionEntry<"workshops">[] = (
   await getCollection("workshops")
 ).sort(
   (a: CollectionEntry<"workshops">, b: CollectionEntry<"workshops">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+const allWorkshops = await getCollection("workshops");
+
+// Prepare slides for carousel
+const chunkSize = 4;
+const slides = [];
+for (let i = 0; i < allWorkshops.length; i += chunkSize) {
+  slides.push(
+    allWorkshops.slice(i, i + chunkSize).map((item) => ({
+      slug: item.data.slug,
+      image: item.data.image,
+      title: item.data.title,
+      description: item.data.description,
+    }))
+  );
+}
 
 const mostRecentArticle: CollectionEntry<"workshops"> = Sortedworkshops[0];
 const { Content } = await mostRecentArticle.render();
@@ -37,12 +53,14 @@ import type { CollectionEntry } from "astro:content";
     <div class="col-span-2 row-span-2 p-10 prose lg:prose-p">
       <Content />
     </div>
-
+<!--
     <div class="bg-slate-100 px-2 py-10 max-w-full">
       <h2 class="text-2xl text-center font-bold mb-6 text-gray-800">
-        Past Workshops
+        All Workshops
       </h2>
+      <WorkshopComponent slides={slides} client:load />
     </div>
+    -->
   </section>
 </BaseLayout>
 
@@ -50,3 +68,4 @@ import type { CollectionEntry } from "astro:content";
   const nav = document.getElementsByTagName("header")[0];
   nav.classList.add("bg-black");
 </script>
+

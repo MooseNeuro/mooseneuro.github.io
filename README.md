@@ -11,3 +11,20 @@ Publications using moose are listed in
 ```
 public/publications.bib
 ```
+
+
+# Building
+To build the website use
+
+```
+npx astro build
+```
+in the repo root folder.
+
+
+# Testing
+To test in development mode
+
+```
+npm run dev
+```

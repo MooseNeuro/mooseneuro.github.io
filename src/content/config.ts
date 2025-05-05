@@ -1,5 +1,5 @@
-import workshop from "./workshops/workshop.config";
+import workshops from "./workshops/workshops.config";
 
 export const collections = {
-  workshop: workshop,
+  workshops: workshops,
 };

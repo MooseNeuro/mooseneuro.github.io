@@ -1,6 +1,6 @@
 export const SITE_TITLE = "MOOSE";
 
-export const SITE_URL = "https://mooseneuro.github.io/";
+export const SITE_URL = "/"
 export const funders = [
   { name: "NCBS", src: "src/assets/funders/NCBS-Logo.jpg" },
   { name: "DBT", src: "src/assets/funders/DBT-logo.png" },
