@@ -1,12 +1,15 @@
 ---
 import "../styles/global.css";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { readFile } from "fs/promises";
+const faq = await readFile("src/content/FAQ.html");
 ---
 
 <BaseLayout title="Software FAQ">
     <section class="p-12">
     <h1 class="text-5xl text-black p-5 text-center box-border">Frequently asked questions</h1>
-    <div class="prose lg:prose-xl text-center p-5">
+    <div class="prose lg:prose-xl text-center p-5"></div>
+    <div set:html={faq}></div>
 </section>
 </BaseLayout>
 <script>

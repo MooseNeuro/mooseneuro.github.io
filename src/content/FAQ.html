@@ -1,422 +1,968 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<!-- 2025-05-08 Thu 15:06 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Frequently Asked Questions</title>
-<meta name="author" content="Subhasis Ray" />
-<meta name="generator" content="Org Mode" />
-<style type="text/css">
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
+  <head>
+    <!-- 2025-05-08 Thu 12:46 -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Frequently Asked Questions</title>
+    <meta name="author" content="Subhasis Ray" />
+    <meta name="generator" content="Org Mode" />
+    <style type="text/css">
+      h3 {
+        text-transform: bold;
+        color: red;
+      }
+      * {
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+      #table-of-contents ul li li:hover {
+        color: indigo;
+        text-decoration: underline;
+      }
+      #table-of-contents ul {
+        color: blue;
+        text-decoration: underline;
+      }
+      #content {
+        max-width: 60em;
+        margin: auto;
+      }
+      .outline-3 {
+        padding: 5px;
+        border: 2px solid gray;
+        margin: 1px;
+      }
+      .outline-4 {
+        padding: 5px;
+        margin: 10px;
+      }
+      .outline-4 a {
+        color: blue;
+        text-decoration: underline;
+      }
+      .title {
+        text-align: center;
+        margin-bottom: 0.2em;
+      }
+      .subtitle {
+        text-align: center;
+        font-size: medium;
+        font-weight: bold;
+        margin-top: 0;
+      }
+      .todo {
+        font-family: monospace;
+        color: red;
+      }
+      .done {
+        font-family: monospace;
+        color: green;
+      }
+      .priority {
+        font-family: monospace;
+        color: orange;
+      }
+      .tag {
+        background-color: #eee;
+        font-family: monospace;
+        padding: 2px;
+        font-size: 80%;
+        font-weight: normal;
+      }
+      .timestamp {
+        color: #bebebe;
+      }
+      .timestamp-kwd {
+        color: #5f9ea0;
+      }
+      .org-right {
+        margin-left: auto;
+        margin-right: 0px;
+        text-align: right;
+      }
+      .org-left {
+        margin-left: 0px;
+        margin-right: auto;
+        text-align: left;
+      }
+      .org-center {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .underline {
+        text-decoration: underline;
+      }
+      #postamble p,
+      #preamble p {
+        font-size: 90%;
+        margin: 0.2em;
+      }
+      p.verse {
+        margin-left: 3%;
+      }
+      pre {
+        border: 1px solid #e6e6e6;
+        border-radius: 3px;
+        background-color: #f2f2f2;
+        padding: 8pt;
+        font-family: monospace;
+        overflow: auto;
+        margin: 1.2em;
+      }
+      pre.src {
+        position: relative;
+        overflow: auto;
+      }
+      pre.src:before {
+        display: none;
+        position: absolute;
+        top: -8px;
+        right: 12px;
+        padding: 3px;
+        color: #555;
+        background-color: #f2f2f299;
+      }
+      pre.src:hover:before {
+        display: inline;
+        margin-top: 14px;
+      }
+      /* Languages per Org manual */
+      pre.src-asymptote:before {
+        content: "Asymptote";
+      }
+      pre.src-awk:before {
+        content: "Awk";
+      }
+      pre.src-authinfo::before {
+        content: "Authinfo";
+      }
+      pre.src-C:before {
+        content: "C";
+      }
+      /* pre.src-C++ doesn't work in CSS */
+      pre.src-clojure:before {
+        content: "Clojure";
+      }
+      pre.src-css:before {
+        content: "CSS";
+      }
+      pre.src-D:before {
+        content: "D";
+      }
+      pre.src-ditaa:before {
+        content: "ditaa";
+      }
+      pre.src-dot:before {
+        content: "Graphviz";
+      }
+      pre.src-calc:before {
+        content: "Emacs Calc";
+      }
+      pre.src-emacs-lisp:before {
+        content: "Emacs Lisp";
+      }
+      pre.src-fortran:before {
+        content: "Fortran";
+      }
+      pre.src-gnuplot:before {
+        content: "gnuplot";
+      }
+      pre.src-haskell:before {
+        content: "Haskell";
+      }
+      pre.src-hledger:before {
+        content: "hledger";
+      }
+      pre.src-java:before {
+        content: "Java";
+      }
+      pre.src-js:before {
+        content: "Javascript";
+      }
+      pre.src-latex:before {
+        content: "LaTeX";
+      }
+      pre.src-ledger:before {
+        content: "Ledger";
+      }
+      pre.src-lisp:before {
+        content: "Lisp";
+      }
+      pre.src-lilypond:before {
+        content: "Lilypond";
+      }
+      pre.src-lua:before {
+        content: "Lua";
+      }
+      pre.src-matlab:before {
+        content: "MATLAB";
+      }
+      pre.src-mscgen:before {
+        content: "Mscgen";
+      }
+      pre.src-ocaml:before {
+        content: "Objective Caml";
+      }
+      pre.src-octave:before {
+        content: "Octave";
+      }
+      pre.src-org:before {
+        content: "Org mode";
+      }
+      pre.src-oz:before {
+        content: "OZ";
+      }
+      pre.src-plantuml:before {
+        content: "Plantuml";
+      }
+      pre.src-processing:before {
+        content: "Processing.js";
+      }
+      pre.src-python:before {
+        content: "Python";
+      }
+      pre.src-R:before {
+        content: "R";
+      }
+      pre.src-ruby:before {
+        content: "Ruby";
+      }
+      pre.src-sass:before {
+        content: "Sass";
+      }
+      pre.src-scheme:before {
+        content: "Scheme";
+      }
+      pre.src-screen:before {
+        content: "Gnu Screen";
+      }
+      pre.src-sed:before {
+        content: "Sed";
+      }
+      pre.src-sh:before {
+        content: "shell";
+      }
+      pre.src-sql:before {
+        content: "SQL";
+      }
+      pre.src-sqlite:before {
+        content: "SQLite";
+      }
+      /* additional languages in org.el's org-babel-load-languages alist */
+      pre.src-forth:before {
+        content: "Forth";
+      }
+      pre.src-io:before {
+        content: "IO";
+      }
+      pre.src-J:before {
+        content: "J";
+      }
+      pre.src-makefile:before {
+        content: "Makefile";
+      }
+      pre.src-maxima:before {
+        content: "Maxima";
+      }
+      pre.src-perl:before {
+        content: "Perl";
+      }
+      pre.src-picolisp:before {
+        content: "Pico Lisp";
+      }
+      pre.src-scala:before {
+        content: "Scala";
+      }
+      pre.src-shell:before {
+        content: "Shell Script";
+      }
+      pre.src-ebnf2ps:before {
+        content: "ebfn2ps";
+      }
+      /* additional language identifiers per "defun org-babel-execute"
        in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
+      pre.src-cpp:before {
+        content: "C++";
+      }
+
+      pre.src-abc:before {
+        content: "ABC";
+      }
+
+      pre.src-coq:before {
+        content: "Coq";
+      }
+
+      pre.src-groovy:before {
+        content: "Groovy";
+      }
+
+      /* additional language identifiers from org-babel-shell-names in
      ob-shell.el: ob-shell is the only babel language using a lambda to put
      the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
+      pre.src-bash:before {
+        content: "bash";
+      }
+
+      pre.src-csh:before {
+        content: "csh";
+      }
+
+      pre.src-ash:before {
+        content: "ash";
+      }
+
+      pre.src-dash:before {
+        content: "dash";
+      }
+
+      pre.src-ksh:before {
+        content: "ksh";
+      }
+
+      pre.src-mksh:before {
+        content: "mksh";
+      }
+
+      pre.src-posh:before {
+        content: "posh";
+      }
+
+      /* Additional Emacs modes also supported by the LaTeX listings package */
+      pre.src-ada:before {
+        content: "Ada";
+      }
+
+      pre.src-asm:before {
+        content: "Assembler";
+      }
+
+      pre.src-caml:before {
+        content: "Caml";
+      }
+
+      pre.src-delphi:before {
+        content: "Delphi";
+      }
+
+      pre.src-html:before {
+        content: "HTML";
+      }
+
+      pre.src-idl:before {
+        content: "IDL";
+      }
+
+      pre.src-mercury:before {
+        content: "Mercury";
+      }
+
+      pre.src-metapost:before {
+        content: "MetaPost";
+      }
+
+      pre.src-modula-2:before {
+        content: "Modula-2";
+      }
+
+      pre.src-pascal:before {
+        content: "Pascal";
+      }
+
+      pre.src-ps:before {
+        content: "PostScript";
+      }
+
+      pre.src-prolog:before {
+        content: "Prolog";
+      }
+
+      pre.src-simula:before {
+        content: "Simula";
+      }
+
+      pre.src-tcl:before {
+        content: "tcl";
+      }
+
+      pre.src-tex:before {
+        content: "TeX";
+      }
+
+      pre.src-plain-tex:before {
+        content: "Plain TeX";
+      }
+
+      pre.src-verilog:before {
+        content: "Verilog";
+      }
+
+      pre.src-vhdl:before {
+        content: "VHDL";
+      }
+
+      pre.src-xml:before {
+        content: "XML";
+      }
+
+      pre.src-nxml:before {
+        content: "XML";
+      }
+
+      /* add a generic configuration mode; LaTeX export needs an additional
      (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+      pre.src-conf:before {
+        content: "Configuration File";
+      }
 
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
-<script>
-  window.MathJax = {
-    tex: {
-      ams: {
-        multlineWidth: '85%'
-      },
-      tags: 'ams',
-      tagSide: 'right',
-      tagIndent: '.8em'
-    },
-    chtml: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    svg: {
-      scale: 1.0,
-      displayAlign: 'center',
-      displayIndent: '0em'
-    },
-    output: {
-      font: 'mathjax-modern',
-      displayOverflow: 'overflow'
-    }
-  };
-</script>
+      table {
+        border-collapse: collapse;
+      }
 
-<script
-  id="MathJax-script"
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-</head>
-<body>
-<div id="content" class="content">
-<h1 class="title">Frequently Asked Questions</h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#org718c780">1. General</a>
-<ul>
-<li><a href="#org15e95e1">1.1. Q: How can I find all the classes available in MOOSE?</a></li>
-<li><a href="#orgd186d0c">1.2. Q: How can I see the documentation on a class?</a></li>
-<li><a href="#orgaacb497">1.3. Q: How can I see the documentation of a specific field of a class?</a></li>
-<li><a href="#orgff150ab">1.4. Q: What unit system does MOOSE use?</a></li>
-<li><a href="#orgceb714f">1.5. Q: How can I find all elements of a certain type in a model directly under a given element?</a></li>
-<li><a href="#org5e73241">1.6. Q: How can I find all elements of a certain type at all depths in a model?</a></li>
-<li><a href="#orgb0536ae">1.7. Q: How can I find an element with a particular name in a large model?</a></li>
-<li><a href="#org06a8c9f">1.8. Q: When trying to plot data from moose <code>Table</code> objects, I see this error "<code>ValueError: x and y must have same first dimension, but have shapes ...</code>". What is the problem?</a></li>
-</ul>
-</li>
-<li><a href="#orgecfd08d">2. Electrophysiology</a>
-<ul>
-<li><a href="#orgc2052e1">2.1. Q: Does setting <code>length</code> and <code>diameter</code> of a <code>Compartment</code> update its membrane resistance <code>Rm</code> and capacitance <code>Cm</code> fields?</a></li>
-<li><a href="#orgfcca7fc">2.2. Q: What is the use of the field <code>Ra</code> in a <code>Compartment</code>?</a></li>
-<li><a href="#orgc5e74b1">2.3. Q: What does <code>HH</code> in <code>HHChannel</code>, <code>HHGate</code>, etc. stand for?</a></li>
-<li><a href="#orgd408b71">2.4. Q: How do I model Hodgkin-Huxley type ion channels?</a></li>
-<li><a href="#orgae54911">2.5. Q: How do I set up the channel gating equations in <code>HHChannel</code>?</a></li>
-<li><a href="#orgfa2ab10">2.6. Q: How do I use <code>HHGate.setupAlpha()</code> or <code>HHGate.setupTau()</code> for setting up the lookup tables of an <code>HHGate</code> object?</a></li>
-<li><a href="#org732e561">2.7. Q: How do I use explicit mathematical expressions for setting up the gating dynamics of <code>HHGate</code>?</a></li>
-<li><a href="#org41bdec5">2.8. Q: How do I explicitly set the lookup tables for <code>HHGates</code> when using an <code>HHChannel</code>?</a></li>
-<li><a href="#org3322796">2.9. Q: How do I model an ion channel so that the channel equations are evaluated exactly instead of using lookup/interpolation tables?</a></li>
-<li><a href="#org5fd4412">2.10. Q: How do I model ion Hodgkin-Huxley-type channels that depend on both voltage and calcium concentration?</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org718c780" class="outline-2">
-<h2 id="org718c780"><span class="section-number-2">1.</span> General</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org15e95e1" class="outline-3">
-<h3 id="org15e95e1"><span class="section-number-3">1.1.</span> Q: How can I find all the classes available in MOOSE?</h3>
-<div class="outline-text-3" id="text-1-1">
-</div>
-<div id="outline-container-orgc562e17" class="outline-4">
-<h4 id="orgc562e17">A: In Python, after importing moose, run the command <code>moose.le('/classes')</code></h4>
-</div>
-</div>
-<div id="outline-container-orgd186d0c" class="outline-3">
-<h3 id="orgd186d0c"><span class="section-number-3">1.2.</span> Q: How can I see the documentation on a class?</h3>
-<div class="outline-text-3" id="text-1-2">
-</div>
-<div id="outline-container-org3bede9f" class="outline-4">
-<h4 id="org3bede9f">A: You can run <code>help(moose.{classname})</code> and <code>moose.doc('{classname}')</code> in Python.</h4>
-<div class="outline-text-4" id="text-org3bede9f">
-<p>
-Here <code>{classname}</code> should be replaced by the name of the class you want to know about.
-</p>
+      caption.t-above {
+        caption-side: top;
+      }
 
-<p>
-For example, to learn more about the <code>Compartment</code> class you can run either of the following code snippets:
-</p>
+      caption.t-bottom {
+        caption-side: bottom;
+      }
 
-<div class="org-src-container">
-<pre class="src src-python">import moose
+      td,
+      th {
+        vertical-align: top;
+      }
+
+      th.org-right {
+        text-align: center;
+      }
+
+      th.org-left {
+        text-align: center;
+      }
+
+      th.org-center {
+        text-align: center;
+      }
+
+      td.org-right {
+        text-align: right;
+      }
+
+      td.org-left {
+        text-align: left;
+      }
+
+      td.org-center {
+        text-align: center;
+      }
+
+      dt {
+        font-weight: bold;
+      }
+
+      .footpara {
+        display: inline;
+      }
+
+      .footdef {
+        margin-bottom: 1em;
+      }
+
+      .figure {
+        padding: 1em;
+      }
+
+      .figure p {
+        text-align: center;
+      }
+
+      .equation-container {
+        display: table;
+        text-align: center;
+        width: 100%;
+      }
+
+      .equation {
+        vertical-align: middle;
+      }
+
+      .equation-label {
+        display: table-cell;
+        text-align: right;
+        vertical-align: middle;
+      }
+
+      .inlinetask {
+        padding: 10px;
+        border: 2px solid gray;
+        margin: 10px;
+        background: #ffffcc;
+      }
+
+      #org-div-home-and-up {
+        text-align: right;
+        font-size: 70%;
+        white-space: nowrap;
+      }
+
+      textarea {
+        overflow-x: auto;
+      }
+
+      .linenr {
+        font-size: smaller;
+      }
+
+      .code-highlighted {
+        background-color: #ffff00;
+      }
+
+      .org-info-js_info-navigation {
+        border-style: none;
+      }
+
+      #org-info-js_console-label {
+        font-size: 10px;
+        font-weight: bold;
+        white-space: nowrap;
+      }
+
+      .org-info-js_search-highlight {
+        background-color: #ffff00;
+        color: #000000;
+        font-weight: bold;
+      }
+    </style>
+    <script>
+      window.MathJax = {
+        tex: {
+          ams: {
+            multlineWidth: "85%",
+          },
+          tags: "ams",
+          tagSide: "right",
+          tagIndent: ".8em",
+        },
+        chtml: {
+          scale: 1.0,
+          displayAlign: "center",
+          displayIndent: "0em",
+        },
+        svg: {
+          scale: 1.0,
+          displayAlign: "center",
+          displayIndent: "0em",
+        },
+        output: {
+          font: "mathjax-modern",
+          displayOverflow: "overflow",
+        },
+      };
+    </script>
+
+    <script
+      id="MathJax-script"
+      async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+    ></script>
+  </head>
+  <body>
+    <div id="content" class="content">
+      <div id="table-of-contents" role="doc-toc">
+        <h2>Table of Contents</h2>
+        <div id="text-table-of-contents" role="doc-toc">
+          <ul>
+            <li>
+              <a href="#org787dbe5">1. General</a>
+              <ul>
+                <li>
+                  <a href="#org4f46e05"
+                    >1.1. Q: How can I find all the classes available in
+                    MOOSE?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org4575512"
+                    >1.2. Q: How can I see the documentation on a class?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org091bf5c"
+                    >1.3. Q: How can I see the documentation of a specific field
+                    of a class?</a
+                  >
+                </li>
+                <li>
+                  <a href="#orgf010ea0"
+                    >1.4. Q: What unit system does MOOSE use?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org17294c1"
+                    >1.5. Q: How can I find all elements of a certain type in a
+                    model directly under a given element?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org80b8759"
+                    >1.6. Q: How can I find all elements of a certain type at
+                    all depths in a model?</a
+                  >
+                </li>
+                <li>
+                  <a href="#orgef77e08"
+                    >1.7. Q: How can I find an element with a particular name in
+                    a large model?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org7aacf53"
+                    >1.8. Q: When trying to plot data from moose
+                    <code>Table</code> objects, I see this error "<code
+                      >ValueError: x and y must have same first dimension, but
+                      have shapes ...</code
+                    >". What is the problem?</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#orgdd058ec">2. Electrophysiology</a>
+              <ul>
+                <li>
+                  <a href="#org8ecb7ad"
+                    >2.1. Q: Does setting <code>length</code> and
+                    <code>diameter</code> of a <code>Compartment</code> update
+                    its membrane resistance <code>Rm</code> and capacitance
+                    <code>Cm</code> fields?</a
+                  >
+                </li>
+                <li>
+                  <a href="#orgef60238"
+                    >2.2. Q: What is the use of the field <code>Ra</code> in a
+                    <code>Compartment</code>?</a
+                  >
+                </li>
+                <li>
+                  <a href="#orga07a8b4"
+                    >2.3. Q: What does <code>HH</code> in
+                    <code>HHChannel</code>, <code>HHGate</code>, etc. stand
+                    for?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org68bfa3e"
+                    >2.4. Q: How do I model Hodgkin-Huxley type ion channels?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org98f12b9"
+                    >2.5. Q: How do I set up the channel gating equations in
+                    <code>HHChannel</code>?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org0aa06a6"
+                    >2.6. Q: How do I use <code>HHGate.setupAlpha()</code> or
+                    <code>HHGate.setupTau()</code> for setting up the lookup
+                    tables of an <code>HHGate</code> object?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org26c2840"
+                    >2.7. Q: How do I use explicit mathematical expressions for
+                    setting up the gating dynamics of <code>HHGate</code>?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org9825b3b"
+                    >2.8. Q: How do I explicitly set the lookup tables for
+                    <code>HHGates</code> when using an
+                    <code>HHChannel</code>?</a
+                  >
+                </li>
+                <li>
+                  <a href="#orgd7a9d5b"
+                    >2.9. Q: How do I model an ion channel so that the channel
+                    equations are evaluated exactly instead of using
+                    lookup/interpolation tables?</a
+                  >
+                </li>
+                <li>
+                  <a href="#org33a95a1"
+                    >2.10. Q: How do I model ion Hodgkin-Huxley-type channels
+                    that depend on both voltage and calcium concentration?</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <div id="outline-container-org787dbe5" class="outline-2">
+        <h2 id="org787dbe5">
+          <span class="section-number-2">1.</span> General
+        </h2>
+        <div class="outline-text-2" id="text-1"></div>
+        <div id="outline-container-org4f46e05" class="outline-3">
+          <h3 id="org4f46e05">
+            <span class="section-number-3">1.1.</span> Q: How can I find all the
+            classes available in MOOSE?
+          </h3>
+          <div class="outline-text-3" id="text-1-1"></div>
+          <div id="outline-container-orga7fe2e2" class="outline-4">
+            <h4 id="orga7fe2e2">
+              A: In Python, after importing moose, run the command
+              <code>moose.le('/classes')</code>
+            </h4>
+          </div>
+        </div>
+        <div id="outline-container-org4575512" class="outline-3">
+          <h3 id="org4575512">
+            <span class="section-number-3">1.2.</span> Q: How can I see the
+            documentation on a class?
+          </h3>
+          <div class="outline-text-3" id="text-1-2"></div>
+          <div id="outline-container-org1d4d27b" class="outline-4">
+            <h4 id="org1d4d27b">
+              A: You can run
+              <code>help(moose.{classname}) ~moose.doc('{classname}')</code> in
+              Python.
+            </h4>
+            <div class="outline-text-4" id="text-org1d4d27b">
+              <p>
+                Here <code>{classname}</code> should be replaced by the name of
+                the class you want to know about.
+              </p>
+
+              <p>
+                For example, to learn more about the
+                <code>Compartment</code> class you can run either of the
+                following code snippets:
+              </p>
+
+              <div class="org-src-container">
+                <pre class="src src-python">
+import moose
 moose.doc('Compartment')
-</pre>
-</div>
-<p>
-or
-</p>
-<div class="org-src-container">
-<pre class="src src-python">import moose
+</pre
+                >
+              </div>
+              <p>or</p>
+              <div class="org-src-container">
+                <pre class="src src-python">
+import moose
 help(moose.Compartment)
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgaacb497" class="outline-3">
-<h3 id="orgaacb497"><span class="section-number-3">1.3.</span> Q: How can I see the documentation of a specific field of a class?</h3>
-<div class="outline-text-3" id="text-1-3">
-</div>
-<div id="outline-container-org3e3cdb8" class="outline-4">
-<h4 id="org3e3cdb8">A: Run <code>moose.doc('{classname}.{fieldname}')</code></h4>
-</div>
-</div>
-<div id="outline-container-orgff150ab" class="outline-3">
-<h3 id="orgff150ab"><span class="section-number-3">1.4.</span> Q: What unit system does MOOSE use?</h3>
-<div class="outline-text-3" id="text-1-4">
-</div>
-<div id="outline-container-orgc4c42ec" class="outline-4">
-<h4 id="orgc4c42ec">A: MOOSE is unit agnostic. If all the parameters in your model are in a consistent unit system, results will be in the same system. We recommend that you use SI units throughout.</h4>
-<div class="outline-text-4" id="text-orgc4c42ec">
-<p>
-Experimentalists use different units for different quantities for convenience. These often get mixed up in computational models and can produce unexpected results due to inconsistent units. The physiological unit system uses \(mV\) for membrane potential, \(ms\) for time. Now, if you express membrane capacitance in \(pF\), your membrane resistance must be in in \(G\Omega\) to get consistent time course in your simulation. This is because only then your membrane time constant (\(\tau = R (G\Omega) \times C (pF)\)) will be in \(ms\). But then your currents would be in \(pA\) (\(I = \frac{V (mV) }{ R (G\Omega)}\)).
-</p>
+</pre
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org091bf5c" class="outline-3">
+          <h3 id="org091bf5c">
+            <span class="section-number-3">1.3.</span> Q: How can I see the
+            documentation of a specific field of a class?
+          </h3>
+          <div class="outline-text-3" id="text-1-3"></div>
+          <div id="outline-container-orgd28a37f" class="outline-4">
+            <h4 id="orgd28a37f">
+              A: Run <code>moose.doc('{classname}.{fieldname}')</code>
+            </h4>
+          </div>
+        </div>
+        <div id="outline-container-orgf010ea0" class="outline-3">
+          <h3 id="orgf010ea0">
+            <span class="section-number-3">1.4.</span> Q: What unit system does
+            MOOSE use?
+          </h3>
+          <div class="outline-text-3" id="text-1-4"></div>
+          <div id="outline-container-org43a7d1a" class="outline-4">
+            <h4 id="org43a7d1a">
+              A: MOOSE is unit agnostic. If all the parameters in your model are
+              in a consistent unit system, results will be in the same system.
+              We recommend that you use SI units throughout.
+            </h4>
+            <div class="outline-text-4" id="text-org43a7d1a">
+              <p>
+                Experimentalists use different units for different quantities
+                for convenience. These often get mixed up in computational
+                models and can produce unexpected results due to inconsistent
+                units. The physiological unit system uses \(mV\) for membrane
+                potential, \(ms\) for time. Now, if you express membrane
+                capacitance in \(pF\), your membrane resistance must be in in
+                \(G\Omega\) to get consistent time course in your simulation.
+                This is because only then your membrane time constant (\(\tau =
+                R (G\Omega) \times C (pF)\)) will be in \(ms\). But then your
+                currents would be in \(pA\) (\(I = \frac{V (mV) }{ R
+                (G\Omega)}\)).
+              </p>
 
-<p>
-Another source of frustration is that dimensions of neurons are usually expressed in \(\mu m\). But conveniently, the  specific capacitance of cell membrane is close to \(1 uF/cm^{2}\). So if you are trying to set the absolute capacitance of a compartment based on this, you must convert its length and diameter to \(cm\) first and compute the surface area in \(cm^{2}\).
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgceb714f" class="outline-3">
-<h3 id="orgceb714f"><span class="section-number-3">1.5.</span> Q: How can I find all elements of a certain type in a model directly under a given element?</h3>
-<div class="outline-text-3" id="text-1-5">
-</div>
-<div id="outline-container-orgf010bcc" class="outline-4">
-<h4 id="orgf010bcc">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/#[TYPE={typename}]')</code> where <code>root</code> is the element under which to search.</h4>
-<div class="outline-text-4" id="text-orgf010bcc">
-<p>
-Example: You loaded the <a href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator">Kholodenko 2000 model</a>  as <code>'/Kholodenko'</code> , then the container for the chemicals and reactions is <code>'/Kholodenko/kinetics/MAPK'</code> . You want to search for elements of type <code>Pool</code> (which represents a pool of molecules or ions) directly under <code>MAPK</code>.
-</p>
+              <p>
+                Another source of frustration is that dimensions of neurons are
+                usually expressed in \(\mu m\). But conveniently, the specific
+                capacitance of cell membrane is close to \(1 uF/cm^{2}\). So if
+                you are trying to set the absolute capacitance of a compartment
+                based on this, you must convert its length and diameter to
+                \(cm\) first and compute the surface area in \(cm^{2}\).
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org17294c1" class="outline-3">
+          <h3 id="org17294c1">
+            <span class="section-number-3">1.5.</span> Q: How can I find all
+            elements of a certain type in a model directly under a given
+            element?
+          </h3>
+          <div class="outline-text-3" id="text-1-5"></div>
+          <div id="outline-container-orga7059f2" class="outline-4">
+            <h4 id="orga7059f2">
+              A: Use <code>wildcardFind</code> in the form
+              <code>moose.wildcardFind('{root}/#[TYPE={typename}]')</code> where
+              <code>root</code> is the element under which to search.
+            </h4>
+            <div class="outline-text-4" id="text-orga7059f2">
+              <p>
+                Example: You loaded the
+                <a
+                  href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator"
+                  >Kholodenko 2000 model</a
+                >
+                as <code>'/Kholodenko'</code> , then the container for the
+                chemicals and reactions is
+                <code>'/Kholodenko/kinetics/MAPK'</code> . You want to search
+                for elements of type <code>Pool</code> (which represents a pool
+                of molecules or ions) directly under <code>MAPK</code>.
+              </p>
 
-<div class="org-src-container">
-<pre class="src src-python">In [19]: moose.wildcardFind('/Kholodenko/kinetics[0]/MAPK[0]/#[TYPE==Pool]')
+              <div class="org-src-container">
+                <pre class="src src-python">
+In [19]: moose.wildcardFind('/Kholodenko/kinetics[0]/MAPK[0]/#[TYPE==Pool]')
 Out[19]: [&lt;moose.Reac id=521 dataIndex=0 path=/Kholodenko[0]/kinetics[0]/MAPK[0]/Neg_feedback[0]&gt;]
-</pre>
-</div>
+</pre
+                >
+              </div>
 
-<p>
-This returns a list of elements of type <code>Pool</code> that are children of <code>/Kholodenko/kinetics/MAPK</code> . But not its grand children or beyond.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org5e73241" class="outline-3">
-<h3 id="org5e73241"><span class="section-number-3">1.6.</span> Q: How can I find all elements of a certain type at all depths in a model?</h3>
-<div class="outline-text-3" id="text-1-6">
-</div>
-<div id="outline-container-org2b19d52" class="outline-4">
-<h4 id="org2b19d52">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/##[TYPE={typename}]')</code></h4>
-<div class="outline-text-4" id="text-org2b19d52">
-<p>
-Example: In the <a href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator">Kholodenko 2000 model</a> you want to search for elements of type <code>Pool</code> (which represents a pool of molecules or ions) you loaded the model as <code>"/Kholodenko\"</code>, then 
-</p>
+              <p>
+                This returns a list of elements of type <code>Pool</code> that
+                are children of <code>/Kholodenko/kinetics/MAPK</code> . But not
+                its grand children or beyond.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org80b8759" class="outline-3">
+          <h3 id="org80b8759">
+            <span class="section-number-3">1.6.</span> Q: How can I find all
+            elements of a certain type at all depths in a model?
+          </h3>
+          <div class="outline-text-3" id="text-1-6"></div>
+          <div id="outline-container-orge9948f7" class="outline-4">
+            <h4 id="orge9948f7">
+              A: Use <code>wildcardFind</code> in the form
+              <code>moose.wildcardFind('{root}/##[TYPE={typename}]')</code>
+            </h4>
+            <div class="outline-text-4" id="text-orge9948f7">
+              <p>
+                Example: In the
+                <a
+                  href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator"
+                  >Kholodenko 2000 model</a
+                >
+                you want to search for elements of type <code>Pool</code> (which
+                represents a pool of molecules or ions) you loaded the model as
+                <code>"/Kholodenko\"</code>, then
+              </p>
 
-<div class="org-src-container">
-<pre class="src src-python">In [19]: moose.wildcardFind('/Kholodenko/##[TYPE==Pool]')
+              <div class="org-src-container">
+                <pre class="src src-python">
+In [19]: moose.wildcardFind('/Kholodenko/##[TYPE==Pool]')
 Out[19]: [&lt;moose.Reac id=521 dataIndex=0 path=/Kholodenko[0]/kinetics[0]/MAPK[0]/Neg_feedback[0]&gt;]
-</pre>
-</div>
+</pre
+                >
+              </div>
 
-<p>
-The <code>##</code> here tells <code>wildcardFind</code> to do a recursive seach, i.e., starting at <code>{root}</code> , look through its children, grand children, all the way down to the leaves of the element tree.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgb0536ae" class="outline-3">
-<h3 id="orgb0536ae"><span class="section-number-3">1.7.</span> Q: How can I find an element with a particular name in a large model?</h3>
-<div class="outline-text-3" id="text-1-7">
-</div>
-<div id="outline-container-orgd2f6694" class="outline-4">
-<h4 id="orgd2f6694">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/##[FIELD(name)={name}]')</code></h4>
-<div class="outline-text-4" id="text-orgd2f6694">
-<p>
-This always returns a list of elements. If the name is unique under root, it will be a list with a single element. If there are multiple elements with the same name, this will return a list containing all those elements.
-Example: In the <a href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator">Kholodenko 2000 model</a> you want to search for the element <code>"Neg_feedback"</code>, and you loaded the model as <code>"/Kholodenko\"</code>, then 
-</p>
+              <p>
+                The <code>##</code> here tells <code>wildcardFind</code> to do a
+                recursive seach, i.e., starting at <code>{root}</code> , look
+                through its children, grand children, all the way down to the
+                leaves of the element tree.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-orgef77e08" class="outline-3">
+          <h3 id="orgef77e08">
+            <span class="section-number-3">1.7.</span> Q: How can I find an
+            element with a particular name in a large model?
+          </h3>
+          <div class="outline-text-3" id="text-1-7"></div>
+          <div id="outline-container-orgc3d68d8" class="outline-4">
+            <h4 id="orgc3d68d8">
+              A: Use <code>wildcardFind</code> in the form
+              <code>moose.wildcardFind('{root}/##[FIELD(name)={name}]')</code>
+            </h4>
+            <div class="outline-text-4" id="text-orgc3d68d8">
+              <p>
+                This always returns a list of elements. If the name is unique
+                under root, it will be a list with a single element. If there
+                are multiple elements with the same name, this will return a
+                list containing all those elements. Example: In the
+                <a
+                  href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator"
+                  >Kholodenko 2000 model</a
+                >
+                you want to search for the element <code>"Neg_feedback"</code>,
+                and you loaded the model as <code>"/Kholodenko\"</code>, then
+              </p>
 
-<div class="org-src-container">
-<pre class="src src-python">In [19]: moose.wildcardFind('/Kholodenko/##[FIELD(name)==Neg_feedback]')
+              <div class="org-src-container">
+                <pre class="src src-python">
+In [19]: moose.wildcardFind('/Kholodenko/##[FIELD(name)==Neg_feedback]')
 Out[19]: [&lt;moose.Reac id=521 dataIndex=0 path=/Kholodenko[0]/kinetics[0]/MAPK[0]/Neg_feedback[0]&gt;]
-</pre>
-</div>
+</pre
+                >
+              </div>
 
-<p>
-If you search for <code>"MAPK"</code> :
-</p>
+              <p>If you search for <code>"MAPK"</code> :</p>
 
-<div class="org-src-container">
-<pre class="src src-python">In [21]: moose.wildcardFind('/Kholodenko/##/MAPK')
+              <div class="org-src-container">
+                <pre class="src src-python">
+In [21]: moose.wildcardFind('/Kholodenko/##/MAPK')
 Out[21]:
 [&lt;moose.Neutral id=489 dataIndex=0 path=/Kholodenko[0]/kinetics[0]/MAPK[0]&gt;,
 &lt;moose.Pool id=491 dataIndex=0 path=/Kholodenko[0]/kinetics[0]/MAPK[0]/MAPK[0]&gt;,
 &lt;moose.Table2 id=552 dataIndex=0 path=/Kholodenko[0]/data[0]/MAPK[0]&gt;]
-</pre>
-</div>
+</pre
+                >
+              </div>
 
-<p>
-Note that the recursive search wildcard (<code>##</code>) must be separated by <code>/</code> (slash). <code>moose.wildcardFind('/Kholodenko/##MAPK')</code> returns an empty list.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org06a8c9f" class="outline-3">
-<h3 id="org06a8c9f"><span class="section-number-3">1.8.</span> Q: When trying to plot data from moose <code>Table</code> objects, I see this error "<code>ValueError: x and y must have same first dimension, but have shapes ...</code>". What is the problem?</h3>
-<div class="outline-text-3" id="text-1-8">
-<pre class="example" id="org3dd7121">
+              <p>
+                Note that the recursive search wildcard (<code>##</code>) must
+                be separated by <code>/</code> (slash).
+                <code>moose.wildcardFind('/Kholodenko/##MAPK')</code> returns an
+                empty list.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org7aacf53" class="outline-3">
+          <h3 id="org7aacf53">
+            <span class="section-number-3">1.8.</span> Q: When trying to plot
+            data from moose <code>Table</code> objects, I see this error "<code
+              >ValueError: x and y must have same first dimension, but have
+              shapes ...</code
+            >". What is the problem?
+          </h3>
+          <div class="outline-text-3" id="text-1-8">
+            <pre class="example" id="org46eeeb1">
   File "C:\moose-core\tests\core\debug_hhchanf2d.py", line 86, in test_vclamp
 	axes[1].plot(t, gktab.vector, label=f'({vstep * 1e3} mV)')
   File "C:\miniforge3\envs\track\Lib\site-packages\matplotlib\axes\_axes.py", line 1721, in plot
@@ -428,166 +974,301 @@ Note that the recursive search wildcard (<code>##</code>) must be separated by <
   File "C:\miniforge3\envs\track\Lib\site-packages\matplotlib\axes\_base.py", line 499, in _plot_args
 	raise ValueError(f"x and y must have same first dimension, but "
 ValueError: x and y must have same first dimension, but have shapes (1050001,) and (2100002,)
-</pre>
-</div>
-<div id="outline-container-org1ad49b1" class="outline-4">
-<h4 id="org1ad49b1">A: This may happen due to multiple connections.</h4>
-<div class="outline-text-4" id="text-org1ad49b1">
-<p>
-In this instance, you are creating the time vector based on the length of one <code>Table</code>, and plotting another. One of the tables (here the second one) was doubly connected, i.e., its <code>requestOut</code> message was passed in two connect calls, like this:
-</p>
+</pre
+            >
+          </div>
+          <div id="outline-container-orgc47f5f8" class="outline-4">
+            <h4 id="orgc47f5f8">
+              A: This may happen due to multiple connections.
+            </h4>
+            <div class="outline-text-4" id="text-orgc47f5f8">
+              <p>
+                In this instance, you are creating the time vector based on the
+                length of one <code>Table</code>, and plotting another. One of
+                the tables (here the second one) was doubly connected, i.e., its
+                <code>requestOut</code> message was passed in two connect calls,
+                like this:
+              </p>
 
-<div class="org-src-container">
-<pre class="src src-python">moose.connect(gktab, 'requestOut', channel1, 'Gk')
+              <div class="org-src-container">
+                <pre class="src src-python">
+moose.connect(gktab, 'requestOut', channel1, 'Gk')
 moose.connect(gktab, 'requestOut', channel2, 'Gk')
-</pre>
-</div>
+</pre
+                >
+              </div>
 
-<p>
-You should check the length of the <code>vector</code> attribute of a table against the number of time points expected from total simulation time (simtime in <code>moose.start(simtime)</code> ) and the <code>dt</code> of the table. If the length of <code>vector</code> is a multiple of the expected number, then you have multiple connection issue with that table.
-</p>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-orgecfd08d" class="outline-2">
-<h2 id="orgecfd08d"><span class="section-number-2">2.</span> Electrophysiology</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgc2052e1" class="outline-3">
-<h3 id="orgc2052e1"><span class="section-number-3">2.1.</span> Q: Does setting <code>length</code> and <code>diameter</code> of a <code>Compartment</code> update its membrane resistance <code>Rm</code> and capacitance <code>Cm</code> fields?</h3>
-<div class="outline-text-3" id="text-2-1">
-</div>
-<div id="outline-container-org585c675" class="outline-4">
-<h4 id="org585c675">A: No.</h4>
-<div class="outline-text-4" id="text-org585c675">
-<p>
-<code>length</code> and <code>diameter</code> are utility fields that can be used for visualization and format conversion. They are not used by MOOSE for computing <code>Rm</code> and <code>Cm</code>. In some other tools the user specifies the specific resistance and specific capacitance of the membrane along with <code>length</code> and <code>diameter</code> of a compartment. And the software computes the total mebrane resistance and capacitance based on the surface area. However, in MOOSE <code>Rm</code> and <code>Cm</code> represent total membrane resistance and capacitance respectively, and are set directly.
-If you have a cylindrical compartment with given length and diameter, and the specific resistance and capacitance are  <code>RM</code> and <code>CM</code> respectively, then you should set:
-</p>
-<div class="org-src-container">
-<pre class="src src-python">surface_area = pi * compartment.length * compartment.diameter
+              <p>
+                You should check the length of the <code>vector</code> attribute
+                of a table against the number of time points expected from total
+                simulation time (simtime in <code>moose.start(simtime)</code> )
+                and the <code>dt</code> of the table. If the length of
+                <code>vector</code> is a multiple of the expected number, then
+                you have multiple connection issue with that table.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-orgdd058ec" class="outline-2">
+        <h2 id="orgdd058ec">
+          <span class="section-number-2">2.</span> Electrophysiology
+        </h2>
+        <div class="outline-text-2" id="text-2"></div>
+        <div id="outline-container-org8ecb7ad" class="outline-3">
+          <h3 id="org8ecb7ad">
+            <span class="section-number-3">2.1.</span> Q: Does setting
+            <code>length</code> and <code>diameter</code> of a
+            <code>Compartment</code> update its membrane resistance
+            <code>Rm</code> and capacitance <code>Cm</code> fields?
+          </h3>
+          <div class="outline-text-3" id="text-2-1"></div>
+          <div id="outline-container-org18d37aa" class="outline-4">
+            <h4 id="org18d37aa">A: No.</h4>
+            <div class="outline-text-4" id="text-org18d37aa">
+              <p>
+                <code>length</code> and <code>diameter</code> are utility fields
+                that can be used for visualization and format conversion. They
+                are not used by MOOSE for computing <code>Rm</code> and
+                <code>Cm</code>. In some other tools the user specifies the
+                specific resistance and specific capacitance of the membrane
+                along with <code>length</code> and <code>diameter</code> of a
+                compartment. And the software computes the total mebrane
+                resistance and capacitance based on the surface area. However,
+                in MOOSE <code>Rm</code> and <code>Cm</code> represent total
+                membrane resistance and capacitance respectively, and are set
+                directly. If you have a cylindrical compartment with given
+                length and diameter, and the specific resistance and capacitance
+                are <code>RM</code> and <code>CM</code> respectively, then you
+                should set:
+              </p>
+              <div class="org-src-container">
+                <pre class="src src-python">
+surface_area = pi * compartment.length * compartment.diameter
 compartment.Rm = RM / surface_area
 compartment.Cm = CM * surface_area
-</pre>
-</div>
-<p>
-where <code>pi</code> is imported from any of the modules like <code>math</code> or <code>numpy</code>, or set directly to 3.14159&#x2026; You must ensure unit consistency between length and specific resistance/capacitance here.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgfcca7fc" class="outline-3">
-<h3 id="orgfcca7fc"><span class="section-number-3">2.2.</span> Q: What is the use of the field <code>Ra</code> in a <code>Compartment</code>?</h3>
-<div class="outline-text-3" id="text-2-2">
-</div>
-<div id="outline-container-org47fc3c4" class="outline-4">
-<h4 id="org47fc3c4">A: <code>Ra</code> represents total axial resistance (also called cytoplasmic resistance) of the compartment.</h4>
-<div class="outline-text-4" id="text-org47fc3c4">
-<p>
-It is relevant only for multicompartmental models, and represents the resistance faced by current flowing from one compartment to the next.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgc5e74b1" class="outline-3">
-<h3 id="orgc5e74b1"><span class="section-number-3">2.3.</span> Q: What does <code>HH</code> in <code>HHChannel</code>, <code>HHGate</code>, etc. stand for?</h3>
-<div class="outline-text-3" id="text-2-3">
-</div>
-<div id="outline-container-org667608b" class="outline-4">
-<h4 id="org667608b">A: <code>HH</code> stands for Hodgkin and Huxley.</h4>
-<div class="outline-text-4" id="text-org667608b">
-<p>
-They figured out the dynamics of ion channels that generate action potentials in nerve fibres, and these models use their formulation to implement channel dynamics. See <a href="https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model">here</a>, <a href="https://physoc.onlinelibrary.wiley.com/pb-assets/assets/14697793/Companion_Guide_V2-1659940264.pdf">here</a> and <a href="https://doi.org/10.1113/jphysiol.2012.230458">here</a> to learn more about this.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd408b71" class="outline-3">
-<h3 id="orgd408b71"><span class="section-number-3">2.4.</span> Q: How do I model Hodgkin-Huxley type ion channels?</h3>
-<div class="outline-text-3" id="text-2-4">
-</div>
-<div id="outline-container-orga60f1b3" class="outline-4">
-<h4 id="orga60f1b3">A: Create instances of the <code>HHChannel</code> class for fast computations, or <code>HHChannelF</code> class for more flexible computations.</h4>
-<div class="outline-text-4" id="text-orga60f1b3">
-<p>
-The <code>HHChannel</code> class is designed for faster simulations, and avoids explicitly evaluating Hodgkin-Huxley-type expressions at each simulation step. Instead, it finds the <code>alpha(V)</code> and <code>beta(V)</code> for membrane voltage <code>V</code> using lookup/interpolation tables.
-</p>
+</pre
+                >
+              </div>
+              <p>
+                where <code>pi</code> is imported from any of the modules like
+                <code>math</code> or <code>numpy</code>, or set directly to
+                3.14159&#x2026; You must ensure unit consistency between length
+                and specific resistance/capacitance here.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-orgef60238" class="outline-3">
+          <h3 id="orgef60238">
+            <span class="section-number-3">2.2.</span> Q: What is the use of the
+            field <code>Ra</code> in a <code>Compartment</code>?
+          </h3>
+          <div class="outline-text-3" id="text-2-2"></div>
+          <div id="outline-container-org4ae02ee" class="outline-4">
+            <h4 id="org4ae02ee">
+              A: <code>Ra</code> represents total axial resistance (also called
+              cytoplasmic resistance) of the compartment.
+            </h4>
+            <div class="outline-text-4" id="text-org4ae02ee">
+              <p>
+                It is relevant only for multicompartmental models, and
+                represents the resistance faced by current flowing from one
+                compartment to the next.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-orga07a8b4" class="outline-3">
+          <h3 id="orga07a8b4">
+            <span class="section-number-3">2.3.</span> Q: What does
+            <code>HH</code> in <code>HHChannel</code>, <code>HHGate</code>, etc.
+            stand for?
+          </h3>
+          <div class="outline-text-3" id="text-2-3"></div>
+          <div id="outline-container-org828d398" class="outline-4">
+            <h4 id="org828d398">
+              A: <code>HH</code> stands for Hodgkin and Huxley.
+            </h4>
+            <div class="outline-text-4" id="text-org828d398">
+              <p>
+                They figured out the dynamics of ion channels that generate
+                action potentials in nerve fibres, and these models use their
+                formulation to implement channel dynamics. See
+                <a
+                  href="https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model"
+                  >here</a
+                >,
+                <a
+                  href="https://physoc.onlinelibrary.wiley.com/pb-assets/assets/14697793/Companion_Guide_V2-1659940264.pdf"
+                  >here</a
+                >
+                and
+                <a href="https://doi.org/10.1113/jphysiol.2012.230458">here</a>
+                to learn more about this.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org68bfa3e" class="outline-3">
+          <h3 id="org68bfa3e">
+            <span class="section-number-3">2.4.</span> Q: How do I model
+            Hodgkin-Huxley type ion channels?
+          </h3>
+          <div class="outline-text-3" id="text-2-4"></div>
+          <div id="outline-container-orgf5b0e93" class="outline-4">
+            <h4 id="orgf5b0e93">
+              A: Create instances of the <code>HHChannel</code> class for fast
+              computations, or <code>HHChannelF</code> class for more flexible
+              computations.
+            </h4>
+            <div class="outline-text-4" id="text-orgf5b0e93">
+              <p>
+                The <code>HHChannel</code> class is designed for faster
+                simulations, and avoids explicitly evaluating
+                Hodgkin-Huxley-type expressions at each simulation step.
+                Instead, it finds the <code>alpha(V)</code> and
+                <code>beta(V)</code> for membrane voltage <code>V</code> using
+                lookup/interpolation tables.
+              </p>
 
-<p>
-The <code>HHChannelF</code> class is for convenience and accuracy, and allows you to explicitly set the gate expressions as strings. However, it evaluates the formula at each time step, which is slower than table lookup in <code>HHChannel</code>.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgae54911" class="outline-3">
-<h3 id="orgae54911"><span class="section-number-3">2.5.</span> Q: How do I set up the channel gating equations in <code>HHChannel</code>?</h3>
-<div class="outline-text-3" id="text-2-5">
-</div>
-<div id="outline-container-orga1338f6" class="outline-4">
-<h4 id="orga1338f6">A: The gating parameters in <code>HHChannel</code> are computed via <code>HHGate</code> objects. They use tables mapping voltage values to gating parameter values to find the gating parameters for a given voltage.</h4>
-<div class="outline-text-4" id="text-orga1338f6">
-<ol class="org-ol">
-<li>Set <code>HHChannel.Xpower</code>, <code>HHChannel.Ypower</code> corresponding to the number of gating particles in the channel model.
-<ul class="org-ul">
-<li>For example, for the Na+ channel conductance in the squid giant axon is calculated at voltage \(V\) as \(G_{Na}(V) = \bar{G}_{Na} \times m(V)^{3} \times h(V)\). So set <code>channel.Xpower= 3 and ~channel.Ypower=1</code>.</li>
-<li>When these powers are set to positive values, corresponding <code>HHGate</code> objects are created.</li>
-</ul></li>
-<li>Next setup the lookup tables for gating parameters based on their equations using one of the following methods:
-<ol class="org-ol">
-<li>Use <code>HHGate.setupAlpha()</code> (for alpha-beta form of the HH equations) or <code>HHGate.setupTau()</code> (for the tau-inf form of the HH equations) function.</li>
-<li>(Introduced in 2025-03 in development branch) Assign mathematical expression strings to the fields <code>HHGate.alphaExpr</code> and <code>HHGate.betaExpr</code> for alpha-beta form, or <code>HHGate.tauExpr</code> and <code>HHGate.infExpr</code> for tau-inf form</li>
-<li>Explicitly set the <code>HHGate.tableA</code> and  <code>HHGate.tableB</code> fields with arrays computed in Python.</li>
-</ol></li>
-</ol>
-</div>
-</div>
-</div>
-<div id="outline-container-orgfa2ab10" class="outline-3">
-<h3 id="orgfa2ab10"><span class="section-number-3">2.6.</span> Q: How do I use <code>HHGate.setupAlpha()</code> or <code>HHGate.setupTau()</code> for setting up the lookup tables of an <code>HHGate</code> object?</h3>
-<div class="outline-text-3" id="text-2-6">
-</div>
-<div id="outline-container-orgb8a1147" class="outline-4">
-<h4 id="orgb8a1147">A: Use <code>HHGate.setupAlpha(...)</code> for alpha-beta form of the HH equations or <code>HHGate.setupTau(...)</code> for the tau-inf form of the HH equations.</h4>
-<div class="outline-text-4" id="text-orgb8a1147">
-<p>
-These functions compute the HH-gate expressions in the generic form:
-</p>
+              <p>
+                The <code>HHChannelF</code> class is for convenience and
+                accuracy, and allows you to explicitly set the gate expressions
+                as strings. However, it evaluates the formula at each time step,
+                which is slower than table lookup in <code>HHChannel</code>.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org98f12b9" class="outline-3">
+          <h3 id="org98f12b9">
+            <span class="section-number-3">2.5.</span> Q: How do I set up the
+            channel gating equations in <code>HHChannel</code>?
+          </h3>
+          <div class="outline-text-3" id="text-2-5"></div>
+          <div id="outline-container-org2e3f39c" class="outline-4">
+            <h4 id="org2e3f39c">
+              A: The gating parameters in <code>HHChannel</code> are computed
+              via <code>HHGate</code> objects. They use tables mapping voltage
+              values to gating parameter values to find the gating parameters
+              for a given voltage.
+            </h4>
+            <div class="outline-text-4" id="text-org2e3f39c">
+              <ol class="org-ol">
+                <li>
+                  Set <code>HHChannel.Xpower</code>,
+                  <code>HHChannel.Ypower</code> corresponding to the number of
+                  gating particles in the channel model.
+                  <ul class="org-ul">
+                    <li>
+                      For example, for the Na+ channel conductance in the squid
+                      giant axon is calculated at voltage \(V\) as \(G_{Na}(V) =
+                      \bar{G}_{Na} \times m(V)^{3} \times h(V)\). So set
+                      <code>channel.Xpower= 3 and ~channel.Ypower=1</code>.
+                    </li>
+                    <li>
+                      When these powers are set to positive values,
+                      corresponding <code>HHGate</code> objects are created.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Next setup the lookup tables for gating parameters based on
+                  their equations using one of the following methods:
+                  <ol class="org-ol">
+                    <li>
+                      Use <code>HHGate.setupAlpha()</code> (for alpha-beta form
+                      of the HH equations) or
+                      <code>HHGate.setupTau()</code> (for the tau-inf form of
+                      the HH equations) function.
+                    </li>
+                    <li>
+                      (Introduced in 2025-03 in development branch) Assign
+                      mathematical expression strings to the fields
+                      <code>HHGate.alphaExpr</code> and
+                      <code>HHGate.betaExpr</code> for alpha-beta form, or
+                      <code>HHGate.tauExpr</code> and
+                      <code>HHGate.infExpr</code> for tau-inf form
+                    </li>
+                    <li>
+                      Explicitly set the <code>HHGate.tableA</code> and
+                      <code>HHGate.tableB</code> fields with arrays computed in
+                      Python.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org0aa06a6" class="outline-3">
+          <h3 id="org0aa06a6">
+            <span class="section-number-3">2.6.</span> Q: How do I use
+            <code>HHGate.setupAlpha()</code> or
+            <code>HHGate.setupTau()</code> for setting up the lookup tables of
+            an <code>HHGate</code> object?
+          </h3>
+          <div class="outline-text-3" id="text-2-6"></div>
+          <div id="outline-container-orgeca32ad" class="outline-4">
+            <h4 id="orgeca32ad">
+              A: Use <code>HHGate.setupAlpha(...)</code> for alpha-beta form of
+              the HH equations or <code>HHGate.setupTau(...)</code> for the
+              tau-inf form of the HH equations.
+            </h4>
+            <div class="outline-text-4" id="text-orgeca32ad">
+              <p>
+                These functions compute the HH-gate expressions in the generic
+                form:
+              </p>
 
-<p>
-\(y(x) = \frac{A + Bx}{C + exp((x+D)/F)}\)
-</p>
+              <p>\(y(x) = \frac{A + Bx}{C + exp((x+D)/F)}\)</p>
 
-<p>
-Thus for each of <code>alpha</code> and <code>beta</code> (or <code>tau</code> and <code>inf</code> depeding on the formulation) there are 5 constant coefficients: A&#x2026;F, some of which may be <code>0</code>. The <code>setupAlpha()</code> function (or <code>setupTau()</code>) takes a list of 13 parameters: 5 each for the constants in the expressions for <code>alpha</code> and <code>beta</code> (or <code>tau</code> and <code>inf</code>), number of divisions in the interpolation table (<code>divs</code>), the lower bound of the interpolation table (<code>min</code>), and the upper bound of the interpolation table (<code>max</code>).
-</p>
+              <p>
+                Thus for each of <code>alpha</code> and <code>beta</code> (or
+                <code>tau</code> and <code>inf</code> depeding on the
+                formulation) there are 5 constant coefficients: A&#x2026;F, some
+                of which may be <code>0</code>. The
+                <code>setupAlpha()</code> function (or <code>setupTau()</code>)
+                takes a list of 13 parameters: 5 each for the constants in the
+                expressions for <code>alpha</code> and <code>beta</code> (or
+                <code>tau</code> and <code>inf</code>), number of divisions in
+                the interpolation table (<code>divs</code>), the lower bound of
+                the interpolation table (<code>min</code>), and the upper bound
+                of the interpolation table (<code>max</code>).
+              </p>
 
-<p>
-Below is an example of setting up Hodgkin-Huxley's Na channel using <code>setupAlpha</code>. In their formulation
-</p>
+              <p>
+                Below is an example of setting up Hodgkin-Huxley's Na channel
+                using <code>setupAlpha</code>. In their formulation
+              </p>
 
-<p>
-\(\alpha_{m} = \frac{0.1 (25 - V)}{exp(\frac{25 - V}{10}) - 1}\)
-</p>
+              <p>
+                \(\alpha_{m} = \frac{0.1 (25 - V)}{exp(\frac{25 - V}{10}) - 1}\)
+              </p>
 
-<p>
-Thus \(A = 0.1 * 25\) , \(B = -0.1\) , \(C = -1\) , \(D = -25\) and \(F = -10\) . Similarly,
-</p>
+              <p>
+                Thus \(A = 0.1 * 25\) , \(B = -0.1\) , \(C = -1\) , \(D = -25\)
+                and \(F = -10\) . Similarly,
+              </p>
 
-<p>
-\(\beta_{m} = 4 exp(\frac{-V}{18})\)
-</p>
+              <p>\(\beta_{m} = 4 exp(\frac{-V}{18})\)</p>
 
-<p>
-so, \(A = 4\), \(B = 0\), \(C = 0\), \(D = 0\) and \(F = 18\) .
-</p>
+              <p>
+                so, \(A = 4\), \(B = 0\), \(C = 0\), \(D = 0\) and \(F = 18\) .
+              </p>
 
-<p>
-We expect the membrane voltage to stay within -110 mV to 50 mV under physiological conditions, and divide this range into in 3000 points for lookup. We also want the lookup to use linear interpolation for voltage values falling between two entries in the table.
-</p>
+              <p>
+                We expect the membrane voltage to stay within -110 mV to 50 mV
+                under physiological conditions, and divide this range into in
+                3000 points for lookup. We also want the lookup to use linear
+                interpolation for voltage values falling between two entries in
+                the table.
+              </p>
 
-<div class="org-src-container">
-<pre class="src src-python">import moose
+              <div class="org-src-container">
+                <pre class="src src-python">
+import moose
 
 chan = moose.HHChannel('channel')
 chan.Xpower = 3  # this will also initialize the HHGate element channel/gateX
@@ -614,24 +1295,44 @@ m_gate.setupAlpha([
 m_gate.useInterpolation = True   # use linear interpolation instead of direct lookup
 
 # Similarly for h_gate ...
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org732e561" class="outline-3">
-<h3 id="org732e561"><span class="section-number-3">2.7.</span> Q: How do I use explicit mathematical expressions for setting up the gating dynamics of <code>HHGate</code>?</h3>
-<div class="outline-text-3" id="text-2-7">
-</div>
-<div id="outline-container-org873a657" class="outline-4">
-<h4 id="org873a657">(Introduced in 2025-03 in development branch) Assign mathematical expression strings to the fields <code>HHGate.alphaExpr</code> and <code>HHGate.betaExpr</code> for alpha-beta form, or <code>HHGate.tauExpr</code> and <code>HHGate.infExpr</code> for tau-inf form.</h4>
-<div class="outline-text-4" id="text-org873a657">
-<p>
-In this case you must explicitly set the <code>min</code>, <code>max</code>, and <code>divs</code> fields of each gate. The expressions should use <a href="https://github.com/ArashPartow/exprtk">exprtk</a> syntax. Do not forget to convert the expressions to reflect the unit system of your entire model. We recommend adhering to SI units, but the code sample below shows original Hodgkin-Huxley formulation in physiological units. Note that the <code>min</code> and <code>max</code> voltages are in <code>mV</code>.
-</p>
+</pre
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org26c2840" class="outline-3">
+          <h3 id="org26c2840">
+            <span class="section-number-3">2.7.</span> Q: How do I use explicit
+            mathematical expressions for setting up the gating dynamics of
+            <code>HHGate</code>?
+          </h3>
+          <div class="outline-text-3" id="text-2-7"></div>
+          <div id="outline-container-org827d225" class="outline-4">
+            <h4 id="org827d225">
+              A: (Introduced in 2025-03 in development branch) Assign
+              mathematical expression strings to the fields
+              <code>HHGate.alphaExpr</code> and <code>HHGate.betaExpr</code> for
+              alpha-beta form, or <code>HHGate.tauExpr</code> and
+              <code>HHGate.infExpr</code> for tau-inf form.
+            </h4>
+            <div class="outline-text-4" id="text-org827d225">
+              <p>
+                In this case you must explicitly set the <code>min</code>,
+                <code>max</code>, and <code>divs</code> fields of each gate. The
+                expressions should use
+                <a href="https://github.com/ArashPartow/exprtk">exprtk</a>
+                syntax. Do not forget to convert the expressions to reflect the
+                unit system of your entire model. We recommend adhering to SI
+                units, but the code sample below shows original Hodgkin-Huxley
+                formulation in physiological units. Note that the
+                <code>min</code> and <code>max</code> voltages are in
+                <code>mV</code>.
+              </p>
 
-<div class="org-src-container">
-<pre class="src src-python">import moose
+              <div class="org-src-container">
+                <pre class="src src-python">
+import moose
 
 chan = moose.HHChannel('channel')
 chan.Xpower = 3  # this will also initialize the HHGate element channel/gateX
@@ -647,23 +1348,39 @@ for gate in (m_gate, h_gate):
    gate.divs = 1000
    gate.min = -30.0
    gate.max = 120.0
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org41bdec5" class="outline-3">
-<h3 id="org41bdec5"><span class="section-number-3">2.8.</span> Q: How do I explicitly set the lookup tables for <code>HHGates</code> when using an <code>HHChannel</code>?</h3>
-<div class="outline-text-3" id="text-2-8">
-</div>
-<div id="outline-container-org1ff0d82" class="outline-4">
-<h4 id="org1ff0d82">A: Compute the <code>alpha(V)</code> and <code>beta(V)</code> values for the desired range of voltages.</h4>
-<div class="outline-text-4" id="text-org1ff0d82">
-<p>
-Then for the target gate, assign <code>alpha(V)</code> series to the <code>tableA</code> field, and <code>alpha(V) + beta(V)</code> to the <code>tableB</code> field. If you have few voltage values, or if you want higher accuracy, set <code>useInterpolation</code> to <code>True</code>. You must explicitly set the <code>min</code>, <code>max</code>, and <code>divs</code> fields of each gate. Note that we are using SI units here and the HH equations have been modified accordingly.
-</p>
-<div class="org-src-container">
-<pre class="src src-python">import numpy as np
+</pre
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org9825b3b" class="outline-3">
+          <h3 id="org9825b3b">
+            <span class="section-number-3">2.8.</span> Q: How do I explicitly
+            set the lookup tables for <code>HHGates</code> when using an
+            <code>HHChannel</code>?
+          </h3>
+          <div class="outline-text-3" id="text-2-8"></div>
+          <div id="outline-container-org46901d7" class="outline-4">
+            <h4 id="org46901d7">
+              A: Compute the <code>alpha(V)</code> and
+              <code>beta(V)</code> values for the desired range of voltages.
+            </h4>
+            <div class="outline-text-4" id="text-org46901d7">
+              <p>
+                Then for the target gate, assign <code>alpha(V)</code> series to
+                the <code>tableA</code> field, and
+                <code>alpha(V) + beta(V)</code> to the
+                <code>tableB</code> field. If you have few voltage values, or if
+                you want higher accuracy, set <code>useInterpolation</code> to
+                <code>True</code>. You must explicitly set the <code>min</code>,
+                <code>max</code>, and <code>divs</code> fields of each gate.
+                Note that we are using SI units here and the HH equations have
+                been modified accordingly.
+              </p>
+              <div class="org-src-container">
+                <pre class="src src-python">
+import numpy as np
 import moose
 
 chan = moose.HHChannel('channel')
@@ -691,38 +1408,59 @@ h_gate.max = vmax
 h_gate.divs = vdivs
 h_gate.tableA = h_alpha
 h_gate.tableB = h_alpha + h_beta  
-</pre>
-</div>
-</div>
-</div>
-</div>
-<div id="outline-container-org3322796" class="outline-3">
-<h3 id="org3322796"><span class="section-number-3">2.9.</span> Q: How do I model an ion channel so that the channel equations are evaluated exactly instead of using lookup/interpolation tables?</h3>
-<div class="outline-text-3" id="text-2-9">
-</div>
-<div id="outline-container-org62996cb" class="outline-4">
-<h4 id="org62996cb">A: Use the <code>HHChannelF</code> class for formula based evaluation of gating variables.</h4>
-<div class="outline-text-4" id="text-org62996cb">
-<p>
-<code>HHChannelF</code> is similar to <code>HHChannel</code> but allows you to specify expression strings for gate dynamics. It allows both alpha-beta form and the tau-inf forms. To use alpha-beta form assign the formula for alpha and beta to the fields <code>alpha</code> and <code>beta</code> of the gate in the channel.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org5fd4412" class="outline-3">
-<h3 id="org5fd4412"><span class="section-number-3">2.10.</span> Q: How do I model ion Hodgkin-Huxley-type channels that depend on both voltage and calcium concentration?</h3>
-<div class="outline-text-3" id="text-2-10">
-</div>
-<div id="outline-container-orgbaceb23" class="outline-4">
-<h4 id="orgbaceb23">A: If your channel depends on two independent variables, for example voltage and calcium concentration, use <code>HHChannel2D</code> or <code>HHChannelF2D</code>.</h4>
-</div>
-</div>
-</div>
-</div>
-<div id="postamble" class="status">
-<p class="author">Author: Subhasis Ray</p>
-<p class="date">Created: 2025-05-08 Thu 15:06</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
-</div>
-</body>
+</pre
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-orgd7a9d5b" class="outline-3">
+          <h3 id="orgd7a9d5b">
+            <span class="section-number-3">2.9.</span> Q: How do I model an ion
+            channel so that the channel equations are evaluated exactly instead
+            of using lookup/interpolation tables?
+          </h3>
+          <div class="outline-text-3" id="text-2-9"></div>
+          <div id="outline-container-org6f78902" class="outline-4">
+            <h4 id="org6f78902">
+              A: Use the <code>HHChannelF</code> class for formula based
+              evaluation of gating variables.
+            </h4>
+            <div class="outline-text-4" id="text-org6f78902">
+              <p>
+                <code>HHChannelF</code> is similar to <code>HHChannel</code> but
+                allows you to specify expression strings for gate dynamics. It
+                allows both alpha-beta form and the tau-inf forms. To use
+                alpha-beta form assign the formula for alpha and beta to the
+                fields <code>alpha</code> and <code>beta</code> of the gate in
+                the channel.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="outline-container-org33a95a1" class="outline-3">
+          <h3 id="org33a95a1">
+            <span class="section-number-3">2.10.</span> Q: How do I model ion
+            Hodgkin-Huxley-type channels that depend on both voltage and calcium
+            concentration?
+          </h3>
+          <div class="outline-text-3" id="text-2-10"></div>
+          <div id="outline-container-org2c093e7" class="outline-4">
+            <h4 id="org2c093e7">
+              A: If your channel depends on two independent variables, for
+              example voltage and calcium concentration, use
+              <code>HHChannel2D</code> or <code>HHChannelF2D</code>.
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="postamble" class="status">
+      <p class="author">Author: Subhasis Ray</p>
+      <p class="date">Created: 2025-05-08 Thu 12:46</p>
+      <p class="validation">
+        <a href="https://validator.w3.org/check?uri=referer">Validate</a>
+      </p>
+    </div>
+  </body>
 </html>
