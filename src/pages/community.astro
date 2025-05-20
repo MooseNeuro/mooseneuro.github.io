@@ -2,8 +2,9 @@
 import "../styles/global.css";
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import header from "/public/moose_logo.png";
 import { getEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+import { Content } from "@radix-ui/react-accordion";
 
 //const team = await import.meta.glob("../content/team/team.md", { eager: true });
 interface Item {
@@ -15,16 +16,24 @@ interface Item {
 // const teamData = Object.values(team)[0] as { frontmatter: { team: Item[] } };
 // const Team = teamData.frontmatter.team;
 const { data } = await getEntry("team", "team");
-const Team : Item[] = data.team;
-const support = await import.meta.glob("../content/support.md", { eager: true });
+const Team: Item[] = data.team;
+
+const support = await import.meta.glob("../content/support.md", {
+  eager: true,
+});
 interface SupportItem {
   description: string;
   urltext: string;
-};
+}
 
-const supportData = Object.values(support)[0] as {frontmatter: { title: string; description: string; entry: SupportItem[] }};
+const supportData = Object.values(support)[0] as {
+  frontmatter: { title: string; description: string; entry: SupportItem[] };
+};
 const Support = supportData.frontmatter.items;
 
+const guidelines = await import.meta.glob("../content/guidelines/CommunityGuidelines.md", { eager: true });
+const guide = Object.values(guidelines)[0]
+// const Content = guide.default
 ---
 
 <BaseLayout title="Community">
@@ -94,17 +103,21 @@ const Support = supportData.frontmatter.items;
     </div>
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2 class="text-5xl font-semibold  text-white sm:text-7xl">
-          Community
-        </h2>
+        <h2 class="text-5xl font-normal text-white sm:text-7xl">Community</h2>
       </div>
       <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
         <div
           class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10"
-          >	  
-          <a href="#">Community Guidelines <span aria-hidden="true">&rarr;</span></a>
-	        <a href="#support">Discussions and Support <span aria-hidden="true">&rarr;</span></a>
-          <a href="#team">The MOOSE Team<span aria-hidden="true">&rarr;</span></a>
+        >
+          <a href="#"
+            >Community Guidelines <span aria-hidden="true">&rarr;</span></a
+          >
+          <a href="#support"
+            >Discussions and Support <span aria-hidden="true">&rarr;</span></a
+          >
+          <a href="#team"
+            >The MOOSE Team<span aria-hidden="true">&rarr;</span></a
+          >
         </div>
       </div>
     </div>
@@ -113,39 +126,38 @@ const Support = supportData.frontmatter.items;
   <div class="bg-white py-14 sm:py-12" id="support">
     <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-2">
       <div class="max-w-xl">
-        <h2 class="text-3xl font-semibold text-gray-900 sm:text-4xl">
+        <h2 class="text-3xl font-normal text-gray-900 sm:text-4xl pb-10">
           {supportData.frontmatter.title}
         </h2>
         <p>{supportData.frontmatter.description}</p>
-        <ul role="list"  class="list-disc pl-5 space-y-3">
-          {Support.map((entry:any) => (
-            <li data-key={entry.url}>
-              <div>
-                <h3 class="text-base/7 font-semibold text-gray-900">
-                  {entry.description}
-                </h3>
-                <p class="text-sm/6 font-semibold text-indigo-600  hover:underline">
-                  <a href={entry.url}>{entry.urltext}</a>
-                </p>
-              </div>
-            </li>
-          ))}
+        <ul role="list" class="list-disc pl-5 space-y-3">
+          {
+            Support.map((entry: any) => (
+              <li data-key={entry.url}>
+                <div>
+                  <h3 class="text-base/7 font-semibold text-gray-900">
+                    {entry.description}
+                  </h3>
+                  <p class="text-sm/6 font-semibold text-indigo-600  hover:underline">
+                    <a href={entry.url}>{entry.urltext}</a>
+                  </p>
+                </div>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </div>
-  </div>  
-  
+  </div>
+
   <!-- Team section -->
   <div class="bg-white py-14 sm:py-14" id="team">
     <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-2">
       <div class="max-w-xl">
-        <h2
-          class="text-3xl font-semibold   text-gray-900 sm:text-4xl"
-        >
+        <h2 class="text-3xl font-normal text-gray-900 sm:text-4xl">
           Meet our Team
         </h2>
-        <p class="mt-6 text-lg/8 text-gray-600">
-        </p>
+        <p class="mt-6 text-lg/8 text-gray-600"></p>
       </div>
       <ul
         role="list"
@@ -179,9 +191,12 @@ const Support = supportData.frontmatter.items;
   </div>
 
   <!-- Guidelines section -->
-  <div class="mx-auto max-w-xl text-center py-16">
-    <h2 class="text-4xl font-semibold text-gray-900 sm:text-5xl">
-      Community Guidelines
+  <div class="mx-auto max-w-full text-left py-16">
+    <h2 class="text-2xl font-normal p-4 text-gray-900 text-left sm:text-5xl">
+      {guide.frontmatter.title}
     </h2>
+    <article class="max-w-full p-6 text-black font-base md:p-10 prose lg:prose-l mx-auto bg-purple-10">
+      <guide.Content />
+    </article>
   </div>
 </BaseLayout>
