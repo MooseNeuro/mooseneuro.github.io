@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-08 Thu 15:06 -->
+<!-- 2025-05-20 Tue 09:10 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Frequently Asked Questions</title>
@@ -233,54 +233,54 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org718c780">1. General</a>
+<li><a href="#org56d58fe">1. General</a>
 <ul>
-<li><a href="#org15e95e1">1.1. Q: How can I find all the classes available in MOOSE?</a></li>
-<li><a href="#orgd186d0c">1.2. Q: How can I see the documentation on a class?</a></li>
-<li><a href="#orgaacb497">1.3. Q: How can I see the documentation of a specific field of a class?</a></li>
-<li><a href="#orgff150ab">1.4. Q: What unit system does MOOSE use?</a></li>
-<li><a href="#orgceb714f">1.5. Q: How can I find all elements of a certain type in a model directly under a given element?</a></li>
-<li><a href="#org5e73241">1.6. Q: How can I find all elements of a certain type at all depths in a model?</a></li>
-<li><a href="#orgb0536ae">1.7. Q: How can I find an element with a particular name in a large model?</a></li>
-<li><a href="#org06a8c9f">1.8. Q: When trying to plot data from moose <code>Table</code> objects, I see this error "<code>ValueError: x and y must have same first dimension, but have shapes ...</code>". What is the problem?</a></li>
+<li><a href="#org3de1010">1.1. Q: How can I find all the classes available in MOOSE?</a></li>
+<li><a href="#org8c19b1f">1.2. Q: How can I see the documentation on a class?</a></li>
+<li><a href="#orga9fdfdb">1.3. Q: How can I see the documentation of a specific field of a class?</a></li>
+<li><a href="#orgf186448">1.4. Q: What unit system does MOOSE use?</a></li>
+<li><a href="#org99aa342">1.5. Q: How can I find all elements of a certain type in a model directly under a given element?</a></li>
+<li><a href="#org18ff997">1.6. Q: How can I find all elements of a certain type at all depths in a model?</a></li>
+<li><a href="#orgd2d15c6">1.7. Q: How can I find an element with a particular name in a large model?</a></li>
+<li><a href="#org1190dcf">1.8. Q: When trying to plot data from moose <code>Table</code> objects, I see this error "<code>ValueError: x and y must have same first dimension, but have shapes ...</code>". What is the problem?</a></li>
 </ul>
 </li>
-<li><a href="#orgecfd08d">2. Electrophysiology</a>
+<li><a href="#org9c53156">2. Electrophysiology</a>
 <ul>
-<li><a href="#orgc2052e1">2.1. Q: Does setting <code>length</code> and <code>diameter</code> of a <code>Compartment</code> update its membrane resistance <code>Rm</code> and capacitance <code>Cm</code> fields?</a></li>
-<li><a href="#orgfcca7fc">2.2. Q: What is the use of the field <code>Ra</code> in a <code>Compartment</code>?</a></li>
-<li><a href="#orgc5e74b1">2.3. Q: What does <code>HH</code> in <code>HHChannel</code>, <code>HHGate</code>, etc. stand for?</a></li>
-<li><a href="#orgd408b71">2.4. Q: How do I model Hodgkin-Huxley type ion channels?</a></li>
-<li><a href="#orgae54911">2.5. Q: How do I set up the channel gating equations in <code>HHChannel</code>?</a></li>
-<li><a href="#orgfa2ab10">2.6. Q: How do I use <code>HHGate.setupAlpha()</code> or <code>HHGate.setupTau()</code> for setting up the lookup tables of an <code>HHGate</code> object?</a></li>
-<li><a href="#org732e561">2.7. Q: How do I use explicit mathematical expressions for setting up the gating dynamics of <code>HHGate</code>?</a></li>
-<li><a href="#org41bdec5">2.8. Q: How do I explicitly set the lookup tables for <code>HHGates</code> when using an <code>HHChannel</code>?</a></li>
-<li><a href="#org3322796">2.9. Q: How do I model an ion channel so that the channel equations are evaluated exactly instead of using lookup/interpolation tables?</a></li>
-<li><a href="#org5fd4412">2.10. Q: How do I model ion Hodgkin-Huxley-type channels that depend on both voltage and calcium concentration?</a></li>
+<li><a href="#org911b5a8">2.1. Q: Does setting <code>length</code> and <code>diameter</code> of a <code>Compartment</code> update its membrane resistance <code>Rm</code> and capacitance <code>Cm</code> fields?</a></li>
+<li><a href="#org29db363">2.2. Q: What is the use of the field <code>Ra</code> in a <code>Compartment</code>?</a></li>
+<li><a href="#orga78e2dd">2.3. Q: What does <code>HH</code> in <code>HHChannel</code>, <code>HHGate</code>, etc. stand for?</a></li>
+<li><a href="#org829782a">2.4. Q: How do I model Hodgkin-Huxley type ion channels?</a></li>
+<li><a href="#org609ac86">2.5. Q: How do I set up the channel gating equations in <code>HHChannel</code>?</a></li>
+<li><a href="#orgd285077">2.6. Q: How do I use <code>HHGate.setupAlpha()</code> or <code>HHGate.setupTau()</code> for setting up the lookup tables of an <code>HHGate</code> object?</a></li>
+<li><a href="#org6ad0125">2.7. Q: How do I use explicit mathematical expressions for setting up the gating dynamics of <code>HHGate</code>?</a></li>
+<li><a href="#orgc9a8a1d">2.8. Q: How do I explicitly set the lookup tables for <code>HHGates</code> when using an <code>HHChannel</code>?</a></li>
+<li><a href="#org12d732d">2.9. Q: How do I model an ion channel so that the channel equations are evaluated exactly instead of using lookup/interpolation tables?</a></li>
+<li><a href="#org83ca028">2.10. Q: How do I model ion Hodgkin-Huxley-type channels that depend on both voltage and calcium concentration?</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org718c780" class="outline-2">
-<h2 id="org718c780"><span class="section-number-2">1.</span> General</h2>
+<div id="outline-container-org56d58fe" class="outline-2">
+<h2 id="org56d58fe"><span class="section-number-2">1.</span> General</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org15e95e1" class="outline-3">
-<h3 id="org15e95e1"><span class="section-number-3">1.1.</span> Q: How can I find all the classes available in MOOSE?</h3>
+<div id="outline-container-org3de1010" class="outline-3">
+<h3 id="org3de1010"><span class="section-number-3">1.1.</span> Q: How can I find all the classes available in MOOSE?</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgc562e17" class="outline-4">
-<h4 id="orgc562e17">A: In Python, after importing moose, run the command <code>moose.le('/classes')</code></h4>
+<div id="outline-container-org61bcec1" class="outline-4">
+<h4 id="org61bcec1">A: In Python, after importing moose, run the command <code>moose.le('/classes')</code></h4>
 </div>
 </div>
-<div id="outline-container-orgd186d0c" class="outline-3">
-<h3 id="orgd186d0c"><span class="section-number-3">1.2.</span> Q: How can I see the documentation on a class?</h3>
+<div id="outline-container-org8c19b1f" class="outline-3">
+<h3 id="org8c19b1f"><span class="section-number-3">1.2.</span> Q: How can I see the documentation on a class?</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org3bede9f" class="outline-4">
-<h4 id="org3bede9f">A: You can run <code>help(moose.{classname})</code> and <code>moose.doc('{classname}')</code> in Python.</h4>
-<div class="outline-text-4" id="text-org3bede9f">
+<div id="outline-container-org7c3eab4" class="outline-4">
+<h4 id="org7c3eab4">A: You can run <code>help(moose.{classname})</code> and <code>moose.doc('{classname}')</code> in Python.</h4>
+<div class="outline-text-4" id="text-org7c3eab4">
 <p>
 Here <code>{classname}</code> should be replaced by the name of the class you want to know about.
 </p>
@@ -305,21 +305,21 @@ help(moose.Compartment)
 </div>
 </div>
 </div>
-<div id="outline-container-orgaacb497" class="outline-3">
-<h3 id="orgaacb497"><span class="section-number-3">1.3.</span> Q: How can I see the documentation of a specific field of a class?</h3>
+<div id="outline-container-orga9fdfdb" class="outline-3">
+<h3 id="orga9fdfdb"><span class="section-number-3">1.3.</span> Q: How can I see the documentation of a specific field of a class?</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org3e3cdb8" class="outline-4">
-<h4 id="org3e3cdb8">A: Run <code>moose.doc('{classname}.{fieldname}')</code></h4>
+<div id="outline-container-org9122c97" class="outline-4">
+<h4 id="org9122c97">A: Run <code>moose.doc('{classname}.{fieldname}')</code></h4>
 </div>
 </div>
-<div id="outline-container-orgff150ab" class="outline-3">
-<h3 id="orgff150ab"><span class="section-number-3">1.4.</span> Q: What unit system does MOOSE use?</h3>
+<div id="outline-container-orgf186448" class="outline-3">
+<h3 id="orgf186448"><span class="section-number-3">1.4.</span> Q: What unit system does MOOSE use?</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orgc4c42ec" class="outline-4">
-<h4 id="orgc4c42ec">A: MOOSE is unit agnostic. If all the parameters in your model are in a consistent unit system, results will be in the same system. We recommend that you use SI units throughout.</h4>
-<div class="outline-text-4" id="text-orgc4c42ec">
+<div id="outline-container-orge713e8e" class="outline-4">
+<h4 id="orge713e8e">A: MOOSE is unit agnostic. If all the parameters in your model are in a consistent unit system, results will be in the same system. We recommend that you use SI units throughout.</h4>
+<div class="outline-text-4" id="text-orge713e8e">
 <p>
 Experimentalists use different units for different quantities for convenience. These often get mixed up in computational models and can produce unexpected results due to inconsistent units. The physiological unit system uses \(mV\) for membrane potential, \(ms\) for time. Now, if you express membrane capacitance in \(pF\), your membrane resistance must be in in \(G\Omega\) to get consistent time course in your simulation. This is because only then your membrane time constant (\(\tau = R (G\Omega) \times C (pF)\)) will be in \(ms\). But then your currents would be in \(pA\) (\(I = \frac{V (mV) }{ R (G\Omega)}\)).
 </p>
@@ -330,13 +330,13 @@ Another source of frustration is that dimensions of neurons are usually expresse
 </div>
 </div>
 </div>
-<div id="outline-container-orgceb714f" class="outline-3">
-<h3 id="orgceb714f"><span class="section-number-3">1.5.</span> Q: How can I find all elements of a certain type in a model directly under a given element?</h3>
+<div id="outline-container-org99aa342" class="outline-3">
+<h3 id="org99aa342"><span class="section-number-3">1.5.</span> Q: How can I find all elements of a certain type in a model directly under a given element?</h3>
 <div class="outline-text-3" id="text-1-5">
 </div>
-<div id="outline-container-orgf010bcc" class="outline-4">
-<h4 id="orgf010bcc">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/#[TYPE={typename}]')</code> where <code>root</code> is the element under which to search.</h4>
-<div class="outline-text-4" id="text-orgf010bcc">
+<div id="outline-container-org5c91e72" class="outline-4">
+<h4 id="org5c91e72">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/#[TYPE={typename}]')</code> where <code>root</code> is the element under which to search.</h4>
+<div class="outline-text-4" id="text-org5c91e72">
 <p>
 Example: You loaded the <a href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator">Kholodenko 2000 model</a>  as <code>'/Kholodenko'</code> , then the container for the chemicals and reactions is <code>'/Kholodenko/kinetics/MAPK'</code> . You want to search for elements of type <code>Pool</code> (which represents a pool of molecules or ions) directly under <code>MAPK</code>.
 </p>
@@ -353,13 +353,13 @@ This returns a list of elements of type <code>Pool</code> that are children of <
 </div>
 </div>
 </div>
-<div id="outline-container-org5e73241" class="outline-3">
-<h3 id="org5e73241"><span class="section-number-3">1.6.</span> Q: How can I find all elements of a certain type at all depths in a model?</h3>
+<div id="outline-container-org18ff997" class="outline-3">
+<h3 id="org18ff997"><span class="section-number-3">1.6.</span> Q: How can I find all elements of a certain type at all depths in a model?</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-org2b19d52" class="outline-4">
-<h4 id="org2b19d52">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/##[TYPE={typename}]')</code></h4>
-<div class="outline-text-4" id="text-org2b19d52">
+<div id="outline-container-orgcfccb83" class="outline-4">
+<h4 id="orgcfccb83">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/##[TYPE={typename}]')</code></h4>
+<div class="outline-text-4" id="text-orgcfccb83">
 <p>
 Example: In the <a href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator">Kholodenko 2000 model</a> you want to search for elements of type <code>Pool</code> (which represents a pool of molecules or ions) you loaded the model as <code>"/Kholodenko\"</code>, then 
 </p>
@@ -376,13 +376,13 @@ The <code>##</code> here tells <code>wildcardFind</code> to do a recursive seach
 </div>
 </div>
 </div>
-<div id="outline-container-orgb0536ae" class="outline-3">
-<h3 id="orgb0536ae"><span class="section-number-3">1.7.</span> Q: How can I find an element with a particular name in a large model?</h3>
+<div id="outline-container-orgd2d15c6" class="outline-3">
+<h3 id="orgd2d15c6"><span class="section-number-3">1.7.</span> Q: How can I find an element with a particular name in a large model?</h3>
 <div class="outline-text-3" id="text-1-7">
 </div>
-<div id="outline-container-orgd2f6694" class="outline-4">
-<h4 id="orgd2f6694">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/##[FIELD(name)={name}]')</code></h4>
-<div class="outline-text-4" id="text-orgd2f6694">
+<div id="outline-container-org3397545" class="outline-4">
+<h4 id="org3397545">A: Use <code>wildcardFind</code> in the form <code>moose.wildcardFind('{root}/##[FIELD(name)={name}]')</code></h4>
+<div class="outline-text-4" id="text-org3397545">
 <p>
 This always returns a list of elements. If the name is unique under root, it will be a list with a single element. If there are multiple elements with the same name, this will return a list containing all those elements.
 Example: In the <a href="https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalOscillators.html#slow-feedback-oscillator">Kholodenko 2000 model</a> you want to search for the element <code>"Neg_feedback"</code>, and you loaded the model as <code>"/Kholodenko\"</code>, then 
@@ -413,10 +413,10 @@ Note that the recursive search wildcard (<code>##</code>) must be separated by <
 </div>
 </div>
 </div>
-<div id="outline-container-org06a8c9f" class="outline-3">
-<h3 id="org06a8c9f"><span class="section-number-3">1.8.</span> Q: When trying to plot data from moose <code>Table</code> objects, I see this error "<code>ValueError: x and y must have same first dimension, but have shapes ...</code>". What is the problem?</h3>
+<div id="outline-container-org1190dcf" class="outline-3">
+<h3 id="org1190dcf"><span class="section-number-3">1.8.</span> Q: When trying to plot data from moose <code>Table</code> objects, I see this error "<code>ValueError: x and y must have same first dimension, but have shapes ...</code>". What is the problem?</h3>
 <div class="outline-text-3" id="text-1-8">
-<pre class="example" id="org3dd7121">
+<pre class="example" id="org1d26e4c">
   File "C:\moose-core\tests\core\debug_hhchanf2d.py", line 86, in test_vclamp
 	axes[1].plot(t, gktab.vector, label=f'({vstep * 1e3} mV)')
   File "C:\miniforge3\envs\track\Lib\site-packages\matplotlib\axes\_axes.py", line 1721, in plot
@@ -430,9 +430,9 @@ Note that the recursive search wildcard (<code>##</code>) must be separated by <
 ValueError: x and y must have same first dimension, but have shapes (1050001,) and (2100002,)
 </pre>
 </div>
-<div id="outline-container-org1ad49b1" class="outline-4">
-<h4 id="org1ad49b1">A: This may happen due to multiple connections.</h4>
-<div class="outline-text-4" id="text-org1ad49b1">
+<div id="outline-container-org4042834" class="outline-4">
+<h4 id="org4042834">A: This may happen due to multiple connections.</h4>
+<div class="outline-text-4" id="text-org4042834">
 <p>
 In this instance, you are creating the time vector based on the length of one <code>Table</code>, and plotting another. One of the tables (here the second one) was doubly connected, i.e., its <code>requestOut</code> message was passed in two connect calls, like this:
 </p>
@@ -450,17 +450,17 @@ You should check the length of the <code>vector</code> attribute of a table agai
 </div>
 </div>
 </div>
-<div id="outline-container-orgecfd08d" class="outline-2">
-<h2 id="orgecfd08d"><span class="section-number-2">2.</span> Electrophysiology</h2>
+<div id="outline-container-org9c53156" class="outline-2">
+<h2 id="org9c53156"><span class="section-number-2">2.</span> Electrophysiology</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgc2052e1" class="outline-3">
-<h3 id="orgc2052e1"><span class="section-number-3">2.1.</span> Q: Does setting <code>length</code> and <code>diameter</code> of a <code>Compartment</code> update its membrane resistance <code>Rm</code> and capacitance <code>Cm</code> fields?</h3>
+<div id="outline-container-org911b5a8" class="outline-3">
+<h3 id="org911b5a8"><span class="section-number-3">2.1.</span> Q: Does setting <code>length</code> and <code>diameter</code> of a <code>Compartment</code> update its membrane resistance <code>Rm</code> and capacitance <code>Cm</code> fields?</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org585c675" class="outline-4">
-<h4 id="org585c675">A: No.</h4>
-<div class="outline-text-4" id="text-org585c675">
+<div id="outline-container-org8296c9f" class="outline-4">
+<h4 id="org8296c9f">A: No.</h4>
+<div class="outline-text-4" id="text-org8296c9f">
 <p>
 <code>length</code> and <code>diameter</code> are utility fields that can be used for visualization and format conversion. They are not used by MOOSE for computing <code>Rm</code> and <code>Cm</code>. In some other tools the user specifies the specific resistance and specific capacitance of the membrane along with <code>length</code> and <code>diameter</code> of a compartment. And the software computes the total mebrane resistance and capacitance based on the surface area. However, in MOOSE <code>Rm</code> and <code>Cm</code> represent total membrane resistance and capacitance respectively, and are set directly.
 If you have a cylindrical compartment with given length and diameter, and the specific resistance and capacitance are  <code>RM</code> and <code>CM</code> respectively, then you should set:
@@ -477,39 +477,39 @@ where <code>pi</code> is imported from any of the modules like <code>math</code>
 </div>
 </div>
 </div>
-<div id="outline-container-orgfcca7fc" class="outline-3">
-<h3 id="orgfcca7fc"><span class="section-number-3">2.2.</span> Q: What is the use of the field <code>Ra</code> in a <code>Compartment</code>?</h3>
+<div id="outline-container-org29db363" class="outline-3">
+<h3 id="org29db363"><span class="section-number-3">2.2.</span> Q: What is the use of the field <code>Ra</code> in a <code>Compartment</code>?</h3>
 <div class="outline-text-3" id="text-2-2">
 </div>
-<div id="outline-container-org47fc3c4" class="outline-4">
-<h4 id="org47fc3c4">A: <code>Ra</code> represents total axial resistance (also called cytoplasmic resistance) of the compartment.</h4>
-<div class="outline-text-4" id="text-org47fc3c4">
+<div id="outline-container-orga1c454b" class="outline-4">
+<h4 id="orga1c454b">A: <code>Ra</code> represents total axial resistance (also called cytoplasmic resistance) of the compartment.</h4>
+<div class="outline-text-4" id="text-orga1c454b">
 <p>
 It is relevant only for multicompartmental models, and represents the resistance faced by current flowing from one compartment to the next.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgc5e74b1" class="outline-3">
-<h3 id="orgc5e74b1"><span class="section-number-3">2.3.</span> Q: What does <code>HH</code> in <code>HHChannel</code>, <code>HHGate</code>, etc. stand for?</h3>
+<div id="outline-container-orga78e2dd" class="outline-3">
+<h3 id="orga78e2dd"><span class="section-number-3">2.3.</span> Q: What does <code>HH</code> in <code>HHChannel</code>, <code>HHGate</code>, etc. stand for?</h3>
 <div class="outline-text-3" id="text-2-3">
 </div>
-<div id="outline-container-org667608b" class="outline-4">
-<h4 id="org667608b">A: <code>HH</code> stands for Hodgkin and Huxley.</h4>
-<div class="outline-text-4" id="text-org667608b">
+<div id="outline-container-org43c19b4" class="outline-4">
+<h4 id="org43c19b4">A: <code>HH</code> stands for Hodgkin and Huxley.</h4>
+<div class="outline-text-4" id="text-org43c19b4">
 <p>
 They figured out the dynamics of ion channels that generate action potentials in nerve fibres, and these models use their formulation to implement channel dynamics. See <a href="https://en.wikipedia.org/wiki/Hodgkin%E2%80%93Huxley_model">here</a>, <a href="https://physoc.onlinelibrary.wiley.com/pb-assets/assets/14697793/Companion_Guide_V2-1659940264.pdf">here</a> and <a href="https://doi.org/10.1113/jphysiol.2012.230458">here</a> to learn more about this.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd408b71" class="outline-3">
-<h3 id="orgd408b71"><span class="section-number-3">2.4.</span> Q: How do I model Hodgkin-Huxley type ion channels?</h3>
+<div id="outline-container-org829782a" class="outline-3">
+<h3 id="org829782a"><span class="section-number-3">2.4.</span> Q: How do I model Hodgkin-Huxley type ion channels?</h3>
 <div class="outline-text-3" id="text-2-4">
 </div>
-<div id="outline-container-orga60f1b3" class="outline-4">
-<h4 id="orga60f1b3">A: Create instances of the <code>HHChannel</code> class for fast computations, or <code>HHChannelF</code> class for more flexible computations.</h4>
-<div class="outline-text-4" id="text-orga60f1b3">
+<div id="outline-container-orgb2a9a8e" class="outline-4">
+<h4 id="orgb2a9a8e">A: Create instances of the <code>HHChannel</code> class for fast computations, or <code>HHChannelF</code> class for more flexible computations.</h4>
+<div class="outline-text-4" id="text-orgb2a9a8e">
 <p>
 The <code>HHChannel</code> class is designed for faster simulations, and avoids explicitly evaluating Hodgkin-Huxley-type expressions at each simulation step. Instead, it finds the <code>alpha(V)</code> and <code>beta(V)</code> for membrane voltage <code>V</code> using lookup/interpolation tables.
 </p>
@@ -520,13 +520,13 @@ The <code>HHChannelF</code> class is for convenience and accuracy, and allows yo
 </div>
 </div>
 </div>
-<div id="outline-container-orgae54911" class="outline-3">
-<h3 id="orgae54911"><span class="section-number-3">2.5.</span> Q: How do I set up the channel gating equations in <code>HHChannel</code>?</h3>
+<div id="outline-container-org609ac86" class="outline-3">
+<h3 id="org609ac86"><span class="section-number-3">2.5.</span> Q: How do I set up the channel gating equations in <code>HHChannel</code>?</h3>
 <div class="outline-text-3" id="text-2-5">
 </div>
-<div id="outline-container-orga1338f6" class="outline-4">
-<h4 id="orga1338f6">A: The gating parameters in <code>HHChannel</code> are computed via <code>HHGate</code> objects. They use tables mapping voltage values to gating parameter values to find the gating parameters for a given voltage.</h4>
-<div class="outline-text-4" id="text-orga1338f6">
+<div id="outline-container-orgda1c8d5" class="outline-4">
+<h4 id="orgda1c8d5">A: The gating parameters in <code>HHChannel</code> are computed via <code>HHGate</code> objects. They use tables mapping voltage values to gating parameter values to find the gating parameters for a given voltage.</h4>
+<div class="outline-text-4" id="text-orgda1c8d5">
 <ol class="org-ol">
 <li>Set <code>HHChannel.Xpower</code>, <code>HHChannel.Ypower</code> corresponding to the number of gating particles in the channel model.
 <ul class="org-ul">
@@ -543,13 +543,13 @@ The <code>HHChannelF</code> class is for convenience and accuracy, and allows yo
 </div>
 </div>
 </div>
-<div id="outline-container-orgfa2ab10" class="outline-3">
-<h3 id="orgfa2ab10"><span class="section-number-3">2.6.</span> Q: How do I use <code>HHGate.setupAlpha()</code> or <code>HHGate.setupTau()</code> for setting up the lookup tables of an <code>HHGate</code> object?</h3>
+<div id="outline-container-orgd285077" class="outline-3">
+<h3 id="orgd285077"><span class="section-number-3">2.6.</span> Q: How do I use <code>HHGate.setupAlpha()</code> or <code>HHGate.setupTau()</code> for setting up the lookup tables of an <code>HHGate</code> object?</h3>
 <div class="outline-text-3" id="text-2-6">
 </div>
-<div id="outline-container-orgb8a1147" class="outline-4">
-<h4 id="orgb8a1147">A: Use <code>HHGate.setupAlpha(...)</code> for alpha-beta form of the HH equations or <code>HHGate.setupTau(...)</code> for the tau-inf form of the HH equations.</h4>
-<div class="outline-text-4" id="text-orgb8a1147">
+<div id="outline-container-org3851d47" class="outline-4">
+<h4 id="org3851d47">A: Use <code>HHGate.setupAlpha(...)</code> for alpha-beta form of the HH equations or <code>HHGate.setupTau(...)</code> for the tau-inf form of the HH equations.</h4>
+<div class="outline-text-4" id="text-org3851d47">
 <p>
 These functions compute the HH-gate expressions in the generic form:
 </p>
@@ -619,13 +619,13 @@ m_gate.useInterpolation = True   # use linear interpolation instead of direct lo
 </div>
 </div>
 </div>
-<div id="outline-container-org732e561" class="outline-3">
-<h3 id="org732e561"><span class="section-number-3">2.7.</span> Q: How do I use explicit mathematical expressions for setting up the gating dynamics of <code>HHGate</code>?</h3>
+<div id="outline-container-org6ad0125" class="outline-3">
+<h3 id="org6ad0125"><span class="section-number-3">2.7.</span> Q: How do I use explicit mathematical expressions for setting up the gating dynamics of <code>HHGate</code>?</h3>
 <div class="outline-text-3" id="text-2-7">
 </div>
-<div id="outline-container-org873a657" class="outline-4">
-<h4 id="org873a657">(Introduced in 2025-03 in development branch) Assign mathematical expression strings to the fields <code>HHGate.alphaExpr</code> and <code>HHGate.betaExpr</code> for alpha-beta form, or <code>HHGate.tauExpr</code> and <code>HHGate.infExpr</code> for tau-inf form.</h4>
-<div class="outline-text-4" id="text-org873a657">
+<div id="outline-container-org03608d8" class="outline-4">
+<h4 id="org03608d8">(Introduced in 2025-03 in development branch) Assign mathematical expression strings to the fields <code>HHGate.alphaExpr</code> and <code>HHGate.betaExpr</code> for alpha-beta form, or <code>HHGate.tauExpr</code> and <code>HHGate.infExpr</code> for tau-inf form.</h4>
+<div class="outline-text-4" id="text-org03608d8">
 <p>
 In this case you must explicitly set the <code>min</code>, <code>max</code>, and <code>divs</code> fields of each gate. The expressions should use <a href="https://github.com/ArashPartow/exprtk">exprtk</a> syntax. Do not forget to convert the expressions to reflect the unit system of your entire model. We recommend adhering to SI units, but the code sample below shows original Hodgkin-Huxley formulation in physiological units. Note that the <code>min</code> and <code>max</code> voltages are in <code>mV</code>.
 </p>
@@ -652,13 +652,13 @@ for gate in (m_gate, h_gate):
 </div>
 </div>
 </div>
-<div id="outline-container-org41bdec5" class="outline-3">
-<h3 id="org41bdec5"><span class="section-number-3">2.8.</span> Q: How do I explicitly set the lookup tables for <code>HHGates</code> when using an <code>HHChannel</code>?</h3>
+<div id="outline-container-orgc9a8a1d" class="outline-3">
+<h3 id="orgc9a8a1d"><span class="section-number-3">2.8.</span> Q: How do I explicitly set the lookup tables for <code>HHGates</code> when using an <code>HHChannel</code>?</h3>
 <div class="outline-text-3" id="text-2-8">
 </div>
-<div id="outline-container-org1ff0d82" class="outline-4">
-<h4 id="org1ff0d82">A: Compute the <code>alpha(V)</code> and <code>beta(V)</code> values for the desired range of voltages.</h4>
-<div class="outline-text-4" id="text-org1ff0d82">
+<div id="outline-container-orgce26822" class="outline-4">
+<h4 id="orgce26822">A: Compute the <code>alpha(V)</code> and <code>beta(V)</code> values for the desired range of voltages.</h4>
+<div class="outline-text-4" id="text-orgce26822">
 <p>
 Then for the target gate, assign <code>alpha(V)</code> series to the <code>tableA</code> field, and <code>alpha(V) + beta(V)</code> to the <code>tableB</code> field. If you have few voltage values, or if you want higher accuracy, set <code>useInterpolation</code> to <code>True</code>. You must explicitly set the <code>min</code>, <code>max</code>, and <code>divs</code> fields of each gate. Note that we are using SI units here and the HH equations have been modified accordingly.
 </p>
@@ -696,32 +696,32 @@ h_gate.tableB = h_alpha + h_beta
 </div>
 </div>
 </div>
-<div id="outline-container-org3322796" class="outline-3">
-<h3 id="org3322796"><span class="section-number-3">2.9.</span> Q: How do I model an ion channel so that the channel equations are evaluated exactly instead of using lookup/interpolation tables?</h3>
+<div id="outline-container-org12d732d" class="outline-3">
+<h3 id="org12d732d"><span class="section-number-3">2.9.</span> Q: How do I model an ion channel so that the channel equations are evaluated exactly instead of using lookup/interpolation tables?</h3>
 <div class="outline-text-3" id="text-2-9">
 </div>
-<div id="outline-container-org62996cb" class="outline-4">
-<h4 id="org62996cb">A: Use the <code>HHChannelF</code> class for formula based evaluation of gating variables.</h4>
-<div class="outline-text-4" id="text-org62996cb">
+<div id="outline-container-org1ab6875" class="outline-4">
+<h4 id="org1ab6875">A: Use the <code>HHChannelF</code> class for formula based evaluation of gating variables.</h4>
+<div class="outline-text-4" id="text-org1ab6875">
 <p>
 <code>HHChannelF</code> is similar to <code>HHChannel</code> but allows you to specify expression strings for gate dynamics. It allows both alpha-beta form and the tau-inf forms. To use alpha-beta form assign the formula for alpha and beta to the fields <code>alpha</code> and <code>beta</code> of the gate in the channel.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org5fd4412" class="outline-3">
-<h3 id="org5fd4412"><span class="section-number-3">2.10.</span> Q: How do I model ion Hodgkin-Huxley-type channels that depend on both voltage and calcium concentration?</h3>
+<div id="outline-container-org83ca028" class="outline-3">
+<h3 id="org83ca028"><span class="section-number-3">2.10.</span> Q: How do I model ion Hodgkin-Huxley-type channels that depend on both voltage and calcium concentration?</h3>
 <div class="outline-text-3" id="text-2-10">
 </div>
-<div id="outline-container-orgbaceb23" class="outline-4">
-<h4 id="orgbaceb23">A: If your channel depends on two independent variables, for example voltage and calcium concentration, use <code>HHChannel2D</code> or <code>HHChannelF2D</code>.</h4>
+<div id="outline-container-org865130f" class="outline-4">
+<h4 id="org865130f">A: If your channel depends on two independent variables, for example voltage and calcium concentration, use <code>HHChannel2D</code> or <code>HHChannelF2D</code>.</h4>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Subhasis Ray</p>
-<p class="date">Created: 2025-05-08 Thu 15:06</p>
+<p class="date">Created: 2025-05-20 Tue 09:10</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
