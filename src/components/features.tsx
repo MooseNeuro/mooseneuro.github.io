@@ -8,7 +8,7 @@ const featuresData = [
     iconType: "python",
   },
   {
-    name: "Cross-Domain Modeling",
+    name: "Cross-Domain Modelling",
     description:
       "Enables integrated simulations by supporting both biochemical and biophysical processes.",
     iconType: "domains",
@@ -22,25 +22,25 @@ const featuresData = [
   {
     name: "Multiscale Capability",
     description:
-      "Enables seamless modeling and integration across different biological and physical scales, from detailed chemical computations in reaction-diffusion systems to complex multi-compartment neuron models.",
+      "Enables seamless modelling and integration across different biological and physical scales, from detailed chemical computations in reaction-diffusion systems to complex multi-compartment neuron models.",
     iconType: "multiscale",
   },
   {
     name: "Format Support",
     description:
-      "Handles multiple model formats, including SBML, NeuroML, and GENESIS(kkit, cell.p) Data can be saved in text, HDF5 based NSDF, or any other format compatible with numpy arrays.",
+      "Handles multiple model formats, including SBML, NeuroML, and GENESIS (kkit, cell.p). Data can be saved as text, HDF5-based NSDF, or other formats compatible with NumPy arrays.",
     iconType: "format",
   },
   {
     name: "Rdesigneur",
     description:
-      "SSimplifies the model-building process by enabling rapid creation and testing of integration models using a library of prototype components.",
+      "Simplifies the model-building process by enabling rapid creation and testing of integration models using a library of prototype components.",
     iconType: "rdesigneur",
   },
   {
     name: "Mode Switching",
     description:
-      "Seamlessly switches between deterministic and stochastic modes, enabling flexible modeling of biochemical systems.",
+      "Seamlessly switches between deterministic and stochastic modes, enabling flexible modelling of biochemical systems.",
     iconType: "switch",
   },
 ];

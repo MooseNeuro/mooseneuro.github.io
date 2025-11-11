@@ -14,7 +14,7 @@ const carouselItems = [
   {
     id: "2",
     title: "Chemical Bistable Systems",
-    description: "Tutorials on modeling bistable chemical systems",
+    description: "Tutorials on modelling bistable chemical systems",
     link: "https://moose.ncbs.res.in/readthedocs/user/py/tutorials/ChemicalBistables.html",
   },
   {
@@ -134,7 +134,9 @@ export default function Carousel() {
   }, [startAutoPlay, stopAutoPlay]);
 
   return (
-    <ClientOnly fallback={<div className="text-center text-5xl">Loading carousel...</div>}>
+    <ClientOnly
+      fallback={<div className="text-center text-5xl">Loading carousel...</div>}
+    >
       <h2 className="text-4xl font-semibold text-black text-center m-2 p-4 sm:mt-10 lg:mt-10">
         Tutorials
       </h2>
