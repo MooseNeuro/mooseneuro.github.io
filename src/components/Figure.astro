@@ -1,0 +1,19 @@
+---
+export interface Props {
+  src: string;
+  alt?: string;
+  caption?: string;
+  credit?: string;
+  class?: string;
+}
+const { src, alt = '', caption = '', credit = '', class: cls = '' } = Astro.props;
+---
+
+<figure class={`my-6 ${cls}`}>
+  <img src={src} alt={alt} class="w-full max-w-3xl mx-auto rounded" loading="lazy" />
+  {caption && (
+    <figcaption class="text-sm text-center text-gray-500 mt-2">
+      {caption}{credit ? ` — ${credit}` : ''}
+    </figcaption>
+  )}
+</figure>

@@ -71,6 +71,10 @@ export const navItems: NavItem[] = [
         title: "Activity",
         href: "/activity",
       },
+      {
+        title: "Blogs",
+        href: "/blogs",
+      },
     ],
   },
   {

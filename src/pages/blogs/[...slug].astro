@@ -4,7 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import { formatDate } from "@/utils";
 import bluesky from "@/assets/social/128px-Bluesky_Logo.svg.png";
 import linkedin from "@/assets/social/LI-In-Bug.png";
-import X from "@/assets/social/x.com-logo-white.png";
+import X from "@/assets/social/x-logo-black.png";
 
 export async function getStaticPaths() {
   const allBlogs = await getCollection("blogs");
@@ -36,7 +36,7 @@ const blueskyShareUrl = `https://bsky.app/intent/compose?text=${encodeURICompone
   {blog.data.image ? (
     <div
       class="relative h-96 sm:h-[500px] overflow-hidden"
-      style={`background-image: url('${blog.data.image}'); background-size: cover; background-position: center;`}
+      style={`background-image: url('${blog.data.image}'); background-size: 100% 100%; background-position: center;`}
     >
       <!-- Overlay -->
       <div class="absolute inset-0 bg-black/40"></div>
@@ -50,7 +50,7 @@ const blueskyShareUrl = `https://bsky.app/intent/compose?text=${encodeURICompone
           <div class="flex items-center space-x-4 text-white/90">
             {blog.data.author && (
               <div>
-                <p class="text-sm font-medium">{blog.data.author}</p>
+                <p class="text-sm font-medium"><span>{blog.data.author}</span></p>
               </div>
             )}
             <time datetime={blog.data.date.toISOString()} class="text-sm">
@@ -168,6 +168,23 @@ const blueskyShareUrl = `https://bsky.app/intent/compose?text=${encodeURICompone
                 <img src={bluesky.src} alt="Bluesky" class="w-5 h-5" />
               </a>
             </div>
+              {blog.data.author && (
+              <div class="mt-8 pt-8 border-t border-gray-200 text-center">
+                <p class="font-bold text-xs text-gray-600 mb-3">Author</p>
+                {blog.data.authorimage && (
+                  <div class="flex justify-center">
+                    <img 
+                      src={blog.data.authorimage} 
+                      alt={blog.data.author} 
+                      class="w-16 h-16 rounded-full bg-gray-100 mb-3 object-cover" 
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <p class="text-xs font-semibold text-gray-600 line-clamp-2">{blog.data.author}</p>
+                <p class="text-xs text-gray-700">{blog.data.designation}</p>    
+                </div>          
+            )}
           </div>
         </div>
 
@@ -182,6 +199,21 @@ const blueskyShareUrl = `https://bsky.app/intent/compose?text=${encodeURICompone
       <!-- Related Blogs -->
       {relatedBlogs.length > 0 && (
         <aside class="mt-16 pt-8 border-t border-gray-200">
+          {blog.data.author && (
+            <div class="lg:hidden mb-6 pb-6 border-b border-gray-200 text-center">
+              {blog.data.authorimage && (
+                <div class="flex justify-center">
+                  <img 
+                    src={blog.data.authorimage} 
+                    alt={blog.data.author} 
+                    class="w-12 h-12 rounded-full bg-gray-100 mb-3 object-cover" 
+                    loading="lazy"
+                  />
+                </div>
+              )}
+                <p class="text-xs font-semibold text-gray-600">{blog.data.author}<span class="text-xs text-gray-700">{blog.data.designation}</span></p>
+            </div>
+          )}
           <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Blogs</h2>
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {relatedBlogs.map((relatedBlog) => (
