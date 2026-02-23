@@ -1,13 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
   push:
     branches: [main]
-  # Allows you to run this workflow manually from the Actions tab on GitHub
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
+
 permissions:
   contents: read
   pages: write
@@ -20,9 +18,8 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
         with:
-          submodules: true # Ensure submodules are fetched
+          submodules: true
 
-      # Fix for Rollup issue before using withastro/action
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -39,9 +36,9 @@ jobs:
       - name: Build and upload your site
         uses: withastro/action@v3
         with:
-          path: . # The root location of your Astro project inside the repository
-          node-version: 20 # Specify Node.js version
-          package-manager: npm # Specify package manager
+          path: .
+          node-version: 20 
+          package-manager: npm 
 
   deploy:
     needs: build

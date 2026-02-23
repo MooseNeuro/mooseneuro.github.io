@@ -230,34 +230,9 @@ const Contribute = marked(markdownContent);
   </section>
 
   <script>
-    // Improved mobile-friendly navigation behavior
-    const nav = document.getElementsByTagName("header")[0];
-    if (nav) {
-      nav.classList.remove("bg-black");
-
-      let ticking = false;
-
-      function updateNav() {
-        if (window.scrollY > 50) {
-          nav.classList.add("bg-black");
-        } else {
-          nav.classList.remove("bg-black");
-        }
-        ticking = false;
-      }
-
-      function requestTick() {
-        if (!ticking) {
-          requestAnimationFrame(updateNav);
-          ticking = true;
-        }
-      }
-
-      window.addEventListener("scroll", requestTick, { passive: true });
-    }
-
     // Smooth scrolling for anchor links (mobile-friendly)
     document.addEventListener("DOMContentLoaded", function () {
+      const nav = document.getElementsByTagName("header")[0];
       const links = document.querySelectorAll('a[href^="#"]');
 
       links.forEach((link) => {

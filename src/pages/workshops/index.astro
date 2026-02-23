@@ -70,14 +70,4 @@ const { Content } = await render(mostRecentWorkshop);
   </main>
 </BaseLayout>
 
-<script>
-  const nav = document.getElementsByTagName("header")[0];
-  nav.classList.remove("bg-black");
-  window.addEventListener("scroll", function () {
-    if (window.scrollY > 0) {
-      nav.classList.add("bg-black");
-    } else {
-      nav.classList.remove("bg-black");
-    }
-  });
-</script>
+<!-- Navbar appearance handled by `Navbar` component -->

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Image } from "astro:assets";
-import jardesigner from '../assets/jardes_logo.png';
+import jardesigner from '../assets/jardesigner_logo.svg';
 
 const featuresData = [
   {

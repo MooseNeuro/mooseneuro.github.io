@@ -64,12 +64,3 @@ import Hero from "../components/Hero.astro";
   </section>
 </BaseLayout>
 
-<script>
-  // Ensure script runs after DOM is loaded
-  document.addEventListener('DOMContentLoaded', function() {
-    const nav = document.getElementsByTagName("header")[0];
-    if (nav) {
-      nav.classList.add("bg-black");
-    }
-  });
-</script>

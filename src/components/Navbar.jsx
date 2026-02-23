@@ -35,20 +35,42 @@ export default function Navbar({ transparentOnTop = false }) {
       return;
     }
 
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 0);
+      const banner = document.getElementById("top-banner");
+      const threshold = banner ? banner.offsetHeight / 2 : 0;
+      setScrolled(window.scrollY > threshold);
+      ticking = false;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(handleScroll);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    // initialize
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onResize = () => {
+      // recalc threshold on resize by invoking handler
+      handleScroll();
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, [transparentOnTop]);
 
 
   const closeMobileMenu = () => setMobileOpen(false);
 
-  const headerClass = `fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+  const headerClass = `fixed inset-x-0 top-0 z-40 transition-colors duration-300 ${
     scrolled ? 'bg-black' : 'bg-transparent'
   }`;
 
@@ -137,7 +159,7 @@ export default function Navbar({ transparentOnTop = false }) {
             />
 
             {/* Panel */}
-            <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
               <div className="flex items-center justify-between">
                 <a href="/" className="-m-1.5 p-1.5">
                   <span className="sr-only">MOOSE</span>

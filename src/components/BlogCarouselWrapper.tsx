@@ -33,7 +33,7 @@ export default function BlogCarouselWrapper({ blogs }: Props) {
                   <img
                     src={blog.data.image}
                     alt={blog.data.title}
-                    className="w-full h-full object-cover hover:brightness-90 transition-all duration-300 group-hover:scale-105 absolute inset-0"
+                    className="w-full h-full object-cover hover:brightness-90 transition-all duration-300 group-hover:scale-105 absolute inset-1/2¯"
                   />
                 )}
                 <div className="p-3 sm:p-5 flex-1 flex flex-col justify-between absolute bottom-0 left-0 right-0 bg-black/40">
