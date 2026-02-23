@@ -1,10 +1,10 @@
 ---
 title: "Multiscale Modelling with MOOSE"
-date: 2026-02-19
+date: 2026-02-23
 author: "Parita Mehta"
-authorimage: "../assets/team/parita.png"
+authorimage: "/assets/team/parita.png"
 designation: "Community Manager for MOOSE, NCBS-TIFR"
-image: "/assets/blogs/moose2025/upi_lecture.jpeg"
+image: "/assets/blogs/moose2025/group_picture.jpg"
 ---
 <div class="text-center">
 	<h2 class="text-3xl font-bold">
@@ -63,8 +63,8 @@ Together, these sessions built a conceptual and practical foundation for modelli
 
 For more information on our past and future workshops, [click here](https://www.mooseneuro.org/workshops/).
 <figure class="my-6">
-	<img src="/assets/blogs/moose2025/Group_picture.jpeg" alt="MOOSE Workshop 2025 Group Picture" class="mx-auto rounded" loading="lazy" />
-	<figcaption class="text-sm text-center text-gray-500 mt-2">MOOSE Workshop 2025 Group Picture</figcaption>
+	<img src="/assets/blogs/moose2025/group_picture.jpg" alt="MOOSE2025 : Group Picture" class="mx-auto rounded" loading="lazy" />
+	<figcaption class="text-sm text-center text-gray-500 mt-2">MOOSE2025 : Group Picture</figcaption>
 </figure>
 
 To know more about MOOSE, follow our GitHub organisation page, and come be part of our open-source MOOSE [community](https://www.mooseneuro.org/community/). For any general queries or [discussions](https://github.com/orgs/MooseNeuro/discussions), feel free to reach out to our team on the GitHub discussion page or email us at this [address](mailto:mooseneuro@gmail.com). 

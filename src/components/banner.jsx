@@ -37,32 +37,56 @@ export default function Banner() {
 
   // Set banner height CSS variable and adjust navbar position
   useEffect(() => {
+    const findNav = (cb) => {
+      const nav = document.getElementsByTagName("header")[0];
+      if (nav) return cb(nav);
+
+      let attempts = 0;
+      let rafId = null;
+      const tryFind = () => {
+        const n = document.getElementsByTagName("header")[0];
+        if (n) {
+          if (rafId) cancelAnimationFrame(rafId);
+          return cb(n);
+        }
+        attempts += 1;
+        if (attempts < 120) {
+          rafId = requestAnimationFrame(tryFind);
+        }
+      };
+      rafId = requestAnimationFrame(tryFind);
+    };
+
     const updateBannerHeight = () => {
       const banner = document.getElementById("top-banner");
-      const nav = document.getElementsByTagName("header")[0];
 
       if (banner && isVisible && !isDismissed) {
         const height = banner.offsetHeight;
-        document.documentElement.style.setProperty(
-          "--banner-height",
-          `${height}px`
-        );
+        document.documentElement.style.setProperty("--banner-height", `${height}px`);
 
-        // Push navbar down by banner height
-        if (nav) {
-          nav.style.top = `${height}px`;
-          nav.classList.remove("bg-black");
-          nav.style.transition = "top 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-        }
+        // Push navbar down by banner height when header is available
+        findNav((nav) => {
+          try {
+            nav.style.top = `${height}px`;
+            nav.classList.remove("bg-black");
+            nav.style.transition = "top 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+          } catch (e) {
+            // ignore failures manipulating nav
+          }
+        });
       } else {
         document.documentElement.style.setProperty("--banner-height", "0px");
 
-        // Reset navbar position
-        if (nav) {
-          nav.style.top = "0px";
-          nav.classList.add("bg-black");
-          nav.style.transition = "top 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
-        }
+        // Reset navbar position when header exists
+        findNav((nav) => {
+          try {
+            nav.style.top = "0px";
+            nav.classList.add("bg-black");
+            nav.style.transition = "top 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+          } catch (e) {
+            // ignore
+          }
+        });
       }
     };
 
