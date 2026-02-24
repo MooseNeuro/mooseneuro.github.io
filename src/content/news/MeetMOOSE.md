@@ -22,8 +22,52 @@ The webinar aims to provide participants with a concept-driven introduction and 
 
 Come to explore, discuss, and connect!
 
-<div align="center">
-    <img src="../../assets/news/Webinar_2026_Flyer.png"
-         alt="Poster_Webinar_2026"
-         width="500" height="200">
+### Schedule :
+
+1. Welcome Note (Dr. Subhasis Ray)
+2. Introduction : From molecules to MOOSE (Parita Mehta)
+3. Architecture and overview of MOOSE (Ashish Anshuman)
+4. Installation and Set-up of MOOSE (Jayesh Poojary)
+5. From concepts to implementation : modeling with MOOSE (Gautham Dathatreyan)
+6. Introduction to Jardesigner : modeling without coding (Pragathi R)
+
+### Speakers :
+
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem auto; max-width: 100%; align-items: start;">
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="/assets/team/subha.png" alt="Dr. Subhasis Ray" style="width:112px;height:112px;border-radius:50%;border:2px solid #4f46e5;object-fit:cover;margin-bottom:1rem;" />
+    <h4 style="margin: 0.5rem 0;">Dr. Subhasis Ray</h4>
+    <p style="margin: 0;">Assistant Professor, CHINTA, (TCG CREST)</p>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="/assets/team/parita.png" alt="Parita Mehta" style="width:112px;height:112px;border-radius:50%;border:2px solid #4f46e5;object-fit:cover;margin-bottom:1rem;" />
+    <h4 style="margin: 0.5rem 0;">Parita Mehta</h4>
+    <p style="margin: 0;">Community Manager, NCBS-TIFR <span><b>(Host and Curator)</b></span></p>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="/assets/team/anshuman.png" alt="Ashish Anshuman" style="width:112px;height:112px;border-radius:50%;border:2px solid #4f46e5;object-fit:cover;margin-bottom:1rem;" />
+    <h4 style="margin: 0.5rem 0;">Ashish Anshuman</h4>
+    <p style="margin: 0;">Web Developer, NCBS-TIFR</p>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="/assets/team/jayesh.png" alt="Jayesh Poojari" style="width:112px;height:112px;border-radius:50%;border:2px solid #4f46e5;object-fit:cover;margin-bottom:1rem;" />
+    <h4 style="margin: 0.5rem 0;">Jayesh Poojary</h4>
+    <p style="margin: 0;">DevOps Engineer, NCBS-TIFR</p>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="/assets/gautham.png" alt="Gautham Dathatreyan" style="width:112px;height:112px;border-radius:50%;border:2px solid #4f46e5;object-fit:cover;margin-bottom:1rem;" />
+    <h4 style="margin: 0.5rem 0;">Gautham Dathatreyan</h4>
+    <p style="margin: 0;">Project Assistant, CHINTA, (TCG CREST)</p>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="/assets/team/pragathi.jpg" alt="Pragathi R" style="width:112px;height:112px;border-radius:50%;border:2px solid #4f46e5;object-fit:cover;margin-bottom:1rem;" />
+    <h4 style="margin: 0.5rem 0;">Pragathi R</h4>
+    <p style="margin: 0;">Front-end Engineer, NCBS-TIFR</p>
+  </div>
 </div>
+
+<figure style="text-align: center; margin: 2rem 0;">
+    <img src="/assets/news/webinar2026_poster_v2.png"
+         alt="Poster_Webinar_2026"
+         style="max-width: 100%; height: 1000px ; display: block; margin: 0 auto;">
+</figure>
