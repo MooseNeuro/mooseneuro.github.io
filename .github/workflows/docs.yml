@@ -2,6 +2,11 @@ name: Build Docs
 
 on:
   workflow_dispatch:
+    inputs:
+      rebuild_doxygen:
+        description: 'Rebuild Doxygen C++ API docs (slow, one-time)'
+        type: boolean
+        default: false
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -35,6 +40,13 @@ jobs:
           pip install pymoose
           python docs/source/generate_references.py
 
+      - name: Build Doxygen C++ API docs
+        if: ${{ inputs.rebuild_doxygen }}
+        run: |
+          sudo apt-get install -y doxygen graphviz
+          cd docs/moose-core/docs
+          (cat doxygen/Doxyfile; echo "OUTPUT_DIRECTORY = ${{ github.workspace }}/public/doxygen") | doxygen -
+
       - name: Build Sphinx docs
         env:
           MOOSE_CORE_PATH: ${{ github.workspace }}/docs/moose-core
@@ -49,5 +61,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -f public/docs/html/
+          if [ "${{ inputs.rebuild_doxygen }}" = "true" ]; then
+            git add -f public/doxygen/
+          fi
           git diff --cached --quiet || git commit -m "chore: update built docs [skip ci]"
           git push
