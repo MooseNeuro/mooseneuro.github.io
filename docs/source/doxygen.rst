@@ -1,7 +1,6 @@
 Doxygen
--------
+=======
 
-Here you can find all the references necessary for MOOSE.
+Here you can find the C++ API reference for MOOSE, generated from the source code.
 
-`Click here </doxygen/cpp/html/index.html>`_ to browse the C++ API reference.
-
+`Browse the C++ API reference </doxygen/html/index.html>`_

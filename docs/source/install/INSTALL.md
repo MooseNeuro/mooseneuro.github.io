@@ -84,7 +84,7 @@ Make sure these packages are installed on your system:
 For detailed platform instructions, see:
 - **Linux**: [UbuntuBuild.md](UbuntuBuild.md)
 - **macOS**: [AppleM1Build.md](AppleM1Build.md)
-- **Windows**: [WindowsBuild.md](WindowsBuild.md)
+- **Windows**: [WindowsBuild.rst](WindowsBuild.rst)
 
 ### Installation commands
 

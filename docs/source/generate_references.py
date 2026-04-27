@@ -9,6 +9,7 @@ Output goes to ../../references/
 import io
 import os
 import re
+import shutil
 import sys
 
 import moose
@@ -169,6 +170,19 @@ def generate():
         f.write('   :glob:\n\n')
         f.write('   moose_functions\n')
         f.write('   moose_classes\n')
+
+    # Copy moose_functions.rst and moose_classes.rst from moose-core
+    moose_core = os.environ.get('MOOSE_CORE_PATH') or os.path.join(
+        os.path.dirname(__file__), '..', 'moose-core')
+    moose_core_refs = os.path.join(moose_core, 'docs', 'source', 'user', 'py', 'references')
+    for fname in ('moose_functions.rst', 'moose_classes.rst'):
+        src = os.path.join(moose_core_refs, fname)
+        dst = os.path.join(OUT_DIR, fname)
+        if os.path.isfile(src):
+            shutil.copy2(src, dst)
+            print(f"  copied {fname} from moose-core")
+        else:
+            print(f"  WARNING: {fname} not found in moose-core at {src}")
 
     print(f"\nDone: {len(generated)} files written, {len(skipped)} skipped.")
     if skipped:

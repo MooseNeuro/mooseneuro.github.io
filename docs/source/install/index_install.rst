@@ -5,3 +5,4 @@ Installation
    :maxdepth: 1
 
    install
+   WindowsBuild
