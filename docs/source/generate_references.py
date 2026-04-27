@@ -8,6 +8,7 @@ Output goes to ../../references/
 
 import io
 import os
+import re
 import sys
 
 import moose
@@ -27,6 +28,17 @@ def get_doc(name):
     finally:
         sys.stdout = old_stdout
     return buf.getvalue().strip()
+
+
+def escape_rst_text(text):
+    """Escape RST special sequences in plain text from moose.doc().
+
+    Fixes:
+    - Trailing underscores on words (e.g. baseDt_, dt_) parsed as hyperlink refs
+    - Underscore sequences before non-word chars (e.g. |_________|) parsed as substitutions
+    """
+    # Escape _ when preceded by a word char and followed by a non-word char or end of string
+    return re.sub(r'(\w)_(?=\W|$)', r'\1\_', text)
 
 
 def doc_to_rst(classname, raw):
@@ -79,16 +91,28 @@ def doc_to_rst(classname, raw):
             if desc_lines:
                 rst.append('')
                 for d in desc_lines:
-                    rst.append('   ' + d)
+                    rst.append('   ' + escape_rst_text(d))
             rst.append('')
             continue
 
         # Regular text (class description, author, etc.)
         if stripped:
-            rst.append(stripped)
+            escaped = escape_rst_text(stripped)
+            rst.append(escaped)
+            i += 1
+            # If line ends with ::, indent following content as a literal block
+            if escaped.endswith('::'):
+                # Skip blank lines between :: and the block content
+                while i < len(lines) and not lines[i].strip():
+                    i += 1
+                # Emit indented literal block until next blank line
+                rst.append('')
+                while i < len(lines) and lines[i].strip():
+                    rst.append('   ' + lines[i].rstrip())
+                    i += 1
         else:
             rst.append('')
-        i += 1
+            i += 1
 
     return '\n'.join(rst)
 

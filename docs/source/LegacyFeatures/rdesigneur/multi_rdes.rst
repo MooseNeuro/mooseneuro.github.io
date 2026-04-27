@@ -28,6 +28,7 @@ Rdesigneur Examples
    The filename is the bit that comes before the ``.`` in the blue boxes, with
    ``.py`` added at the end of it. In this case, the file name would be
    ``cubeMeshSigNeur.py``.
+
 |
 
 Building Chemical-Electrical Signalling Models
