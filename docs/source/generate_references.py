@@ -47,6 +47,10 @@ def doc_to_rst(classname, raw):
     lines = raw.splitlines()
     rst = []
 
+    # Mark as orphan so Sphinx doesn't warn about missing toctree entry
+    rst.append(':orphan:')
+    rst.append('')
+
     # Title
     title = classname
     rst.append(title)
@@ -59,6 +63,7 @@ def doc_to_rst(classname, raw):
         start = 1
 
     i = start
+    in_bullet = False
     while i < len(lines):
         line = lines[i]
         stripped = line.strip()
@@ -69,7 +74,9 @@ def doc_to_rst(classname, raw):
             continue
 
         # Section headers (e.g. "Attributes:", "Value Attributes:", "Source messages:")
-        if stripped.endswith(':') and stripped == stripped.strip() and len(stripped) < 60:
+        # Exclude lines ending with :: (those are literal block intros, not headers)
+        if stripped.endswith(':') and not stripped.endswith('::') and stripped == stripped.strip() and len(stripped) < 60:
+            in_bullet = False
             rst.append('')
             rst.append(stripped)
             rst.append('-' * len(stripped))
@@ -82,29 +89,44 @@ def doc_to_rst(classname, raw):
             field_line = stripped
             rst.append('.. describe:: ' + field_line)
             i += 1
-            # Collect description lines (indented)
-            desc_lines = []
+            # Collect description lines — preserve relative indentation
+            raw_desc = []
             while i < len(lines) and (lines[i].startswith('  ') or lines[i].strip() == ''):
-                desc = lines[i].strip()
-                if desc:
-                    desc_lines.append(desc)
+                raw_desc.append(lines[i])
                 i += 1
-            if desc_lines:
+            # Expand tabs and find minimum indentation of non-empty lines
+            raw_desc = [l.expandtabs(4) for l in raw_desc]
+            non_empty = [l for l in raw_desc if l.strip()]
+            if non_empty:
+                min_ind = min(len(l) - len(l.lstrip()) for l in non_empty)
                 rst.append('')
-                for d in desc_lines:
-                    rst.append('   ' + escape_rst_text(d))
+                for l in raw_desc:
+                    if l.strip():
+                        # lstrip() removes any excess indent beyond min_ind (tabs/spaces from moose.doc)
+                        rst.append('   ' + escape_rst_text(l[min_ind:].lstrip().rstrip()))
+                    else:
+                        rst.append('')
             rst.append('')
             continue
 
         # Regular text (class description, author, etc.)
+        # Track bullet list context so continuation lines get proper indent
         if stripped:
             escaped = escape_rst_text(stripped)
+            if escaped.startswith('- ') or escaped.startswith('* '):
+                in_bullet = True
+            elif in_bullet and not escaped.startswith(' '):
+                escaped = '  ' + escaped
             rst.append(escaped)
             i += 1
             # If line ends with ::, indent following content as a literal block
             if escaped.endswith('::'):
-                # Skip blank lines between :: and the block content
-                while i < len(lines) and not lines[i].strip():
+                in_bullet = False
+                # Skip blank lines and separator lines between :: and the block content
+                while i < len(lines) and (
+                    not lines[i].strip() or
+                    (lines[i].strip() and all(c in '=-~#^' for c in lines[i].strip()))
+                ):
                     i += 1
                 # Emit indented literal block until next blank line
                 rst.append('')
@@ -112,6 +134,7 @@ def doc_to_rst(classname, raw):
                     rst.append('   ' + lines[i].rstrip())
                     i += 1
         else:
+            in_bullet = False
             rst.append('')
             i += 1
 
