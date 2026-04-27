@@ -1,3 +1,5 @@
+:orphan:
+
 Spine
 =====
 
@@ -19,34 +21,43 @@ Value Attributes:
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: Spine)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: Spine)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: Spine)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: Spine)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: head (type: Id, class: Spine)
 
    Id of spine head.
+
 
 .. describe:: headDiameter (type: double, class: Spine)
 
    Diameter of spine head, and also the diameter of the PSD.
 
+
 .. describe:: headLength (type: double, class: Spine)
 
    Length of spine head.
+
 
 .. describe:: headVolume (type: double, class: Spine)
 
@@ -56,30 +67,37 @@ Value Attributes:
    the PSD is pegged to the diameter of the spine head. This is useful to
    scale total # of molecules in the head.
 
+
 .. describe:: idValue (type: unsigned int, class: Spine)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: Spine)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: me (type: ObjId, class: Spine)
 
    ObjId for current object
+
 
 .. describe:: msgIn (type: vector<ObjId>, class: Spine)
 
    Messages coming in to this Element
 
+
 .. describe:: msgOut (type: vector<ObjId>, class: Spine)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: Spine)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: Spine)
 
@@ -87,18 +105,22 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: Spine)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: parent (type: ObjId, class: Spine)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: Spine)
 
    text path for object
+
 
 .. describe:: psdArea (type: double, class: Spine)
 
@@ -107,26 +129,32 @@ Value Attributes:
    a cylinder and that its length does not change. This is useful to scale
    # of surface molecules on the PSD.
 
+
 .. describe:: shaft (type: Id, class: Spine)
 
    Id of spine shaft.
+
 
 .. describe:: shaftDiameter (type: double, class: Spine)
 
    Diameter of spine shaft.
 
+
 .. describe:: shaftLength (type: double, class: Spine)
 
    Length of spine shaft.
+
 
 .. describe:: sourceFields (type: vector<string>, class: Spine)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: this (type: 7Neutral, class: Spine)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: Spine)
 
@@ -137,10 +165,12 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: totalLength (type: double, class: Spine)
 
    Length of entire spine. Scales both the length of the shaft and of the
    spine head, without changing any of the diameters.
+
 
 .. describe:: valueFields (type: vector<string>, class: Spine)
 
@@ -148,6 +178,7 @@ Value Attributes:
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 
 Attributes inherited from Neutral:
@@ -162,18 +193,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: Spine)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: Spine)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: Spine)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from Neutral:
@@ -188,6 +223,7 @@ Src Attributes:
    Message to child Elements
 
 
+
 Attributes inherited from Neutral:
 ----------------------------------
 
@@ -200,236 +236,289 @@ Dest Attributes:
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFields (type: vector<vector<string>>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDt (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getHead (type: vector<Id>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getHeadDiameter (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getHeadLength (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getHeadVolume (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIdValue (type: vector<unsigned int>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIndex (type: vector<unsigned int>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIsA (type: bool, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMe (type: vector<ObjId>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDestFunctions (type: vector<string>, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDests (type: vector<ObjId>, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNeighbors (type: vector<Id>, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumField (type: vector<unsigned int>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getParent (type: vector<ObjId>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPsdArea (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getShaft (type: vector<Id>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getShaftDiameter (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getShaftLength (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTotalLength (type: vector<double>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValueFields (type: vector<vector<string>>*, class: Spine)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: Spine)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: Spine)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: Spine)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: Spine)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: Spine)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: Spine)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: Spine)
 
    Message from Parent Element(s)
+
 
 .. describe:: setHeadDiameter (type: double, class: Spine)
 
    Assigns field value.
 
+
 .. describe:: setHeadLength (type: double, class: Spine)
 
    Assigns field value.
+
 
 .. describe:: setHeadVolume (type: double, class: Spine)
 
    Assigns field value.
 
+
 .. describe:: setName (type: string, class: Spine)
 
    Assigns field value.
+
 
 .. describe:: setNumData (type: unsigned int, class: Spine)
 
    Assigns field value.
 
+
 .. describe:: setNumField (type: unsigned int, class: Spine)
 
    Assigns field value.
+
 
 .. describe:: setPsdArea (type: double, class: Spine)
 
    Assigns field value.
 
+
 .. describe:: setShaftDiameter (type: double, class: Spine)
 
    Assigns field value.
+
 
 .. describe:: setShaftLength (type: double, class: Spine)
 
    Assigns field value.
 
+
 .. describe:: setThis (type: 7Neutral, class: Spine)
 
    Assigns field value.
+
 
 .. describe:: setTick (type: int, class: Spine)
 
    Assigns field value.
 
+
 .. describe:: setTotalLength (type: double, class: Spine)
 
    Assigns field value.
+
 
 
 Attributes inherited from Neutral:

@@ -1,3 +1,5 @@
+:orphan:
+
 Adaptor
 =======
 
@@ -19,51 +21,64 @@ Value Attributes:
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: Adaptor)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: Adaptor)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: Adaptor)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: Adaptor)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: idValue (type: unsigned int, class: Adaptor)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: Adaptor)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: inputOffset (type: double, class: Adaptor)
 
    Offset to apply to input message, before scaling
+
 
 .. describe:: me (type: ObjId, class: Adaptor)
 
    ObjId for current object
 
+
 .. describe:: msgIn (type: vector<ObjId>, class: Adaptor)
 
    Messages coming in to this Element
+
 
 .. describe:: msgOut (type: vector<ObjId>, class: Adaptor)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: Adaptor)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: Adaptor)
 
@@ -71,39 +86,48 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: Adaptor)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: outputOffset (type: double, class: Adaptor)
 
    Offset to apply at output, after scaling
+
 
 .. describe:: outputValue (type: double, class: Adaptor)
 
    This is the linearly transformed output.
 
+
 .. describe:: parent (type: ObjId, class: Adaptor)
 
    Parent ObjId for current object
+
 
 .. describe:: path (type: string, class: Adaptor)
 
    text path for object
 
+
 .. describe:: scale (type: double, class: Adaptor)
 
    Scaling factor to apply to input
+
 
 .. describe:: sourceFields (type: vector<string>, class: Adaptor)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: this (type: 7Neutral, class: Adaptor)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: Adaptor)
 
@@ -114,12 +138,14 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: Adaptor)
 
    List of all value fields on Element.These fields are accessed through
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 
 Attributes inherited from Neutral:
@@ -134,18 +160,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: Adaptor)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: Adaptor)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: Adaptor)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from Neutral:
@@ -159,14 +189,17 @@ Src Attributes:
 
    Message to child Elements
 
+
 .. describe:: output (type: double, class: Adaptor)
 
    Sends the output value every timestep.
+
 
 .. describe:: requestOut (type: vector<double>*, class: Adaptor)
 
    Sends out a request to a field with a double or array of doubles. Issued
    from the process call.Works for any number of targets.
+
 
 
 Attributes inherited from Neutral:
@@ -181,208 +214,255 @@ Dest Attributes:
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFields (type: vector<vector<string>>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDt (type: vector<double>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIdValue (type: vector<unsigned int>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIndex (type: vector<unsigned int>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getInputOffset (type: vector<double>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIsA (type: bool, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMe (type: vector<ObjId>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDestFunctions (type: vector<string>, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDests (type: vector<ObjId>, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNeighbors (type: vector<Id>, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumData (type: vector<unsigned int>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumField (type: vector<unsigned int>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getOutputOffset (type: vector<double>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getOutputValue (type: vector<double>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getParent (type: vector<ObjId>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getScale (type: vector<double>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getValueFields (type: vector<vector<string>>*, class: Adaptor)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: input (type: double, class: Adaptor)
 
    Input message to the adaptor. If multiple inputs are received, the system
    averages the inputs.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: Adaptor)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: Adaptor)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: Adaptor)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: Adaptor)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: Adaptor)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: Adaptor)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: Adaptor)
 
    Message from Parent Element(s)
+
 
 .. describe:: process (type: const ProcInfo*, class: Adaptor)
 
    Handles 'process' call
 
+
 .. describe:: reinit (type: const ProcInfo*, class: Adaptor)
 
    Handles 'reinit' call
+
 
 .. describe:: setInputOffset (type: double, class: Adaptor)
 
    Assigns field value.
 
+
 .. describe:: setName (type: string, class: Adaptor)
 
    Assigns field value.
+
 
 .. describe:: setNumData (type: unsigned int, class: Adaptor)
 
    Assigns field value.
 
+
 .. describe:: setNumField (type: unsigned int, class: Adaptor)
 
    Assigns field value.
+
 
 .. describe:: setOutputOffset (type: double, class: Adaptor)
 
    Assigns field value.
 
+
 .. describe:: setScale (type: double, class: Adaptor)
 
    Assigns field value.
+
 
 .. describe:: setThis (type: 7Neutral, class: Adaptor)
 
    Assigns field value.
 
+
 .. describe:: setTick (type: int, class: Adaptor)
 
    Assigns field value.
+
 
 
 Attributes inherited from Neutral:
@@ -395,6 +475,8 @@ Shared Attributes:
 .. describe:: proc (type: void, class: Adaptor)
 
    This is a shared message to receive Process message from the scheduler.
+
+
 
 
 Attributes inherited from Neutral:

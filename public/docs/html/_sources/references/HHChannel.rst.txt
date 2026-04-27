@@ -1,3 +1,5 @@
+:orphan:
+
 HHChannel
 =========
 
@@ -19,71 +21,89 @@ Value Attributes:
 
    Reversal potential of channel
 
+
 .. describe:: Gbar (type: double, class: HHChannel)
 
    Maximal channel conductance
+
 
 .. describe:: Gk (type: double, class: HHChannel)
 
    Channel conductance variable
 
+
 .. describe:: Ik (type: double, class: HHChannel)
 
    Channel current variable
+
 
 .. describe:: X (type: double, class: HHChannel)
 
    State variable for X gate
 
+
 .. describe:: Xpower (type: double, class: HHChannel)
 
    Power for X gate
+
 
 .. describe:: Y (type: double, class: HHChannel)
 
    State variable for Y gate
 
+
 .. describe:: Ypower (type: double, class: HHChannel)
 
    Power for Y gate
+
 
 .. describe:: Z (type: double, class: HHChannel)
 
    State variable for Y gate
 
+
 .. describe:: Zpower (type: double, class: HHChannel)
 
    Power for Z gate
+
 
 .. describe:: children (type: vector<Id>, class: HHChannel)
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: HHChannel)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: HHChannel)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: HHChannel)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: HHChannel)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: idValue (type: unsigned int, class: HHChannel)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: HHChannel)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
+
 
 .. describe:: instant (type: int, class: HHChannel)
 
@@ -92,9 +112,11 @@ Value Attributes:
    of the channel, rather than usedas a rate term for numerical integration
    for the state
 
+
 .. describe:: me (type: ObjId, class: HHChannel)
 
    ObjId for current object
+
 
 .. describe:: modulation (type: double, class: HHChannel)
 
@@ -105,17 +127,22 @@ Value Attributes:
    runs many timesteps before the next assignment. This differs from the
    GENESIS semantics of a similar message,which required update each timestep.
 
+
+
 .. describe:: msgIn (type: vector<ObjId>, class: HHChannel)
 
    Messages coming in to this Element
+
 
 .. describe:: msgOut (type: vector<ObjId>, class: HHChannel)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: HHChannel)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: HHChannel)
 
@@ -123,27 +150,33 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: HHChannel)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: parent (type: ObjId, class: HHChannel)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: HHChannel)
 
    text path for object
+
 
 .. describe:: sourceFields (type: vector<string>, class: HHChannel)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: this (type: 7Neutral, class: HHChannel)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: HHChannel)
 
@@ -154,10 +187,12 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: useConcentration (type: int, class: HHChannel)
 
    Flag: when true, use concentration message rather than Vm tocontrol Z
    gate
+
 
 .. describe:: valueFields (type: vector<string>, class: HHChannel)
 
@@ -165,6 +200,7 @@ Value Attributes:
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 
 Attributes inherited from HHChannelBase:
@@ -187,18 +223,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: HHChannel)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: HHChannel)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: HHChannel)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from HHChannelBase:
@@ -221,17 +261,21 @@ Src Attributes:
    Channel current. This message typically goes to concenobjects that keep
    track of ion concentration.
 
+
 .. describe:: channelOut (type: double,double, class: HHChannel)
 
    Sends channel variables Gk and Ek to compartment
+
 
 .. describe:: childOut (type: int, class: HHChannel)
 
    Message to child Elements
 
+
 .. describe:: permeabilityOut (type: double, class: HHChannel)
 
    Conductance term going out to GHK object
+
 
 
 Attributes inherited from HHChannelBase:
@@ -253,325 +297,398 @@ Dest Attributes:
 
    Handles Vm message coming in from compartment
 
+
 .. describe:: concen (type: double, class: HHChannel)
 
    Incoming message from Concen object to specific conc to usein the Z gate
    calculations
 
+
 .. describe:: createGate (type: string, class: HHChannel)
 
    Function to create specified gate.Argument: Gate type [X Y Z]
+
 
 .. describe:: getChildren (type: vector<vector<Id>>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFields (type: vector<vector<string>>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDt (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getEk (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getGbar (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getGk (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIdValue (type: vector<unsigned int>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIk (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIndex (type: vector<unsigned int>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getInstant (type: PSt6vectorIiSaIiEE, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIsA (type: bool, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMe (type: vector<ObjId>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getModulation (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDestFunctions (type: vector<string>, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDests (type: vector<ObjId>, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNeighbors (type: vector<Id>, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumField (type: vector<unsigned int>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumGateX (type: vector<unsigned int>*, class: HHChannel)
 
    Requests number of field entries in field array.The requesting Element
    must provide a handler for the returned value.
+
 
 .. describe:: getNumGateY (type: vector<unsigned int>*, class: HHChannel)
 
    Requests number of field entries in field array.The requesting Element
    must provide a handler for the returned value.
 
+
 .. describe:: getNumGateZ (type: vector<unsigned int>*, class: HHChannel)
 
    Requests number of field entries in field array.The requesting Element
    must provide a handler for the returned value.
+
 
 .. describe:: getParent (type: vector<ObjId>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getUseConcentration (type: PSt6vectorIiSaIiEE, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getValueFields (type: vector<vector<string>>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getX (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getXpower (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getY (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getYpower (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getZ (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getZpower (type: vector<double>*, class: HHChannel)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: HHChannel)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: HHChannel)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: HHChannel)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: HHChannel)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: HHChannel)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: HHChannel)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: HHChannel)
 
    Message from Parent Element(s)
+
 
 .. describe:: process (type: const ProcInfo*, class: HHChannel)
 
    Handles process call
 
+
 .. describe:: reinit (type: const ProcInfo*, class: HHChannel)
 
    Handles reinit call
+
 
 .. describe:: setEk (type: double, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setGbar (type: double, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setGk (type: double, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setInstant (type: int, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setModulation (type: double, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setName (type: string, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setNumData (type: unsigned int, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setNumField (type: unsigned int, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setNumGateX (type: unsigned int, class: HHChannel)
 
    Assigns number of field entries in field array.
 
+
 .. describe:: setNumGateY (type: unsigned int, class: HHChannel)
 
    Assigns number of field entries in field array.
+
 
 .. describe:: setNumGateZ (type: unsigned int, class: HHChannel)
 
    Assigns number of field entries in field array.
 
+
 .. describe:: setThis (type: 7Neutral, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setTick (type: int, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setUseConcentration (type: int, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setX (type: double, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setXpower (type: double, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setY (type: double, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setYpower (type: double, class: HHChannel)
 
    Assigns field value.
+
 
 .. describe:: setZ (type: double, class: HHChannel)
 
    Assigns field value.
 
+
 .. describe:: setZpower (type: double, class: HHChannel)
 
    Assigns field value.
+
 
 
 Attributes inherited from HHChannelBase:
@@ -595,13 +712,16 @@ Shared Attributes:
    entry is a MsgSrc to send Gk and Ek to the compartment The second entry
    is a MsgDest for Vm from the compartment.
 
+
 .. describe:: ghk (type: void, class: HHChannel)
 
    Message to Goldman-Hodgkin-Katz object
 
+
 .. describe:: proc (type: void, class: HHChannel)
 
    Shared message to receive Process message from scheduler
+
 
 
 Attributes inherited from HHChannelBase:
@@ -623,13 +743,16 @@ Field Attributes:
 
    Sets up HHGate X for channel
 
+
 .. describe:: gateY (type: 6HHGate, class: HHChannel)
 
    Sets up HHGate Y for channel
 
+
 .. describe:: gateZ (type: 6HHGate, class: HHChannel)
 
    Sets up HHGate Z for channel
+
 
 
 Attributes inherited from HHChannelBase:

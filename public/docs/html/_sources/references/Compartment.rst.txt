@@ -1,3 +1,5 @@
+:orphan:
+
 Compartment
 ===========
 
@@ -19,91 +21,114 @@ Value Attributes:
 
    Membrane capacitance
 
+
 .. describe:: Em (type: double, class: Compartment)
 
    Resting membrane potential
+
 
 .. describe:: Im (type: double, class: Compartment)
 
    Current going through membrane
 
+
 .. describe:: Ra (type: double, class: Compartment)
 
    Axial resistance of compartment
+
 
 .. describe:: Rm (type: double, class: Compartment)
 
    Membrane resistance
 
+
 .. describe:: Vm (type: double, class: Compartment)
 
    membrane potential
+
 
 .. describe:: children (type: vector<Id>, class: Compartment)
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: Compartment)
 
    Class Name of object
 
+
 .. describe:: coords (type: vector<double>, class: Compartment)
 
    Vector with all coords: [x0 y0 z0 x y z dia]
+
 
 .. describe:: destFields (type: vector<string>, class: Compartment)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: diameter (type: double, class: Compartment)
 
    Diameter of compartment
+
 
 .. describe:: dt (type: double, class: Compartment)
 
    Timestep used for this Element. Zero if not scheduled.
 
+
 .. describe:: fieldIndex (type: unsigned int, class: Compartment)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: idValue (type: unsigned int, class: Compartment)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: Compartment)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: initVm (type: double, class: Compartment)
 
    Initial value for membrane potential
+
 
 .. describe:: inject (type: double, class: Compartment)
 
    Current injection to deliver into compartment
 
+
 .. describe:: length (type: double, class: Compartment)
 
    Length of compartment
+
 
 .. describe:: me (type: ObjId, class: Compartment)
 
    ObjId for current object
 
+
 .. describe:: msgIn (type: vector<ObjId>, class: Compartment)
 
    Messages coming in to this Element
+
 
 .. describe:: msgOut (type: vector<ObjId>, class: Compartment)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: Compartment)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: Compartment)
 
@@ -111,27 +136,33 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: Compartment)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: parent (type: ObjId, class: Compartment)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: Compartment)
 
    text path for object
+
 
 .. describe:: sourceFields (type: vector<string>, class: Compartment)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: this (type: 7Neutral, class: Compartment)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: Compartment)
 
@@ -142,6 +173,7 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: Compartment)
 
    List of all value fields on Element.These fields are accessed through
@@ -149,29 +181,36 @@ Value Attributes:
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
 
+
 .. describe:: x (type: double, class: Compartment)
 
    x coordinate of end of compartment
+
 
 .. describe:: x0 (type: double, class: Compartment)
 
    X coordinate of start of compartment
 
+
 .. describe:: y (type: double, class: Compartment)
 
    y coordinate of end of compartment
+
 
 .. describe:: y0 (type: double, class: Compartment)
 
    Y coordinate of start of compartment
 
+
 .. describe:: z (type: double, class: Compartment)
 
    z coordinate of end of compartment
 
+
 .. describe:: z0 (type: double, class: Compartment)
 
    Z coordinate of start of compartment
+
 
 
 Attributes inherited from CompartmentBase:
@@ -190,18 +229,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: Compartment)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: Compartment)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: Compartment)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from CompartmentBase:
@@ -219,17 +262,22 @@ Src Attributes:
 
    Sends out Vm value of compartment on each timestep
 
+
 .. describe:: axialOut (type: double, class: Compartment)
 
    Sends out Vm value of compartment to adjacent compartments,on each timestep
+
+
 
 .. describe:: childOut (type: int, class: Compartment)
 
    Message to child Elements
 
+
 .. describe:: raxialOut (type: double,double, class: Compartment)
 
    Sends out Raxial information on each timestep, fields are Ra and Vm
+
 
 
 Attributes inherited from CompartmentBase:
@@ -248,221 +296,266 @@ Dest Attributes:
    Message for organizing compartments into groups, calledcables. Doesn't
    do anything.
 
+
 .. describe:: displace (type: double,double,double, class: Compartment)
 
    Displaces compartment by specified vector
+
 
 .. describe:: getChildren (type: vector<vector<Id>>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getCm (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getCoords (type: vector<vector<double>>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFields (type: vector<vector<string>>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDiameter (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDt (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getEm (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIdValue (type: vector<unsigned int>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIm (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIndex (type: vector<unsigned int>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getInitVm (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getInject (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIsA (type: bool, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getLength (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMe (type: vector<ObjId>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDestFunctions (type: vector<string>, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDests (type: vector<ObjId>, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNeighbors (type: vector<Id>, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumField (type: vector<unsigned int>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getParent (type: vector<ObjId>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getRa (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getRm (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getValueFields (type: vector<vector<string>>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getVm (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getX (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getX0 (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getY (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getY0 (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getZ (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getZ0 (type: vector<double>*, class: Compartment)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: handleAxial (type: double, class: Compartment)
 
    Handles Axial information. Argument is just Vm.
+
 
 .. describe:: handleChannel (type: double,double, class: Compartment)
 
    Handles conductance and Reversal potential arguments from Channel
 
+
 .. describe:: handleRaxial (type: double,double, class: Compartment)
 
    Handles Raxial info: arguments are Ra and Vm.
+
 
 .. describe:: initProc (type: const ProcInfo*, class: Compartment)
 
@@ -470,9 +563,12 @@ Dest Attributes:
    These occur as a separate Tick cycle from the regular proc cycle, and
    should be called before the proc msg.
 
+
 .. describe:: initReinit (type: const ProcInfo*, class: Compartment)
 
    Handles Reinit call for the 'init' phase of the CompartmentBase calculations.
+
+
 
 .. describe:: injectMsg (type: double, class: Compartment)
 
@@ -481,135 +577,170 @@ Dest Attributes:
    only for a single timestep.So it needs to be updated every dt for a steady
    (or varying)injection current
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: Compartment)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: Compartment)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: Compartment)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: Compartment)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: Compartment)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: Compartment)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: Compartment)
 
    Message from Parent Element(s)
 
+
 .. describe:: process (type: const ProcInfo*, class: Compartment)
 
    Handles 'process' call
+
 
 .. describe:: randInject (type: double,double, class: Compartment)
 
    Sends a random injection current to the compartment. Must beupdated each
    timestep.Arguments to randInject are probability and current.
 
+
 .. describe:: reinit (type: const ProcInfo*, class: Compartment)
 
    Handles 'reinit' call
+
 
 .. describe:: setCm (type: double, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setCoords (type: vector<double>, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setDiameter (type: double, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setEm (type: double, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setGeomAndElec (type: double,double, class: Compartment)
 
    Assigns length and dia and accounts for any electrical scaling needed
    as a result.
 
+
 .. describe:: setInitVm (type: double, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setInject (type: double, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setLength (type: double, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setName (type: string, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setNumData (type: unsigned int, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setNumField (type: unsigned int, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setRa (type: double, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setRm (type: double, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setThis (type: 7Neutral, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setTick (type: int, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setVm (type: double, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setX (type: double, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setX0 (type: double, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setY (type: double, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setY0 (type: double, class: Compartment)
 
    Assigns field value.
+
 
 .. describe:: setZ (type: double, class: Compartment)
 
    Assigns field value.
 
+
 .. describe:: setZ0 (type: double, class: Compartment)
 
    Assigns field value.
+
 
 
 Attributes inherited from CompartmentBase:
@@ -637,12 +768,14 @@ Shared Attributes:
    other compt as args. Note that the message is named after the source
    type. - Handles 'axialOut' and 'handleRaxial' calls.
 
+
 .. describe:: channel (type: void, class: Compartment)
 
    This is a shared message from a compartment to channels. The first entry
    is a MsgDest for the info coming from the channel. It expects Gk and
    Ek from the channel as args. The second entry is a MsgSrc sending Vm
    - Handles 'handleChannel' and 'VmOut' calls.
+
 
 .. describe:: init (type: void, class: Compartment)
 
@@ -656,6 +789,7 @@ Shared Attributes:
    MsgDest for the Reinit operation. It also uses ProcInfo. - Handles 'initProc'
    and 'initReinit' calls.
 
+
 .. describe:: proc (type: void, class: Compartment)
 
    This is a shared message to receive Process messages from the schedulerobjects.
@@ -666,6 +800,7 @@ Shared Attributes:
    for the Reinit operation. It also uses ProcInfo. - Handles 'reinit' and
    'process' calls.
 
+
 .. describe:: raxial (type: void, class: Compartment)
 
    This is a raxial shared message between asymmetric compartments. The
@@ -673,6 +808,7 @@ Shared Attributes:
    expects Vm from the other compt as an arg. The second is a MsgSrc sending
    Ra and Vm to the raxialFunc of the target compartment. - Handles 'handleAxial'
    and 'raxialOut' calls.
+
 
 
 Attributes inherited from CompartmentBase:

@@ -1,3 +1,5 @@
+:orphan:
+
 GraupnerBrunel2012CaPlasticitySynHandler
 ========================================
 
@@ -25,17 +27,21 @@ Value Attributes:
    Description: all pre-synapses get updated via the same post-synaptic
    Ca.
 
+
 .. describe:: CaInit (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    CaInit is the initial value for Ca
+
 
 .. describe:: CaPost (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    CaPost is added to Ca on every post-spike
 
+
 .. describe:: CaPre (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    CaPre is added to Ca on every pre-spike
+
 
 .. describe:: bistable (type: bool, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
@@ -43,72 +49,92 @@ Value Attributes:
    of potential on the weight update is usually ignorable if Ca is above
    thetaP and thetaD most of the time.
 
+
 .. describe:: children (type: vector<Id>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Class Name of object
+
 
 .. describe:: delayD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Time delay D after pre-spike, when Ca is increased by Capre. delayD represents
    NMDA rise time.
 
+
 .. describe:: destFields (type: vector<string>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: gammaD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    gammaD is the depression factor for synaptic weight decrease if Ca>thetaD
+
+
 
 .. describe:: gammaP (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    gammaP is the potentiation factor for synaptic weight increase if Ca>thetaP
 
+
+
 .. describe:: idValue (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: me (type: ObjId, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    ObjId for current object
+
 
 .. describe:: msgIn (type: vector<ObjId>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Messages coming in to this Element
 
+
 .. describe:: msgOut (type: vector<ObjId>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Messages going out from this Element
+
 
 .. describe:: name (type: string, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Name of object
 
+
 .. describe:: noiseSD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Standard deviation of noise added to Ca
 
+
 .. describe:: noisy (type: bool, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    If true, turn noise on as per noiseSD
+
 
 .. describe:: numData (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
@@ -116,49 +142,60 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: numSynapses (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Number of synapses on SynHandler. Duplicate field for num_synapse
+
 
 .. describe:: parent (type: ObjId, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    text path for object
+
 
 .. describe:: sourceFields (type: vector<string>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: tauCa (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    tauCa is the time constant for decay of Ca
 
+
 .. describe:: tauSyn (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    tauSyn is the time constant for synaptic weight evolution equation
+
 
 .. describe:: thetaD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Depression threshold for CaUser must ensure thetaP>thetaD, else simulation
    results will be wrong.
 
+
 .. describe:: thetaP (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Potentiation threshold for CaUser must ensure thetaP>thetaD, else simulation
    results will be wrong.
 
+
 .. describe:: this (type: 7Neutral, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
@@ -169,6 +206,7 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    List of all value fields on Element.These fields are accessed through
@@ -176,13 +214,16 @@ Value Attributes:
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
 
+
 .. describe:: weightMax (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    An upper bound on the weight
 
+
 .. describe:: weightMin (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    A lower bound on the weight
+
 
 .. describe:: weightScale (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
@@ -190,6 +231,7 @@ Value Attributes:
    (default 1.0)In the terminology of the paper Higgins et al 2012, weight
    is synaptic efficacy,while weightScale*weight is what finally is added
    to activation variable.
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -208,18 +250,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -237,9 +283,12 @@ Src Attributes:
 
    Sends out level of activation on all synapses converging to this SynHandler
 
+
+
 .. describe:: childOut (type: int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Message to child Elements
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -258,348 +307,426 @@ Dest Attributes:
    Handles arriving spike messages from post-synaptic neuron, inserts into
    postEvent queue.
 
+
 .. describe:: getBistable (type: vector<bool>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getCa (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getCaInit (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getCaPost (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getCaPre (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getChildren (type: vector<vector<Id>>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDelayD (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDestFields (type: vector<vector<string>>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDt (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getGammaD (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getGammaP (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIdValue (type: vector<unsigned int>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIndex (type: vector<unsigned int>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIsA (type: bool, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMe (type: vector<ObjId>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDestFunctions (type: vector<string>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDests (type: vector<ObjId>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNeighbors (type: vector<Id>, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNoiseSD (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNoisy (type: vector<bool>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumData (type: vector<unsigned int>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumField (type: vector<unsigned int>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumSynapse (type: vector<unsigned int>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests number of field entries in field array.The requesting Element
    must provide a handler for the returned value.
 
+
 .. describe:: getNumSynapses (type: vector<unsigned int>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getParent (type: vector<ObjId>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTauCa (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTauSyn (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThetaD (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThetaP (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValueFields (type: vector<vector<string>>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getWeightMax (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getWeightMin (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getWeightScale (type: vector<double>*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Message from Parent Element(s)
+
 
 .. describe:: process (type: const ProcInfo*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Handles 'process' call. Checks if any spike events are due forhandling
    at this timestep, and does learning rule stuff if needed
 
+
 .. describe:: reinit (type: const ProcInfo*, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Handles 'reinit' call. Initializes all the synapses.
+
 
 .. describe:: setBistable (type: bool, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setCa (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setCaInit (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setCaPost (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setCaPre (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setDelayD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setGammaD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setGammaP (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setName (type: string, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setNoiseSD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setNoisy (type: bool, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setNumData (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setNumField (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setNumSynapse (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns number of field entries in field array.
+
 
 .. describe:: setNumSynapses (type: unsigned int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setTauCa (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setTauSyn (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setThetaD (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setThetaP (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setThis (type: 7Neutral, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setTick (type: int, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setWeightMax (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 .. describe:: setWeightMin (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
 
+
 .. describe:: setWeightScale (type: double, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Assigns field value.
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -618,6 +745,7 @@ Shared Attributes:
    Shared Finfo to receive Process messages from the clock.
 
 
+
 Attributes inherited from SynHandlerBase:
 -----------------------------------------
 
@@ -632,6 +760,7 @@ Field Attributes:
 .. describe:: synapse (type: 7Synapse, class: GraupnerBrunel2012CaPlasticitySynHandler)
 
    Sets up field Elements for synapse
+
 
 
 Attributes inherited from SynHandlerBase:

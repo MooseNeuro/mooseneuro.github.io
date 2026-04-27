@@ -1,3 +1,5 @@
+:orphan:
+
 MarkovSolver
 ============
 
@@ -22,63 +24,79 @@ Value Attributes:
 
    Instantaneous rate matrix.
 
+
 .. describe:: children (type: vector<Id>, class: MarkovSolver)
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: MarkovSolver)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: MarkovSolver)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: MarkovSolver)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: MarkovSolver)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: idValue (type: unsigned int, class: MarkovSolver)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: MarkovSolver)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: initialState (type: vector<double>, class: MarkovSolver)
 
    Initial state of the channel.
+
 
 .. describe:: invdx (type: double, class: MarkovSolver)
 
    Reciprocal of increment on x axis of lookup table
 
+
 .. describe:: invdy (type: double, class: MarkovSolver)
 
    Reciprocal of increment on y axis of lookup table
+
 
 .. describe:: me (type: ObjId, class: MarkovSolver)
 
    ObjId for current object
 
+
 .. describe:: msgIn (type: vector<ObjId>, class: MarkovSolver)
 
    Messages coming in to this Element
+
 
 .. describe:: msgOut (type: vector<ObjId>, class: MarkovSolver)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: MarkovSolver)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: MarkovSolver)
 
@@ -86,31 +104,38 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: MarkovSolver)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: parent (type: ObjId, class: MarkovSolver)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: MarkovSolver)
 
    text path for object
+
 
 .. describe:: sourceFields (type: vector<string>, class: MarkovSolver)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: state (type: vector<double>, class: MarkovSolver)
 
    Current state of the channel.
 
+
 .. describe:: this (type: 7Neutral, class: MarkovSolver)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: MarkovSolver)
 
@@ -121,6 +146,7 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: MarkovSolver)
 
    List of all value fields on Element.These fields are accessed through
@@ -128,29 +154,36 @@ Value Attributes:
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
 
+
 .. describe:: xdivs (type: unsigned int, class: MarkovSolver)
 
    # of divisions on x axis of lookup table
+
 
 .. describe:: xmax (type: double, class: MarkovSolver)
 
    Maximum value for x axis of lookup table
 
+
 .. describe:: xmin (type: double, class: MarkovSolver)
 
    Minimum value for x axis of lookup table
+
 
 .. describe:: ydivs (type: unsigned int, class: MarkovSolver)
 
    # of divisions on y axis of lookup table
 
+
 .. describe:: ymax (type: double, class: MarkovSolver)
 
    Maximum value for y axis of lookup table
 
+
 .. describe:: ymin (type: double, class: MarkovSolver)
 
    Minimum value for y axis of lookup table
+
 
 
 Attributes inherited from MarkovSolverBase:
@@ -169,18 +202,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: MarkovSolver)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: MarkovSolver)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: MarkovSolver)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from MarkovSolverBase:
@@ -198,9 +235,11 @@ Src Attributes:
 
    Message to child Elements
 
+
 .. describe:: stateOut (type: vector<double>, class: MarkovSolver)
 
    Sends updated state to the MarkovChannel class.
+
 
 
 Attributes inherited from MarkovSolverBase:
@@ -219,266 +258,327 @@ Dest Attributes:
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFields (type: vector<vector<string>>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDt (type: vector<double>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIdValue (type: vector<unsigned int>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIndex (type: vector<unsigned int>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getInitialState (type: vector<vector<double>>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getInvdx (type: vector<double>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getInvdy (type: vector<double>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIsA (type: bool, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMe (type: vector<ObjId>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDestFunctions (type: vector<string>, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDests (type: vector<ObjId>, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNeighbors (type: vector<Id>, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumData (type: vector<unsigned int>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumField (type: vector<unsigned int>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getParent (type: vector<ObjId>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getQ (type: PSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getState (type: vector<vector<double>>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValueFields (type: vector<vector<string>>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getXdivs (type: vector<unsigned int>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getXmax (type: vector<double>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getXmin (type: vector<double>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getYdivs (type: vector<unsigned int>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getYmax (type: vector<double>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getYmin (type: vector<double>*, class: MarkovSolver)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: handleVm (type: double, class: MarkovSolver)
 
    Handles incoming message containing voltage information.
+
 
 .. describe:: init (type: Id,double, class: MarkovSolver)
 
    Setups the table of matrix exponentials associated with the solver object.
 
+
+
 .. describe:: ligandConc (type: double, class: MarkovSolver)
 
    Handles incoming message containing ligand concentration.
+
 
 .. describe:: notifyAddMsgDest (type: ObjId, class: MarkovSolver)
 
    Called when a message is created, current object is dest. Arg is msgId.
 
+
+
 .. describe:: notifyAddMsgSrc (type: ObjId, class: MarkovSolver)
 
    Called when a message is created, current object is src. Arg is msgId.
+
+
 
 .. describe:: notifyCopy (type: ObjId, class: MarkovSolver)
 
    Called when object is copied. Arg is original.
 
+
 .. describe:: notifyCreate (type: ObjId, class: MarkovSolver)
 
    Called when object is created. Arg is parent.
+
 
 .. describe:: notifyDestroy (type: void, class: MarkovSolver)
 
    Called when object is destroyed.
 
+
 .. describe:: notifyMove (type: ObjId, class: MarkovSolver)
 
    Called when object is moved. Arg is new parent.
+
 
 .. describe:: parentMsg (type: int, class: MarkovSolver)
 
    Message from Parent Element(s)
 
+
 .. describe:: process (type: const ProcInfo*, class: MarkovSolver)
 
    Handles process call
+
 
 .. describe:: reinit (type: const ProcInfo*, class: MarkovSolver)
 
    Handles reinit call
 
+
 .. describe:: setInitialState (type: vector<double>, class: MarkovSolver)
 
    Assigns field value.
+
 
 .. describe:: setName (type: string, class: MarkovSolver)
 
    Assigns field value.
 
+
 .. describe:: setNumData (type: unsigned int, class: MarkovSolver)
 
    Assigns field value.
+
 
 .. describe:: setNumField (type: unsigned int, class: MarkovSolver)
 
    Assigns field value.
 
+
 .. describe:: setThis (type: 7Neutral, class: MarkovSolver)
 
    Assigns field value.
+
 
 .. describe:: setTick (type: int, class: MarkovSolver)
 
    Assigns field value.
 
+
 .. describe:: setXdivs (type: unsigned int, class: MarkovSolver)
 
    Assigns field value.
+
 
 .. describe:: setXmax (type: double, class: MarkovSolver)
 
    Assigns field value.
 
+
 .. describe:: setXmin (type: double, class: MarkovSolver)
 
    Assigns field value.
+
 
 .. describe:: setYdivs (type: unsigned int, class: MarkovSolver)
 
    Assigns field value.
 
+
 .. describe:: setYmax (type: double, class: MarkovSolver)
 
    Assigns field value.
 
+
 .. describe:: setYmin (type: double, class: MarkovSolver)
 
    Assigns field value.
+
 
 
 Attributes inherited from MarkovSolverBase:
@@ -498,6 +598,7 @@ Shared Attributes:
    needs Vm in order to look up the correct matrix exponential for computing
    the state.
 
+
 .. describe:: proc (type: void, class: MarkovSolver)
 
    This is a shared message to receive Process message from thescheduler.
@@ -505,6 +606,7 @@ Shared Attributes:
    argument, ProcInfo, which holds lots of information about current time,
    thread, dt andso on. The second entry is a MsgDest for the Reinit operation.
    It also uses ProcInfo.
+
 
 
 Attributes inherited from MarkovSolverBase:

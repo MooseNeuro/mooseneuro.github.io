@@ -1,3 +1,5 @@
+:orphan:
+
 SeqSynHandler
 =============
 
@@ -26,72 +28,90 @@ Value Attributes:
 
    Basal scaling factor for regular synaptic activation.
 
+
 .. describe:: children (type: vector<Id>, class: SeqSynHandler)
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: SeqSynHandler)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: SeqSynHandler)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: SeqSynHandler)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: SeqSynHandler)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: history (type: vector<double>, class: SeqSynHandler)
 
    All entries of history, as a linear vector
+
 
 .. describe:: historyTime (type: double, class: SeqSynHandler)
 
    Duration to keep track of history of inputs to all synapses.
 
+
 .. describe:: idValue (type: unsigned int, class: SeqSynHandler)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: SeqSynHandler)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: kernel (type: vector<double>, class: SeqSynHandler)
 
    All entries of kernel, as a linear vector. numHist_x_width. Organized
    as successive blocks of 'width' entries.
 
+
 .. describe:: kernelEquation (type: string, class: SeqSynHandler)
 
    Equation in x and t to define kernel for sequence recognition
+
 
 .. describe:: kernelWidth (type: unsigned int, class: SeqSynHandler)
 
    Width of kernel, i.e., number of synapses taking part in seq.
 
+
 .. describe:: me (type: ObjId, class: SeqSynHandler)
 
    ObjId for current object
+
 
 .. describe:: msgIn (type: vector<ObjId>, class: SeqSynHandler)
 
    Messages coming in to this Element
 
+
 .. describe:: msgOut (type: vector<ObjId>, class: SeqSynHandler)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: SeqSynHandler)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: SeqSynHandler)
 
@@ -99,35 +119,43 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: SeqSynHandler)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: numSynapses (type: unsigned int, class: SeqSynHandler)
 
    Number of synapses on SynHandler. Duplicate field for num_synapse
+
 
 .. describe:: parent (type: ObjId, class: SeqSynHandler)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: SeqSynHandler)
 
    text path for object
+
 
 .. describe:: plasticityScale (type: double, class: SeqSynHandler)
 
    Scaling factor for doing plasticity by scaling each synapse by response
    vector
 
+
 .. describe:: seqActivation (type: double, class: SeqSynHandler)
 
    Reports summed activation of synaptic channel by sequence
 
+
 .. describe:: seqDt (type: double, class: SeqSynHandler)
 
    Characteristic time for advancing the sequence.
+
 
 .. describe:: sequencePower (type: double, class: SeqSynHandler)
 
@@ -137,14 +165,17 @@ Value Attributes:
    words, 12345 is no betterthan 11111. Using an exponent lets us select
    the former.Defaults to 1.0.
 
+
 .. describe:: sequenceScale (type: double, class: SeqSynHandler)
 
    Scaling factor for sustained activation of synapse by seq
+
 
 .. describe:: sourceFields (type: vector<string>, class: SeqSynHandler)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
+
 
 .. describe:: synapseOrder (type: vector<unsigned int>, class: SeqSynHandler)
 
@@ -152,6 +183,8 @@ Value Attributes:
    in this vector are indices which must remain smaller than numSynapses.
    The system will fix up if you mess up. It does not insist on unique mappings,
    but these are desirable as outcome is undefined for repeated entries.
+
+
 
 .. describe:: synapseOrderOption (type: int, class: SeqSynHandler)
 
@@ -161,9 +194,11 @@ Value Attributes:
    ordering using existing system seed. >0: Random ordering using seed specified
    by this number Default is -1, sequential ordering.
 
+
 .. describe:: this (type: 7Neutral, class: SeqSynHandler)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: SeqSynHandler)
 
@@ -174,6 +209,7 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: SeqSynHandler)
 
    List of all value fields on Element.These fields are accessed through
@@ -181,9 +217,11 @@ Value Attributes:
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
 
+
 .. describe:: weightScaleVec (type: vector<double>, class: SeqSynHandler)
 
    Vector of weight scaling for each synapse
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -202,18 +240,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: SeqSynHandler)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: SeqSynHandler)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: SeqSynHandler)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -231,9 +273,12 @@ Src Attributes:
 
    Sends out level of activation on all synapses converging to this SynHandler
 
+
+
 .. describe:: childOut (type: int, class: SeqSynHandler)
 
    Message to child Elements
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -252,304 +297,372 @@ Dest Attributes:
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getChildren (type: vector<vector<Id>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDestFields (type: vector<vector<string>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDt (type: vector<double>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getHistory (type: vector<vector<double>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getHistoryTime (type: vector<double>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIdValue (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIndex (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIsA (type: bool, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getKernel (type: vector<vector<double>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getKernelEquation (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getKernelWidth (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMe (type: vector<ObjId>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDestFunctions (type: vector<string>, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDests (type: vector<ObjId>, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNeighbors (type: vector<Id>, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumField (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumSynapse (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests number of field entries in field array.The requesting Element
    must provide a handler for the returned value.
+
 
 .. describe:: getNumSynapses (type: vector<unsigned int>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getParent (type: vector<ObjId>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPlasticityScale (type: vector<double>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSeqActivation (type: vector<double>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSeqDt (type: vector<double>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSequencePower (type: vector<double>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSequenceScale (type: vector<double>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSynapseOrder (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSynapseOrderOption (type: PSt6vectorIiSaIiEE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValueFields (type: vector<vector<string>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getWeightScaleVec (type: vector<vector<double>>*, class: SeqSynHandler)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: SeqSynHandler)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: SeqSynHandler)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: SeqSynHandler)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: SeqSynHandler)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: SeqSynHandler)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: SeqSynHandler)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: SeqSynHandler)
 
    Message from Parent Element(s)
+
 
 .. describe:: process (type: const ProcInfo*, class: SeqSynHandler)
 
    Handles 'process' call. Checks if any spike events are due forhandling
    at this timestep, and does learning rule stuff if needed
 
+
 .. describe:: reinit (type: const ProcInfo*, class: SeqSynHandler)
 
    Handles 'reinit' call. Initializes all the synapses.
+
 
 .. describe:: setBaseScale (type: double, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setHistoryTime (type: double, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setKernel (type: vector<double>, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setKernelEquation (type: string, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setKernelWidth (type: unsigned int, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setName (type: string, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setNumData (type: unsigned int, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setNumField (type: unsigned int, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setNumSynapse (type: unsigned int, class: SeqSynHandler)
 
    Assigns number of field entries in field array.
 
+
 .. describe:: setNumSynapses (type: unsigned int, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setPlasticityScale (type: double, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setSeqDt (type: double, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setSequencePower (type: double, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setSequenceScale (type: double, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setSynapseOrder (type: vector<unsigned int>, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setSynapseOrderOption (type: int, class: SeqSynHandler)
 
    Assigns field value.
+
 
 .. describe:: setThis (type: 7Neutral, class: SeqSynHandler)
 
    Assigns field value.
 
+
 .. describe:: setTick (type: int, class: SeqSynHandler)
 
    Assigns field value.
+
 
 
 Attributes inherited from SynHandlerBase:
@@ -568,6 +681,7 @@ Shared Attributes:
    Shared Finfo to receive Process messages from the clock.
 
 
+
 Attributes inherited from SynHandlerBase:
 -----------------------------------------
 
@@ -582,6 +696,7 @@ Field Attributes:
 .. describe:: synapse (type: 7Synapse, class: SeqSynHandler)
 
    Sets up field Elements for synapse
+
 
 
 Attributes inherited from SynHandlerBase:

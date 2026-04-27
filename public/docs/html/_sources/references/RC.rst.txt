@@ -1,3 +1,5 @@
+:orphan:
+
 RC
 ==
 
@@ -19,64 +21,80 @@ Value Attributes:
 
    Parallel capacitance of the RC circuit.
 
+
 .. describe:: R (type: double, class: RC)
 
    Series resistance of the RC circuit.
+
 
 .. describe:: V0 (type: double, class: RC)
 
    Initial value of 'state'
 
+
 .. describe:: children (type: vector<Id>, class: RC)
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: RC)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: RC)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: RC)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: RC)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: idValue (type: unsigned int, class: RC)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: RC)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: inject (type: double, class: RC)
 
    Input value to the RC circuit.This is handled as an input current to
    the circuit.
 
+
 .. describe:: me (type: ObjId, class: RC)
 
    ObjId for current object
+
 
 .. describe:: msgIn (type: vector<ObjId>, class: RC)
 
    Messages coming in to this Element
 
+
 .. describe:: msgOut (type: vector<ObjId>, class: RC)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: RC)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: RC)
 
@@ -84,31 +102,39 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: RC)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: parent (type: ObjId, class: RC)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: RC)
 
    text path for object
+
 
 .. describe:: sourceFields (type: vector<string>, class: RC)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: state (type: double, class: RC)
 
    Output value of the RC circuit. This is the voltage across the capacitor.
 
+
+
 .. describe:: this (type: 7Neutral, class: RC)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: RC)
 
@@ -119,12 +145,14 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: RC)
 
    List of all value fields on Element.These fields are accessed through
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 
 Attributes inherited from Neutral:
@@ -139,18 +167,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: RC)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: RC)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: RC)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from Neutral:
@@ -164,9 +196,11 @@ Src Attributes:
 
    Message to child Elements
 
+
 .. describe:: output (type: double, class: RC)
 
    Current output level.
+
 
 
 Attributes inherited from Neutral:
@@ -181,217 +215,266 @@ Dest Attributes:
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getChildren (type: vector<vector<Id>>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDestFields (type: vector<vector<string>>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDt (type: vector<double>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIdValue (type: vector<unsigned int>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIndex (type: vector<unsigned int>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getInject (type: vector<double>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIsA (type: bool, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMe (type: vector<ObjId>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDestFunctions (type: vector<string>, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDests (type: vector<ObjId>, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNeighbors (type: vector<Id>, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumField (type: vector<unsigned int>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getParent (type: vector<ObjId>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getR (type: vector<double>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getState (type: vector<double>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getV0 (type: vector<double>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValueFields (type: vector<vector<string>>*, class: RC)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: injectIn (type: double, class: RC)
 
    Receives input to the RC circuit. All incoming messages are summed up
    to give the total input current.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: RC)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: RC)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: RC)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: RC)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: RC)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: RC)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: RC)
 
    Message from Parent Element(s)
+
 
 .. describe:: process (type: const ProcInfo*, class: RC)
 
    Handles process call.
 
+
 .. describe:: reinit (type: const ProcInfo*, class: RC)
 
    Handle reinitialization
+
 
 .. describe:: setC (type: double, class: RC)
 
    Assigns field value.
 
+
 .. describe:: setInject (type: double, class: RC)
 
    Assigns field value.
+
 
 .. describe:: setName (type: string, class: RC)
 
    Assigns field value.
 
+
 .. describe:: setNumData (type: unsigned int, class: RC)
 
    Assigns field value.
+
 
 .. describe:: setNumField (type: unsigned int, class: RC)
 
    Assigns field value.
 
+
 .. describe:: setR (type: double, class: RC)
 
    Assigns field value.
+
 
 .. describe:: setThis (type: 7Neutral, class: RC)
 
    Assigns field value.
 
+
 .. describe:: setTick (type: int, class: RC)
 
    Assigns field value.
 
+
 .. describe:: setV0 (type: double, class: RC)
 
    Assigns field value.
+
 
 
 Attributes inherited from Neutral:
@@ -408,6 +491,7 @@ Shared Attributes:
    operation. It has a single argument, ProcInfo, which holds lots of information
    about current time, thread, dt and so on. The second entry is a MsgDest
    for the Reinit operation. It also uses ProcInfo.
+
 
 
 Attributes inherited from Neutral:

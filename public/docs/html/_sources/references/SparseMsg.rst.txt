@@ -1,3 +1,5 @@
+:orphan:
+
 SparseMsg
 =========
 
@@ -22,13 +24,16 @@ Value Attributes:
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: SparseMsg)
 
    Class Name of object
 
+
 .. describe:: columnIndex (type: vector<unsigned int>, class: SparseMsg)
 
    Column Index of each matrix entry
+
 
 .. describe:: connectionList (type: vector<unsigned int>, class: SparseMsg)
 
@@ -36,70 +41,87 @@ Value Attributes:
    a connection from src[x] to dest[y]. The (x,y) entries are ordered in
    a single vector as (x0, x1,... x_n-1, y0, y1,... y_n-1)
 
+
 .. describe:: destFields (type: vector<string>, class: SparseMsg)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
+
 
 .. describe:: destFieldsOnE1 (type: vector<string>, class: SparseMsg)
 
    Names of destFinfos for messages going from e2 to e1. There arematching
    entries in the srcFieldsOnE2 vector
 
+
 .. describe:: destFieldsOnE2 (type: vector<string>, class: SparseMsg)
 
    Names of DestFinfos for messages going from e1 to e2. There arematching
    entries in the srcFieldsOnE1 vector
 
+
 .. describe:: dt (type: double, class: SparseMsg)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: e1 (type: Id, class: SparseMsg)
 
    Id of source Element.
 
+
 .. describe:: e2 (type: Id, class: SparseMsg)
 
    Id of source Element.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: SparseMsg)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: idValue (type: unsigned int, class: SparseMsg)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: SparseMsg)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: matrixEntry (type: vector<unsigned int>, class: SparseMsg)
 
    The non-zero matrix entries in the sparse matrix. Theircolumn indices
    are in a separate vector and the rowinformatino in a third
 
+
 .. describe:: me (type: ObjId, class: SparseMsg)
 
    ObjId for current object
+
 
 .. describe:: msgIn (type: vector<ObjId>, class: SparseMsg)
 
    Messages coming in to this Element
 
+
 .. describe:: msgOut (type: vector<ObjId>, class: SparseMsg)
 
    Messages going out from this Element
+
 
 .. describe:: name (type: string, class: SparseMsg)
 
    Name of object
 
+
 .. describe:: numColumns (type: unsigned int, class: SparseMsg)
 
    Number of columns in matrix.
+
 
 .. describe:: numData (type: unsigned int, class: SparseMsg)
 
@@ -107,57 +129,70 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numEntries (type: unsigned int, class: SparseMsg)
 
    Number of Entries in matrix.
+
 
 .. describe:: numField (type: unsigned int, class: SparseMsg)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: numRows (type: unsigned int, class: SparseMsg)
 
    Number of rows in matrix.
+
 
 .. describe:: parent (type: ObjId, class: SparseMsg)
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: SparseMsg)
 
    text path for object
+
 
 .. describe:: probability (type: double, class: SparseMsg)
 
    connection probability for random connectivity.
 
+
 .. describe:: rowStart (type: vector<unsigned int>, class: SparseMsg)
 
    Row start for each block of entries and column indices
 
+
 .. describe:: seed (type: int, class: SparseMsg)
 
    Random number seed for generating probabilistic connectivity.
+
 
 .. describe:: sourceFields (type: vector<string>, class: SparseMsg)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: srcFieldsOnE1 (type: vector<string>, class: SparseMsg)
 
    Names of SrcFinfos for messages going from e1 to e2. There arematching
    entries in the destFieldsOnE2 vector
+
 
 .. describe:: srcFieldsOnE2 (type: vector<string>, class: SparseMsg)
 
    Names of SrcFinfos for messages going from e2 to e1. There arematching
    entries in the destFieldsOnE1 vector
 
+
 .. describe:: this (type: 7Neutral, class: SparseMsg)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: SparseMsg)
 
@@ -168,12 +203,14 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: SparseMsg)
 
    List of all value fields on Element.These fields are accessed through
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 
 Attributes inherited from Msg:
@@ -191,23 +228,28 @@ Lookup Attributes:
 
    The element adjacent to the specified element
 
+
 .. describe:: isA (type: string,bool, class: SparseMsg)
 
    Returns true if the current object is derived from the specified the
    specified class
+
 
 .. describe:: msgDestFunctions (type: string,vector<string>, class: SparseMsg)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: SparseMsg)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: SparseMsg)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from Msg:
@@ -226,6 +268,7 @@ Src Attributes:
    Message to child Elements
 
 
+
 Attributes inherited from Msg:
 ------------------------------
 
@@ -241,224 +284,272 @@ Dest Attributes:
 
    Clears out the entire matrix
 
+
 .. describe:: getAdjacent (type: ObjId, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getChildren (type: vector<vector<Id>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getColumnIndex (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getConnectionList (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFields (type: vector<vector<string>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDestFieldsOnE1 (type: vector<vector<string>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFieldsOnE2 (type: vector<vector<string>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDt (type: vector<double>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getE1 (type: vector<Id>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getE2 (type: vector<Id>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIdValue (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIndex (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIsA (type: bool, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMatrixEntry (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMe (type: vector<ObjId>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDestFunctions (type: vector<string>, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDests (type: vector<ObjId>, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNeighbors (type: vector<Id>, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumColumns (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumEntries (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumField (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumRows (type: vector<unsigned int>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getParent (type: vector<ObjId>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getProbability (type: vector<double>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getRowStart (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSeed (type: PSt6vectorIiSaIiEE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSrcFieldsOnE1 (type: vector<vector<string>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSrcFieldsOnE2 (type: vector<vector<string>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValueFields (type: vector<vector<string>>*, class: SparseMsg)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: SparseMsg)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: SparseMsg)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: SparseMsg)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: SparseMsg)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: SparseMsg)
 
    Called when object is destroyed.
 
+
 .. describe:: notifyMove (type: ObjId, class: SparseMsg)
 
    Called when object is moved. Arg is new parent.
+
 
 .. describe:: pairFill (type: vector<unsigned int>,vector<unsigned int>, class: SparseMsg)
 
@@ -466,58 +557,72 @@ Dest Attributes:
    of a connection. If the target is a FieldElement itautomagically assigns
    FieldIndices.
 
+
 .. describe:: parentMsg (type: int, class: SparseMsg)
 
    Message from Parent Element(s)
+
 
 .. describe:: setConnectionList (type: vector<unsigned int>, class: SparseMsg)
 
    Assigns field value.
 
+
 .. describe:: setEntry (type: unsigned int,unsigned int,unsigned int, class: SparseMsg)
 
    Assigns single row,column value
+
 
 .. describe:: setName (type: string, class: SparseMsg)
 
    Assigns field value.
 
+
 .. describe:: setNumData (type: unsigned int, class: SparseMsg)
 
    Assigns field value.
+
 
 .. describe:: setNumField (type: unsigned int, class: SparseMsg)
 
    Assigns field value.
 
+
 .. describe:: setProbability (type: double, class: SparseMsg)
 
    Assigns field value.
+
 
 .. describe:: setRandomConnectivity (type: double,long, class: SparseMsg)
 
    Assigns connectivity with specified probability and seed
 
+
 .. describe:: setSeed (type: int, class: SparseMsg)
 
    Assigns field value.
+
 
 .. describe:: setThis (type: 7Neutral, class: SparseMsg)
 
    Assigns field value.
 
+
 .. describe:: setTick (type: int, class: SparseMsg)
 
    Assigns field value.
+
 
 .. describe:: transpose (type: void, class: SparseMsg)
 
    Transposes the sparse matrix
 
+
 .. describe:: tripletFill (type: vector<unsigned int>,vector<unsigned int>,vector<unsigned int>, class: SparseMsg)
 
    Fills entire matrix using triplets of (x,y,fieldIndex) to fully specify
    every connection in the sparse matrix.
+
 
 .. describe:: tripletFill1 (type: vector<unsigned int>, class: SparseMsg)
 
@@ -525,9 +630,11 @@ Dest Attributes:
    of (x,y, fieldindex) ordered as (x0, x1,... xn-1, y0, y1,... yn-1, fi0,
    fi1,... fi_n-1)
 
+
 .. describe:: unsetEntry (type: unsigned int,unsigned int, class: SparseMsg)
 
    Clears single row,column entry
+
 
 
 Attributes inherited from Msg:

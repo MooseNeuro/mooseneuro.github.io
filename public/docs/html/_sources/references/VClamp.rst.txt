@@ -1,3 +1,5 @@
+:orphan:
+
 VClamp
 ======
 
@@ -30,47 +32,59 @@ Value Attributes:
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: VClamp)
 
    Class Name of object
+
 
 .. describe:: command (type: double, class: VClamp)
 
    Command input received by the clamp circuit.
 
+
 .. describe:: current (type: double, class: VClamp)
 
    The amount of current injected by the clamp into the membrane.
+
 
 .. describe:: destFields (type: vector<string>, class: VClamp)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: VClamp)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: fieldIndex (type: unsigned int, class: VClamp)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
 
+
+
 .. describe:: gain (type: double, class: VClamp)
 
    Proportional gain of the PID controller.
 
+
 .. describe:: idValue (type: unsigned int, class: VClamp)
 
    Object id of self, converted to an unsigned int.
+
 
 .. describe:: index (type: unsigned int, class: VClamp)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
 
+
 .. describe:: me (type: ObjId, class: VClamp)
 
    ObjId for current object
+
 
 .. describe:: mode (type: unsigned int, class: VClamp)
 
@@ -79,17 +93,21 @@ Value Attributes:
    action based on command input mode = 2, proportional action and derivative
    action are based on command input.
 
+
 .. describe:: msgIn (type: vector<ObjId>, class: VClamp)
 
    Messages coming in to this Element
+
 
 .. describe:: msgOut (type: vector<ObjId>, class: VClamp)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: VClamp)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: VClamp)
 
@@ -97,27 +115,33 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: VClamp)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: parent (type: ObjId, class: VClamp)
 
    Parent ObjId for current object
+
 
 .. describe:: path (type: string, class: VClamp)
 
    text path for object
 
+
 .. describe:: sensed (type: double, class: VClamp)
 
    Membrane potential read from compartment.
+
 
 .. describe:: sourceFields (type: vector<string>, class: VClamp)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
+
 
 .. describe:: tau (type: double, class: VClamp)
 
@@ -125,19 +149,23 @@ Value Attributes:
    smooths out abrupt changes in the input. Set it to 5 * dt or more to
    avoid overshoots.
 
+
 .. describe:: td (type: double, class: VClamp)
 
    Derivative time of the PID controller. This defaults to 0,i.e. derivative
    action is unused.
 
+
 .. describe:: this (type: 7Neutral, class: VClamp)
 
    Access function for entire object
+
 
 .. describe:: ti (type: double, class: VClamp)
 
    Integration time of the PID controller. Defaults to 1e9, i.e. integral
    action is negligibly small.
+
 
 .. describe:: tick (type: int, class: VClamp)
 
@@ -148,12 +176,14 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: VClamp)
 
    List of all value fields on Element.These fields are accessed through
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 
 Attributes inherited from Neutral:
@@ -168,18 +198,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: VClamp)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: VClamp)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: VClamp)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from Neutral:
@@ -193,10 +227,12 @@ Src Attributes:
 
    Message to child Elements
 
+
 .. describe:: currentOut (type: double, class: VClamp)
 
    Sends out current output of the clamping circuit. This should be connected
    to the `injectMsg` field of a compartment to voltage clamp it.
+
 
 
 Attributes inherited from Neutral:
@@ -210,244 +246,300 @@ Dest Attributes:
 
    The command voltage source should be connected to this.
 
+
 .. describe:: getChildren (type: vector<vector<Id>>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getCommand (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getCurrent (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDestFields (type: vector<vector<string>>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDt (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getGain (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIdValue (type: vector<unsigned int>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIndex (type: vector<unsigned int>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIsA (type: bool, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMe (type: vector<ObjId>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMode (type: vector<unsigned int>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDestFunctions (type: vector<string>, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDests (type: vector<ObjId>, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNeighbors (type: vector<Id>, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumData (type: vector<unsigned int>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumField (type: vector<unsigned int>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getParent (type: vector<ObjId>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getSensed (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTau (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTd (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTi (type: vector<double>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValueFields (type: vector<vector<string>>*, class: VClamp)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: VClamp)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: VClamp)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: VClamp)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: VClamp)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: VClamp)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: VClamp)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: VClamp)
 
    Message from Parent Element(s)
+
 
 .. describe:: process (type: const ProcInfo*, class: VClamp)
 
    Handles 'process' call on each time step.
 
+
 .. describe:: reinit (type: const ProcInfo*, class: VClamp)
 
    Handles 'reinit' call
+
 
 .. describe:: sensedIn (type: double, class: VClamp)
 
    The `VmOut` message of the Compartment object should be connected here.
 
+
+
 .. describe:: setCommand (type: double, class: VClamp)
 
    Assigns field value.
+
 
 .. describe:: setGain (type: double, class: VClamp)
 
    Assigns field value.
 
+
 .. describe:: setMode (type: unsigned int, class: VClamp)
 
    Assigns field value.
+
 
 .. describe:: setName (type: string, class: VClamp)
 
    Assigns field value.
 
+
 .. describe:: setNumData (type: unsigned int, class: VClamp)
 
    Assigns field value.
+
 
 .. describe:: setNumField (type: unsigned int, class: VClamp)
 
    Assigns field value.
 
+
 .. describe:: setTau (type: double, class: VClamp)
 
    Assigns field value.
+
 
 .. describe:: setTd (type: double, class: VClamp)
 
    Assigns field value.
 
+
 .. describe:: setThis (type: 7Neutral, class: VClamp)
 
    Assigns field value.
+
 
 .. describe:: setTi (type: double, class: VClamp)
 
    Assigns field value.
 
+
 .. describe:: setTick (type: int, class: VClamp)
 
    Assigns field value.
+
 
 
 Attributes inherited from Neutral:
@@ -460,6 +552,7 @@ Shared Attributes:
 .. describe:: proc (type: void, class: VClamp)
 
    Shared message to receive Process messages from the scheduler
+
 
 
 Attributes inherited from Neutral:

@@ -1,3 +1,5 @@
+:orphan:
+
 DifShellBase
 ============
 
@@ -20,6 +22,7 @@ Value Attributes:
 
    Concentration C
 
+
 .. describe:: Ceq (type: double, class: DifShellBase)
 
 .. describe:: D (type: double, class: DifShellBase)
@@ -28,14 +31,17 @@ Value Attributes:
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: DifShellBase)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: DifShellBase)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
+
 
 .. describe:: diameter (type: double, class: DifShellBase)
 
@@ -43,18 +49,23 @@ Value Attributes:
 
    Timestep used for this Element. Zero if not scheduled.
 
+
 .. describe:: fieldIndex (type: unsigned int, class: DifShellBase)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
+
+
 
 .. describe:: idValue (type: unsigned int, class: DifShellBase)
 
    Object id of self, converted to an unsigned int.
 
+
 .. describe:: index (type: unsigned int, class: DifShellBase)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
+
 
 .. describe:: innerArea (type: double, class: DifShellBase)
 
@@ -66,17 +77,21 @@ Value Attributes:
 
    ObjId for current object
 
+
 .. describe:: msgIn (type: vector<ObjId>, class: DifShellBase)
 
    Messages coming in to this Element
+
 
 .. describe:: msgOut (type: vector<ObjId>, class: DifShellBase)
 
    Messages going out from this Element
 
+
 .. describe:: name (type: string, class: DifShellBase)
 
    Name of object
+
 
 .. describe:: numData (type: unsigned int, class: DifShellBase)
 
@@ -84,10 +99,12 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numField (type: unsigned int, class: DifShellBase)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
+
 
 .. describe:: outerArea (type: double, class: DifShellBase)
 
@@ -95,9 +112,11 @@ Value Attributes:
 
    Parent ObjId for current object
 
+
 .. describe:: path (type: string, class: DifShellBase)
 
    text path for object
+
 
 .. describe:: shapeMode (type: unsigned int, class: DifShellBase)
 
@@ -106,11 +125,13 @@ Value Attributes:
    List of all source fields on Element, that is fields that can act as
    message sources.
 
+
 .. describe:: thickness (type: double, class: DifShellBase)
 
 .. describe:: this (type: 7Neutral, class: DifShellBase)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: DifShellBase)
 
@@ -121,6 +142,7 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valence (type: double, class: DifShellBase)
 
 .. describe:: valueFields (type: vector<string>, class: DifShellBase)
@@ -129,6 +151,7 @@ Value Attributes:
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 .. describe:: volume (type: double, class: DifShellBase)
 
@@ -145,18 +168,22 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: DifShellBase)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: DifShellBase)
 
    ObjIds receiving messages from the specified SrcFinfo
 
+
 .. describe:: neighbors (type: string,vector<Id>, class: DifShellBase)
 
    Ids of Elements connected this Element on specified field.
+
 
 
 Attributes inherited from Neutral:
@@ -170,17 +197,21 @@ Src Attributes:
 
    Message to child Elements
 
+
 .. describe:: concentrationOut (type: double, class: DifShellBase)
 
    Sends out concentration
+
 
 .. describe:: innerDifSourceOut (type: double,double, class: DifShellBase)
 
    Sends out source information.
 
+
 .. describe:: outerDifSourceOut (type: double,double, class: DifShellBase)
 
    Sends out source information.
+
 
 
 Attributes inherited from Neutral:
@@ -202,180 +233,216 @@ Dest Attributes:
 
    Destination message
 
+
 .. describe:: getC (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getCeq (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getChildren (type: vector<vector<Id>>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getD (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDestFields (type: vector<vector<string>>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDiameter (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDt (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIdValue (type: vector<unsigned int>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIndex (type: vector<unsigned int>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getInnerArea (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIsA (type: bool, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getLeak (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getLength (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMe (type: vector<ObjId>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDestFunctions (type: vector<string>, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDests (type: vector<ObjId>, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNeighbors (type: vector<Id>, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumField (type: vector<unsigned int>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getOuterArea (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getParent (type: vector<ObjId>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getShapeMode (type: vector<unsigned int>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThickness (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getValence (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getValueFields (type: vector<vector<string>>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getVolume (type: vector<double>*, class: DifShellBase)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: hillPump (type: double,double,unsigned int, class: DifShellBase)
 
@@ -385,29 +452,38 @@ Dest Attributes:
 
    Here DifShell receives pump outflux
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: DifShellBase)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: DifShellBase)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: DifShellBase)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: DifShellBase)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: DifShellBase)
 
    Called when object is destroyed.
 
+
 .. describe:: notifyMove (type: ObjId, class: DifShellBase)
 
    Called when object is moved. Arg is new parent.
+
 
 .. describe:: outflux (type: double, class: DifShellBase)
 
@@ -415,86 +491,107 @@ Dest Attributes:
 
    Message from Parent Element(s)
 
+
 .. describe:: process (type: const ProcInfo*, class: DifShellBase)
 
    Handles process call
+
 
 .. describe:: reaction (type: double,double,double,double, class: DifShellBase)
 
    Here the DifShell receives reaction rates (forward and backward), and
    concentrations for the free-buffer and bound-buffer molecules.
 
+
 .. describe:: reinit (type: const ProcInfo*, class: DifShellBase)
 
    Reinit happens only in stage 0
+
 
 .. describe:: setC (type: double, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setCeq (type: double, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: setD (type: double, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setDiameter (type: double, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: setInnerArea (type: double, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setLeak (type: double, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: setLength (type: double, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setName (type: string, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: setNumData (type: unsigned int, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setNumField (type: unsigned int, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: setOuterArea (type: double, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setShapeMode (type: unsigned int, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: setThickness (type: double, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setThis (type: 7Neutral, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: setTick (type: int, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setValence (type: double, class: DifShellBase)
 
    Assigns field value.
 
+
 .. describe:: setVolume (type: double, class: DifShellBase)
 
    Assigns field value.
+
 
 .. describe:: storeInflux (type: double, class: DifShellBase)
 
@@ -514,20 +611,25 @@ Shared Attributes:
 
    This is a shared message from a DifShell to a Buffer (FixBuffer or DifBuffer).
 
+
+
 .. describe:: innerDif (type: void, class: DifShellBase)
 
    This shared message (and the next) is between DifShells: adjoining shells
    exchange information to find out the flux between them. Using this message,
    an inner shell sends to, and receives from its outer shell.
 
+
 .. describe:: outerDif (type: void, class: DifShellBase)
 
    Using this message, an outer shell sends to, and receives from its inner
    shell.
 
+
 .. describe:: proc (type: void, class: DifShellBase)
 
    Shared message to receive Process message from scheduler
+
 
 
 Attributes inherited from Neutral:

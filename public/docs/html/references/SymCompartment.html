@@ -461,24 +461,29 @@ the node. The equivalent circuit of the passive compartment becomes:
        <span class="o">/////</span>
 </pre></div>
 </div>
-<p>In case of branching, the B-C part of the parent's axial resistance</p>
-<section id="forms-a-y-with-the-a-b-part-of-the-children">
-<h2>forms a Y with the A-B part of the children::<a class="headerlink" href="#forms-a-y-with-the-a-b-part-of-the-children" title="Link to this heading">¶</a></h2>
-<p>B'
-|
-/
-/
-/
-<a href="#id1"><span class="problematic" id="id2">|</span></a>A'
-B              |
-A-----///-----///------<a href="#id3"><span class="problematic" id="id4">|</span></a>C
-|
-<a href="#id5"><span class="problematic" id="id6">|</span></a>A&quot;
-/
-/
-/
-|
-B&quot;</p>
+<p>In case of branching, the B-C part of the parent's axial resistance
+forms a Y with the A-B part of the children:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>                             <span class="sa">B</span><span class="s1">&#39;</span>
+                             <span class="o">|</span>
+                             <span class="o">/</span>
+                             \
+                             <span class="o">/</span>
+                             \
+                             <span class="o">/</span>
+                             <span class="o">|</span><span class="n">A</span><span class="s1">&#39;</span>
+              <span class="n">B</span>              <span class="o">|</span>
+<span class="n">A</span><span class="o">-----/</span>\<span class="o">/</span>\<span class="o">/</span>\<span class="o">-----/</span>\<span class="o">/</span>\<span class="o">/</span>\<span class="o">------|</span><span class="n">C</span>
+                             <span class="o">|</span>
+                             <span class="o">|</span><span class="n">A</span><span class="s2">&quot;</span>
+                             <span class="o">/</span>
+                             \
+                             <span class="o">/</span>
+                             \
+                             <span class="o">/</span>
+                             <span class="o">|</span>
+                             <span class="sa">B</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
 <p>As per basic circuit analysis techniques, the C node is replaced using
 star-mesh transform. This requires all sibling compartments at a
 branch point to be connected via 'sibling' messages by the user (or
@@ -488,7 +493,6 @@ distal-proximal message pair. The calculation of the
 coefficient for computing equivalent resistances in the mesh is done
 at reinit.</p>
 <p>Author:   Upi Bhalla; updated and documented by Subhasis Ray</p>
-</section>
 <section id="attributes">
 <h2>Attributes:<a class="headerlink" href="#attributes" title="Link to this heading">¶</a></h2>
 </section>
@@ -763,14 +767,14 @@ SrcFinfo</p>
 </dd></dl>
 
 </section>
-<section id="id7">
-<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<section id="id1">
+<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id8">
-<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
+<section id="id2">
+<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id9">
-<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<section id="id3">
+<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
 </section>
 <section id="src-attributes">
 <h2>Src Attributes:<a class="headerlink" href="#src-attributes" title="Link to this heading">¶</a></h2>
@@ -830,14 +834,14 @@ One can traverse proximalOut messages to get to the soma.</p>
 </dd></dl>
 
 </section>
-<section id="id10">
-<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
+<section id="id4">
+<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id11">
-<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
+<section id="id5">
+<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id12">
-<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
+<section id="id6">
+<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
 </section>
 <section id="dest-attributes">
 <h2>Dest Attributes:<a class="headerlink" href="#dest-attributes" title="Link to this heading">¶</a></h2>
@@ -1398,14 +1402,14 @@ as a result.</p>
 </dd></dl>
 
 </section>
-<section id="id13">
-<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id13" title="Link to this heading">¶</a></h2>
+<section id="id7">
+<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id14">
-<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id14" title="Link to this heading">¶</a></h2>
+<section id="id8">
+<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id15">
-<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id15" title="Link to this heading">¶</a></h2>
+<section id="id9">
+<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 </section>
 <section id="shared-attributes">
 <h2>Shared Attributes:<a class="headerlink" href="#shared-attributes" title="Link to this heading">¶</a></h2>
@@ -1538,14 +1542,14 @@ soma through the 'proximalOnly' message</p>
 </dd></dl>
 
 </section>
-<section id="id16">
-<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id16" title="Link to this heading">¶</a></h2>
+<section id="id10">
+<h2>Attributes inherited from Compartment:<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id17">
-<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id17" title="Link to this heading">¶</a></h2>
+<section id="id11">
+<h2>Attributes inherited from CompartmentBase:<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
 </section>
-<section id="id18">
-<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id18" title="Link to this heading">¶</a></h2>
+<section id="id12">
+<h2>Attributes inherited from Neutral:<a class="headerlink" href="#id12" title="Link to this heading">¶</a></h2>
 </section>
 </section>
 
@@ -1587,28 +1591,27 @@ soma through the 'proximalOnly' message</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">SymCompartment</a><ul>
-<li><a class="reference internal" href="#forms-a-y-with-the-a-b-part-of-the-children">forms a Y with the A-B part of the children::</a></li>
 <li><a class="reference internal" href="#attributes">Attributes:</a></li>
 <li><a class="reference internal" href="#value-attributes">Value Attributes:</a></li>
 <li><a class="reference internal" href="#attributes-inherited-from-compartment">Attributes inherited from Compartment:</a></li>
 <li><a class="reference internal" href="#attributes-inherited-from-compartmentbase">Attributes inherited from CompartmentBase:</a></li>
 <li><a class="reference internal" href="#attributes-inherited-from-neutral">Attributes inherited from Neutral:</a></li>
 <li><a class="reference internal" href="#lookup-attributes">Lookup Attributes:</a></li>
+<li><a class="reference internal" href="#id1">Attributes inherited from Compartment:</a></li>
+<li><a class="reference internal" href="#id2">Attributes inherited from CompartmentBase:</a></li>
+<li><a class="reference internal" href="#id3">Attributes inherited from Neutral:</a></li>
+<li><a class="reference internal" href="#src-attributes">Src Attributes:</a></li>
+<li><a class="reference internal" href="#id4">Attributes inherited from Compartment:</a></li>
+<li><a class="reference internal" href="#id5">Attributes inherited from CompartmentBase:</a></li>
+<li><a class="reference internal" href="#id6">Attributes inherited from Neutral:</a></li>
+<li><a class="reference internal" href="#dest-attributes">Dest Attributes:</a></li>
 <li><a class="reference internal" href="#id7">Attributes inherited from Compartment:</a></li>
 <li><a class="reference internal" href="#id8">Attributes inherited from CompartmentBase:</a></li>
 <li><a class="reference internal" href="#id9">Attributes inherited from Neutral:</a></li>
-<li><a class="reference internal" href="#src-attributes">Src Attributes:</a></li>
+<li><a class="reference internal" href="#shared-attributes">Shared Attributes:</a></li>
 <li><a class="reference internal" href="#id10">Attributes inherited from Compartment:</a></li>
 <li><a class="reference internal" href="#id11">Attributes inherited from CompartmentBase:</a></li>
 <li><a class="reference internal" href="#id12">Attributes inherited from Neutral:</a></li>
-<li><a class="reference internal" href="#dest-attributes">Dest Attributes:</a></li>
-<li><a class="reference internal" href="#id13">Attributes inherited from Compartment:</a></li>
-<li><a class="reference internal" href="#id14">Attributes inherited from CompartmentBase:</a></li>
-<li><a class="reference internal" href="#id15">Attributes inherited from Neutral:</a></li>
-<li><a class="reference internal" href="#shared-attributes">Shared Attributes:</a></li>
-<li><a class="reference internal" href="#id16">Attributes inherited from Compartment:</a></li>
-<li><a class="reference internal" href="#id17">Attributes inherited from CompartmentBase:</a></li>
-<li><a class="reference internal" href="#id18">Attributes inherited from Neutral:</a></li>
 </ul>
 </li>
 </ul>

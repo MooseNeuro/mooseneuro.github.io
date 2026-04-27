@@ -39,15 +39,18 @@ Building a compartment
 
 .. automodule:: testRdesigneur
    :members:
+   :no-index:
 
 Inserting Spines and viewing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: insertSpines
    :members:
+   :no-index:
 
 Proceeding with Spines
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. automodule:: testWigglySpines
    :members:
+   :no-index:

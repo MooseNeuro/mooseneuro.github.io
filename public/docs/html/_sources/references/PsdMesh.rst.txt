@@ -1,3 +1,5 @@
+:orphan:
+
 PsdMesh
 =======
 
@@ -22,18 +24,22 @@ Value Attributes:
 
    vector of ObjIds listing all children of current object
 
+
 .. describe:: className (type: string, class: PsdMesh)
 
    Class Name of object
+
 
 .. describe:: destFields (type: vector<string>, class: PsdMesh)
 
    List of all destination fields on Element, that is, fieldsthat are accessed
    as Element functions.
 
+
 .. describe:: dt (type: double, class: PsdMesh)
 
    Timestep used for this Element. Zero if not scheduled.
+
 
 .. describe:: elecComptList (type: vector<Id>, class: PsdMesh)
 
@@ -41,11 +47,14 @@ Value Attributes:
    is as per the tree structure built in the NeuroMesh, and may differ from
    Id order. Ordering matches that used for startVoxelInCompt and endVoxelInCompt
 
+
+
 .. describe:: elecComptMap (type: vector<Id>, class: PsdMesh)
 
    Vector of Ids of electrical compartments that map to each voxel. This
    is necessary because the order of the IDs may differ from the ordering
    of the voxels. Note that there is always just one voxel per PSD.
+
 
 .. describe:: endVoxelInCompt (type: vector<unsigned int>, class: PsdMesh)
 
@@ -53,18 +62,23 @@ Value Attributes:
    is just one voxel per electrical compartment in the spine, this is just
    a vector of index+1
 
+
 .. describe:: fieldIndex (type: unsigned int, class: PsdMesh)
 
    For a FieldElement: field Index of self.For a regular Element: zero.
+
+
 
 .. describe:: idValue (type: unsigned int, class: PsdMesh)
 
    Object id of self, converted to an unsigned int.
 
+
 .. describe:: index (type: unsigned int, class: PsdMesh)
 
    For a FieldElement: Object index of parent.For a regular Element: Object
    index (dataId) of self.
+
 
 .. describe:: isMembraneBound (type: bool, class: PsdMesh)
 
@@ -73,26 +87,32 @@ Value Attributes:
    If they are membrane bound they can still interact via channels and cross-compartment
    reactions.
 
+
 .. describe:: me (type: ObjId, class: PsdMesh)
 
    ObjId for current object
+
 
 .. describe:: msgIn (type: vector<ObjId>, class: PsdMesh)
 
    Messages coming in to this Element
 
+
 .. describe:: msgOut (type: vector<ObjId>, class: PsdMesh)
 
    Messages going out from this Element
+
 
 .. describe:: name (type: string, class: PsdMesh)
 
    Name of object
 
+
 .. describe:: neuronVoxel (type: vector<unsigned int>, class: PsdMesh)
 
    Vector of indices of voxels on parent NeuroMesh, from which the respective
    spines emerge.
+
 
 .. describe:: numData (type: unsigned int, class: PsdMesh)
 
@@ -100,27 +120,33 @@ Value Attributes:
    refer to field entries,but to the number of DataEntries on the parent
    of the FieldElement.
 
+
 .. describe:: numDimensions (type: unsigned int, class: PsdMesh)
 
    Number of spatial dimensions of this compartment. Usually 3 or 2
+
 
 .. describe:: numField (type: unsigned int, class: PsdMesh)
 
    For a FieldElement: number of entries of self.For a regular Element:
    One.
 
+
 .. describe:: parent (type: ObjId, class: PsdMesh)
 
    Parent ObjId for current object
+
 
 .. describe:: path (type: string, class: PsdMesh)
 
    text path for object
 
+
 .. describe:: sourceFields (type: vector<string>, class: PsdMesh)
 
    List of all source fields on Element, that is fields that can act as
    message sources.
+
 
 .. describe:: startVoxelInCompt (type: vector<unsigned int>, class: PsdMesh)
 
@@ -128,15 +154,18 @@ Value Attributes:
    a trivial function in the PsdMesh, aswe have a single voxel per spine.
    So just a vector of its own indices.
 
+
 .. describe:: thickness (type: double, class: PsdMesh)
 
    An assumed thickness for PSD. The volume is computed as thePSD area passed
    in to each PSD, times this value.defaults to 50 nanometres. For reference,
    membranes are 5 nm.
 
+
 .. describe:: this (type: 7Neutral, class: PsdMesh)
 
    Access function for entire object
+
 
 .. describe:: tick (type: int, class: PsdMesh)
 
@@ -147,12 +176,14 @@ Value Attributes:
    execution The actual timestep (dt) belonging to a clock tick is defined
    by the Clock object.
 
+
 .. describe:: valueFields (type: vector<string>, class: PsdMesh)
 
    List of all value fields on Element.These fields are accessed through
    the assignment operations in the Python interface.These fields may also
    be accessed as functions through the set<FieldName> and get<FieldName>
    commands.
+
 
 .. describe:: volume (type: double, class: PsdMesh)
 
@@ -162,15 +193,18 @@ Value Attributes:
    #s and rates as per thevolume change. This keeps concentration the same,
    and alsomaintains rates as expressed in volume units.
 
+
 .. describe:: voxelMidpoint (type: vector<double>, class: PsdMesh)
 
    Vector of midpoint coordinates of each of the voxels. The size of this
    vector is 3N, where N is the number of voxels. The first N entries are
    for x, next N for y, last N are z.
 
+
 .. describe:: voxelVolume (type: vector<double>, class: PsdMesh)
 
    Vector of volumes of each of the voxels.
+
 
 
 Attributes inherited from ChemCompt:
@@ -189,26 +223,32 @@ Lookup Attributes:
    Returns true if the current object is derived from the specified the
    specified class
 
+
 .. describe:: msgDestFunctions (type: string,vector<string>, class: PsdMesh)
 
    Matching function names for each ObjId receiving a msg from the specified
    SrcFinfo
 
+
 .. describe:: msgDests (type: string,vector<ObjId>, class: PsdMesh)
 
    ObjIds receiving messages from the specified SrcFinfo
+
 
 .. describe:: neighbors (type: string,vector<Id>, class: PsdMesh)
 
    Ids of Elements connected this Element on specified field.
 
+
 .. describe:: oneVoxelMidpoint (type: unsigned int,vector<double>, class: PsdMesh)
 
    Vector of midpoint coordinates of specified voxel.
 
+
 .. describe:: oneVoxelVolume (type: unsigned int,double, class: PsdMesh)
 
    Volume of specified voxel.
+
 
 .. describe:: stencilIndex (type: unsigned int,vector<unsigned int>, class: PsdMesh)
 
@@ -216,11 +256,13 @@ Lookup Attributes:
    rates into the coupled voxels is given by the partner field 'stencilRate'.Returns
    an empty vector for non-voxelized compartments.
 
+
 .. describe:: stencilRate (type: unsigned int,vector<double>, class: PsdMesh)
 
    vector of diffusion rates in the stencil for specified voxel.The identity
    of the coupled voxels is given by the partner field 'stencilIndex'.Returns
    an empty vector for non-voxelized compartments.
+
 
 .. describe:: voxelCoords (type: unsigned int,vector<double>, class: PsdMesh)
 
@@ -228,6 +270,7 @@ Lookup Attributes:
    are x1y1z1 x2y2z2.Coords for Cylinder, Neuro, Spine and PSD are: x1y1z1
    x2y2z2 dia0 dia1 phi0 phi1Last two of these are ignored here.Returns
    empty vec if voxel idx is wrong.
+
 
 
 Attributes inherited from ChemCompt:
@@ -245,10 +288,12 @@ Src Attributes:
 
    Message to child Elements
 
+
 .. describe:: voxelVolOut (type: vector<double>, class: PsdMesh)
 
    Sends updated voxel volume out to Ksolve, Gsolve, and Dsolve.Used to
    request a recalculation of rates and of initial numbers.
+
 
 
 Attributes inherited from ChemCompt:
@@ -267,233 +312,283 @@ Dest Attributes:
    Tells ChemCompt derived class to build a default mesh with thespecified
    volume and number of meshEntries.
 
+
 .. describe:: getChildren (type: vector<vector<Id>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getDestFields (type: vector<vector<string>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getDt (type: vector<double>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getElecComptList (type: vector<vector<Id>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getElecComptMap (type: vector<vector<Id>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getEndVoxelInCompt (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getFieldIndex (type: vector<unsigned int>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIdValue (type: vector<unsigned int>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIndex (type: vector<unsigned int>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getIsA (type: bool, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getIsMembraneBound (type: vector<bool>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMe (type: vector<ObjId>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgDestFunctions (type: vector<string>, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgDests (type: vector<ObjId>, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNeighbors (type: vector<Id>, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNeuronVoxel (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumData (type: vector<unsigned int>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumDimensions (type: vector<unsigned int>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getNumField (type: vector<unsigned int>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getNumMesh (type: vector<unsigned int>*, class: PsdMesh)
 
    Requests number of field entries in field array.The requesting Element
    must provide a handler for the returned value.
 
+
 .. describe:: getOneVoxelMidpoint (type: vector<double>, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getOneVoxelVolume (type: double, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getParent (type: vector<ObjId>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getSourceFields (type: vector<vector<string>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getStartVoxelInCompt (type: PSt6vectorIS_IjSaIjEESaIS1_EE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getStencilIndex (type: vector<unsigned int>, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getStencilRate (type: vector<double>, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getThickness (type: vector<double>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getTick (type: PSt6vectorIiSaIiEE, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getValueFields (type: vector<vector<string>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getVolume (type: vector<double>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getVoxelCoords (type: vector<double>, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: getVoxelMidpoint (type: vector<vector<double>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
+
 
 .. describe:: getVoxelVolume (type: vector<vector<double>>*, class: PsdMesh)
 
    Requests field value. The requesting Element must provide a handler for
    the returned value.
 
+
 .. describe:: notifyAddMsgDest (type: ObjId, class: PsdMesh)
 
    Called when a message is created, current object is dest. Arg is msgId.
+
+
 
 .. describe:: notifyAddMsgSrc (type: ObjId, class: PsdMesh)
 
    Called when a message is created, current object is src. Arg is msgId.
 
+
+
 .. describe:: notifyCopy (type: ObjId, class: PsdMesh)
 
    Called when object is copied. Arg is original.
+
 
 .. describe:: notifyCreate (type: ObjId, class: PsdMesh)
 
    Called when object is created. Arg is parent.
 
+
 .. describe:: notifyDestroy (type: void, class: PsdMesh)
 
    Called when object is destroyed.
+
 
 .. describe:: notifyMove (type: ObjId, class: PsdMesh)
 
    Called when object is moved. Arg is new parent.
 
+
 .. describe:: parentMsg (type: int, class: PsdMesh)
 
    Message from Parent Element(s)
+
 
 .. describe:: psdList (type: vector<double>,vector<Id>,vector<unsigned int>, class: PsdMesh)
 
@@ -501,51 +596,63 @@ Dest Attributes:
    disk params vector with 8 entries per psd, vector of Ids of electrical
    compts mapped to voxels, parent voxel index
 
+
 .. describe:: resetStencil (type: void, class: PsdMesh)
 
    Resets the diffusion stencil to the core stencil that only includes the
    within-mesh diffusion. This is needed prior to building up the cross-mesh
    diffusion through junctions.
 
+
 .. describe:: setIsMembraneBound (type: bool, class: PsdMesh)
 
    Assigns field value.
+
 
 .. describe:: setName (type: string, class: PsdMesh)
 
    Assigns field value.
 
+
 .. describe:: setNumData (type: unsigned int, class: PsdMesh)
 
    Assigns field value.
+
 
 .. describe:: setNumField (type: unsigned int, class: PsdMesh)
 
    Assigns field value.
 
+
 .. describe:: setNumMesh (type: unsigned int, class: PsdMesh)
 
    Assigns number of field entries in field array.
+
 
 .. describe:: setOneVoxelVolume (type: unsigned int,double, class: PsdMesh)
 
    Assigns field value.
 
+
 .. describe:: setThickness (type: double, class: PsdMesh)
 
    Assigns field value.
+
 
 .. describe:: setThis (type: 7Neutral, class: PsdMesh)
 
    Assigns field value.
 
+
 .. describe:: setTick (type: int, class: PsdMesh)
 
    Assigns field value.
 
+
 .. describe:: setVolume (type: double, class: PsdMesh)
 
    Assigns field value.
+
 
 .. describe:: setVolumeNotRates (type: double, class: PsdMesh)
 
@@ -553,6 +660,7 @@ Dest Attributes:
    ChemCompt has just one voxel.This function will invalidate any concentration
    term inthe model. If you don't know why you would want to do this,then
    you shouldn't use this function.
+
 
 
 Attributes inherited from ChemCompt:
@@ -570,6 +678,7 @@ Field Attributes:
 .. describe:: mesh (type: 9MeshEntry, class: PsdMesh)
 
    Field Element for mesh entries
+
 
 
 Attributes inherited from ChemCompt:
