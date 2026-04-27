@@ -207,6 +207,24 @@ def generate():
         else:
             print(f"  WARNING: {fname} not found in moose-core at {src}")
 
+    # Strip :doc:`ClassName` links in moose_classes.rst for classes that
+    # have no generated RST file (pymoose returned no doc for them).
+    classes_rst = os.path.join(OUT_DIR, 'moose_classes.rst')
+    if os.path.isfile(classes_rst):
+        with open(classes_rst) as f:
+            content = f.read()
+
+        def _strip_missing_doc(m):
+            name = m.group(1)
+            if os.path.isfile(os.path.join(OUT_DIR, name + '.rst')):
+                return m.group(0)
+            print(f"  moose_classes.rst: replacing :doc:`{name}` with plain text (no RST file)")
+            return name
+
+        content = re.sub(r':doc:`([^`]+)`', _strip_missing_doc, content)
+        with open(classes_rst, 'w') as f:
+            f.write(content)
+
     print(f"\nDone: {len(generated)} files written, {len(skipped)} skipped.")
     if skipped:
         print(f"Skipped (no doc): {skipped}")
