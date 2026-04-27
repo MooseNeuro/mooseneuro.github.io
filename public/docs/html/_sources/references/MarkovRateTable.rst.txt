@@ -1,0 +1,424 @@
+MarkovRateTable
+===============
+
+
+Rate Table for Markov channel calculations.
+
+Author:   Vishaka Datta S, 2011, NCBS
+
+
+Attributes:
+-----------
+
+
+
+Value Attributes:
+-----------------
+
+.. describe:: Q (type: vector< vector<double> >, class: MarkovRateTable)
+
+   Instantaneous rate matrix.
+
+.. describe:: Vm (type: double, class: MarkovRateTable)
+
+   Membrane voltage.
+
+.. describe:: children (type: vector<Id>, class: MarkovRateTable)
+
+   vector of ObjIds listing all children of current object
+
+.. describe:: className (type: string, class: MarkovRateTable)
+
+   Class Name of object
+
+.. describe:: destFields (type: vector<string>, class: MarkovRateTable)
+
+   List of all destination fields on Element, that is, fieldsthat are accessed
+   as Element functions.
+
+.. describe:: dt (type: double, class: MarkovRateTable)
+
+   Timestep used for this Element. Zero if not scheduled.
+
+.. describe:: fieldIndex (type: unsigned int, class: MarkovRateTable)
+
+   For a FieldElement: field Index of self.For a regular Element: zero.
+
+.. describe:: idValue (type: unsigned int, class: MarkovRateTable)
+
+   Object id of self, converted to an unsigned int.
+
+.. describe:: index (type: unsigned int, class: MarkovRateTable)
+
+   For a FieldElement: Object index of parent.For a regular Element: Object
+   index (dataId) of self.
+
+.. describe:: ligandConc (type: double, class: MarkovRateTable)
+
+   Ligand concentration.
+
+.. describe:: me (type: ObjId, class: MarkovRateTable)
+
+   ObjId for current object
+
+.. describe:: msgIn (type: vector<ObjId>, class: MarkovRateTable)
+
+   Messages coming in to this Element
+
+.. describe:: msgOut (type: vector<ObjId>, class: MarkovRateTable)
+
+   Messages going out from this Element
+
+.. describe:: name (type: string, class: MarkovRateTable)
+
+   Name of object
+
+.. describe:: numData (type: unsigned int, class: MarkovRateTable)
+
+   # of Data entries on Element.Note that on a FieldElement this does NOT
+   refer to field entries,but to the number of DataEntries on the parent
+   of the FieldElement.
+
+.. describe:: numField (type: unsigned int, class: MarkovRateTable)
+
+   For a FieldElement: number of entries of self.For a regular Element:
+   One.
+
+.. describe:: parent (type: ObjId, class: MarkovRateTable)
+
+   Parent ObjId for current object
+
+.. describe:: path (type: string, class: MarkovRateTable)
+
+   text path for object
+
+.. describe:: size (type: unsigned int, class: MarkovRateTable)
+
+   Dimension of the families of lookup tables. Is always equal to the number
+   of states in the model.
+
+.. describe:: sourceFields (type: vector<string>, class: MarkovRateTable)
+
+   List of all source fields on Element, that is fields that can act as
+   message sources.
+
+.. describe:: this (type: 7Neutral, class: MarkovRateTable)
+
+   Access function for entire object
+
+.. describe:: tick (type: int, class: MarkovRateTable)
+
+   Clock tick for this Element for periodic execution in the main simulation
+   event loop. A default is normally assigned, based on object class, but
+   one can override to any value between 0 and 19. Assigning to -1 means
+   that the object is disabled and will not be called during simulation
+   execution The actual timestep (dt) belonging to a clock tick is defined
+   by the Clock object.
+
+.. describe:: valueFields (type: vector<string>, class: MarkovRateTable)
+
+   List of all value fields on Element.These fields are accessed through
+   the assignment operations in the Python interface.These fields may also
+   be accessed as functions through the set<FieldName> and get<FieldName>
+   commands.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Lookup Attributes:
+------------------
+
+.. describe:: isA (type: string,bool, class: MarkovRateTable)
+
+   Returns true if the current object is derived from the specified the
+   specified class
+
+.. describe:: msgDestFunctions (type: string,vector<string>, class: MarkovRateTable)
+
+   Matching function names for each ObjId receiving a msg from the specified
+   SrcFinfo
+
+.. describe:: msgDests (type: string,vector<ObjId>, class: MarkovRateTable)
+
+   ObjIds receiving messages from the specified SrcFinfo
+
+.. describe:: neighbors (type: string,vector<Id>, class: MarkovRateTable)
+
+   Ids of Elements connected this Element on specified field.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Src Attributes:
+---------------
+
+.. describe:: childOut (type: int, class: MarkovRateTable)
+
+   Message to child Elements
+
+.. describe:: instratesOut (type: vector< vector<double> >, class: MarkovRateTable)
+
+   Sends out instantaneous rate information of varying transition ratesat
+   each time step.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Dest Attributes:
+----------------
+
+.. describe:: getChildren (type: vector<vector<Id>>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDestFields (type: vector<vector<string>>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDt (type: vector<double>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getFieldIndex (type: vector<unsigned int>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIdValue (type: vector<unsigned int>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIndex (type: vector<unsigned int>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIsA (type: bool, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getLigandConc (type: vector<double>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMe (type: vector<ObjId>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDestFunctions (type: vector<string>, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDests (type: vector<ObjId>, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNeighbors (type: vector<Id>, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumData (type: vector<unsigned int>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumField (type: vector<unsigned int>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getParent (type: vector<ObjId>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getQ (type: PSt6vectorIS_IS_IdSaIdEESaIS1_EESaIS3_EE, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getSize (type: vector<unsigned int>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getSourceFields (type: vector<vector<string>>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getTick (type: PSt6vectorIiSaIiEE, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getValueFields (type: vector<vector<string>>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getVm (type: vector<double>*, class: MarkovRateTable)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: handleLigandConc (type: double, class: MarkovRateTable)
+
+   Handles incoming message containing ligand concentration.
+
+.. describe:: handleVm (type: double, class: MarkovRateTable)
+
+   Handles incoming message containing voltage information.
+
+.. describe:: init (type: unsigned int, class: MarkovRateTable)
+
+   Initialization of the class. Allocates memory for all the tables.
+
+.. describe:: notifyAddMsgDest (type: ObjId, class: MarkovRateTable)
+
+   Called when a message is created, current object is dest. Arg is msgId.
+
+.. describe:: notifyAddMsgSrc (type: ObjId, class: MarkovRateTable)
+
+   Called when a message is created, current object is src. Arg is msgId.
+
+.. describe:: notifyCopy (type: ObjId, class: MarkovRateTable)
+
+   Called when object is copied. Arg is original.
+
+.. describe:: notifyCreate (type: ObjId, class: MarkovRateTable)
+
+   Called when object is created. Arg is parent.
+
+.. describe:: notifyDestroy (type: void, class: MarkovRateTable)
+
+   Called when object is destroyed.
+
+.. describe:: notifyMove (type: ObjId, class: MarkovRateTable)
+
+   Called when object is moved. Arg is new parent.
+
+.. describe:: parentMsg (type: int, class: MarkovRateTable)
+
+   Message from Parent Element(s)
+
+.. describe:: process (type: const ProcInfo*, class: MarkovRateTable)
+
+   Handles process call
+
+.. describe:: reinit (type: const ProcInfo*, class: MarkovRateTable)
+
+   Handles reinit call
+
+.. describe:: set1d (type: unsigned int,unsigned int,Id,unsigned int, class: MarkovRateTable)
+
+   Setting up of 1D lookup table for the (i,j)'th rate.
+
+.. describe:: set2d (type: unsigned int,unsigned int,Id, class: MarkovRateTable)
+
+   Setting up of 2D lookup table for the (i,j)'th rate.
+
+.. describe:: setLigandConc (type: double, class: MarkovRateTable)
+
+   Assigns field value.
+
+.. describe:: setName (type: string, class: MarkovRateTable)
+
+   Assigns field value.
+
+.. describe:: setNumData (type: unsigned int, class: MarkovRateTable)
+
+   Assigns field value.
+
+.. describe:: setNumField (type: unsigned int, class: MarkovRateTable)
+
+   Assigns field value.
+
+.. describe:: setThis (type: 7Neutral, class: MarkovRateTable)
+
+   Assigns field value.
+
+.. describe:: setTick (type: int, class: MarkovRateTable)
+
+   Assigns field value.
+
+.. describe:: setVm (type: double, class: MarkovRateTable)
+
+   Assigns field value.
+
+.. describe:: setconst (type: unsigned int,unsigned int,double, class: MarkovRateTable)
+
+   Setting a constant value for the (i,j)'th rate. Internally, this is	stored
+   as a 1-D rate with a lookup table containing 1 entry.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Shared Attributes:
+------------------
+
+.. describe:: channel (type: void, class: MarkovRateTable)
+
+   This message couples the rate table to the compartment. The rate table
+   needs updates on voltage in order to compute the rate table.
+
+.. describe:: proc (type: void, class: MarkovRateTable)
+
+   This is a shared message to receive Process message from thescheduler.
+   The first entry is a MsgDest for the Process operation. It has a single
+   argument, ProcInfo, which holds lots of information about current time,
+   thread, dt andso on. The second entry is a MsgDest for the Reinit operation.
+   It also uses ProcInfo.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+

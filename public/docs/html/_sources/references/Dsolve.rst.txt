@@ -1,0 +1,473 @@
+Dsolve
+======
+
+
+
+
+
+Author:
+-------
+
+
+
+Attributes:
+-----------
+
+
+
+Value Attributes:
+-----------------
+
+.. describe:: children (type: vector<Id>, class: Dsolve)
+
+   vector of ObjIds listing all children of current object
+
+.. describe:: className (type: string, class: Dsolve)
+
+   Class Name of object
+
+.. describe:: compartment (type: Id, class: Dsolve)
+
+   Reac-diff compartment in which this diffusion system is embedded.
+
+.. describe:: destFields (type: vector<string>, class: Dsolve)
+
+   List of all destination fields on Element, that is, fieldsthat are accessed
+   as Element functions.
+
+.. describe:: dt (type: double, class: Dsolve)
+
+   Timestep used for this Element. Zero if not scheduled.
+
+.. describe:: fieldIndex (type: unsigned int, class: Dsolve)
+
+   For a FieldElement: field Index of self.For a regular Element: zero.
+
+.. describe:: idValue (type: unsigned int, class: Dsolve)
+
+   Object id of self, converted to an unsigned int.
+
+.. describe:: index (type: unsigned int, class: Dsolve)
+
+   For a FieldElement: Object index of parent.For a regular Element: Object
+   index (dataId) of self.
+
+.. describe:: me (type: ObjId, class: Dsolve)
+
+   ObjId for current object
+
+.. describe:: msgIn (type: vector<ObjId>, class: Dsolve)
+
+   Messages coming in to this Element
+
+.. describe:: msgOut (type: vector<ObjId>, class: Dsolve)
+
+   Messages going out from this Element
+
+.. describe:: name (type: string, class: Dsolve)
+
+   Name of object
+
+.. describe:: numAllVoxels (type: unsigned int, class: Dsolve)
+
+   Number of voxels in the core reac-diff system, on the current diffusion
+   solver.
+
+.. describe:: numData (type: unsigned int, class: Dsolve)
+
+   # of Data entries on Element.Note that on a FieldElement this does NOT
+   refer to field entries,but to the number of DataEntries on the parent
+   of the FieldElement.
+
+.. describe:: numField (type: unsigned int, class: Dsolve)
+
+   For a FieldElement: number of entries of self.For a regular Element:
+   One.
+
+.. describe:: numPools (type: unsigned int, class: Dsolve)
+
+   Number of molecular pools in the entire reac-diff system, including variable,
+   function and buffered.
+
+.. describe:: numVoxels (type: unsigned int, class: Dsolve)
+
+   Number of voxels in the core reac-diff system, on the current diffusion
+   solver.
+
+.. describe:: parent (type: ObjId, class: Dsolve)
+
+   Parent ObjId for current object
+
+.. describe:: path (type: string, class: Dsolve)
+
+   Path of reaction system. Must include all the pools that are to be handled
+   by the Dsolve, can also include other random objects, which will be ignored.
+
+.. describe:: sourceFields (type: vector<string>, class: Dsolve)
+
+   List of all source fields on Element, that is fields that can act as
+   message sources.
+
+.. describe:: stoich (type: Id, class: Dsolve)
+
+   Stoichiometry object for handling this reaction system.
+
+.. describe:: this (type: 7Neutral, class: Dsolve)
+
+   Access function for entire object
+
+.. describe:: tick (type: int, class: Dsolve)
+
+   Clock tick for this Element for periodic execution in the main simulation
+   event loop. A default is normally assigned, based on object class, but
+   one can override to any value between 0 and 19. Assigning to -1 means
+   that the object is disabled and will not be called during simulation
+   execution The actual timestep (dt) belonging to a clock tick is defined
+   by the Clock object.
+
+.. describe:: valueFields (type: vector<string>, class: Dsolve)
+
+   List of all value fields on Element.These fields are accessed through
+   the assignment operations in the Python interface.These fields may also
+   be accessed as functions through the set<FieldName> and get<FieldName>
+   commands.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Lookup Attributes:
+------------------
+
+.. describe:: diffScale (type: unsigned int,double, class: Dsolve)
+
+   Geometry term to set diffusion scaling: diffScale[ voxel# ] Here the
+   scaling term is given by cross-section area/length Relevant for diffusion
+   between spine head and dend, or PSD.
+
+.. describe:: diffVol1 (type: unsigned int,double, class: Dsolve)
+
+   Volume used to set diffusion scaling: firstVol[ voxel# ] Particularly
+   relevant for diffusion between PSD and head.
+
+.. describe:: diffVol2 (type: unsigned int,double, class: Dsolve)
+
+   Volume used to set diffusion scaling: secondVol[ voxel# ] Particularly
+   relevant for diffusion between spine and dend.
+
+.. describe:: isA (type: string,bool, class: Dsolve)
+
+   Returns true if the current object is derived from the specified the
+   specified class
+
+.. describe:: msgDestFunctions (type: string,vector<string>, class: Dsolve)
+
+   Matching function names for each ObjId receiving a msg from the specified
+   SrcFinfo
+
+.. describe:: msgDests (type: string,vector<ObjId>, class: Dsolve)
+
+   ObjIds receiving messages from the specified SrcFinfo
+
+.. describe:: nVec (type: unsigned int,vector<double>, class: Dsolve)
+
+   vector of # of molecules along diffusion length, looked up by pool index
+
+.. describe:: neighbors (type: string,vector<Id>, class: Dsolve)
+
+   Ids of Elements connected this Element on specified field.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Src Attributes:
+---------------
+
+.. describe:: childOut (type: int, class: Dsolve)
+
+   Message to child Elements
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Dest Attributes:
+----------------
+
+.. describe:: buildMeshJunctions (type: ObjId, class: Dsolve)
+
+   Builds junctions between mesh on current Dsolve, and another Dsolve.
+   The meshes have to be compatible.
+
+.. describe:: buildNeuroMeshJunctions (type: ObjId,ObjId, class: Dsolve)
+
+   Builds junctions between NeuroMesh, SpineMesh and PsdMesh
+
+.. describe:: getChildren (type: vector<vector<Id>>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getCompartment (type: vector<Id>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDestFields (type: vector<vector<string>>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDiffScale (type: double, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDiffVol1 (type: double, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDiffVol2 (type: double, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDt (type: vector<double>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getFieldIndex (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIdValue (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIndex (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIsA (type: bool, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMe (type: vector<ObjId>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDestFunctions (type: vector<string>, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDests (type: vector<ObjId>, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNVec (type: vector<double>, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNeighbors (type: vector<Id>, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumAllVoxels (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumData (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumField (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumPools (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumVoxels (type: vector<unsigned int>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getParent (type: vector<ObjId>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getSourceFields (type: vector<vector<string>>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getStoich (type: vector<Id>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getTick (type: PSt6vectorIiSaIiEE, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getValueFields (type: vector<vector<string>>*, class: Dsolve)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: notifyAddMsgDest (type: ObjId, class: Dsolve)
+
+   Called when a message is created, current object is dest. Arg is msgId.
+
+.. describe:: notifyAddMsgSrc (type: ObjId, class: Dsolve)
+
+   Called when a message is created, current object is src. Arg is msgId.
+
+.. describe:: notifyCopy (type: ObjId, class: Dsolve)
+
+   Called when object is copied. Arg is original.
+
+.. describe:: notifyCreate (type: ObjId, class: Dsolve)
+
+   Called when object is created. Arg is parent.
+
+.. describe:: notifyDestroy (type: void, class: Dsolve)
+
+   Called when object is destroyed.
+
+.. describe:: notifyMove (type: ObjId, class: Dsolve)
+
+   Called when object is moved. Arg is new parent.
+
+.. describe:: parentMsg (type: int, class: Dsolve)
+
+   Message from Parent Element(s)
+
+.. describe:: process (type: const ProcInfo*, class: Dsolve)
+
+   Handles process call
+
+.. describe:: reinit (type: const ProcInfo*, class: Dsolve)
+
+   Handles reinit call
+
+.. describe:: setCompartment (type: Id, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setDiffScale (type: unsigned int,double, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setDiffVol1 (type: unsigned int,double, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setDiffVol2 (type: unsigned int,double, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setNVec (type: unsigned int,vector<double>, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setName (type: string, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setNumData (type: unsigned int, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setNumField (type: unsigned int, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setNumPools (type: unsigned int, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setPath (type: string, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setStoich (type: Id, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setThis (type: 7Neutral, class: Dsolve)
+
+   Assigns field value.
+
+.. describe:: setTick (type: int, class: Dsolve)
+
+   Assigns field value.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Shared Attributes:
+------------------
+
+.. describe:: proc (type: void, class: Dsolve)
+
+   Shared message for process and reinit
+
+
+Attributes inherited from Neutral:
+----------------------------------
+

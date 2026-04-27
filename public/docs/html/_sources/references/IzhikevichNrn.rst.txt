@@ -1,0 +1,608 @@
+IzhikevichNrn
+=============
+
+
+Izhikevich model of spiking neuron (Izhikevich,EM. 2003. Simple model of spiking neurons. Neural Networks, IEEE Transactions on 14(6). pp 1569-1572).
+
+This class obeys the equations (in physiological units):
+--------------------------------------------------------
+
+dVm/dt = 0.04 * Vm^2 + 5 * Vm + 140 - u + inject
+du/dt = a * (b * Vm - u)
+if Vm >= Vmax then Vm = c and u = u + d
+Vmax = 30 mV in the paper.
+
+Author:   Subhasis Ray
+
+
+Attributes:
+-----------
+
+
+
+Value Attributes:
+-----------------
+
+.. describe:: Im (type: double, class: IzhikevichNrn)
+
+   Total current going through the membrane. Unit is A.
+
+.. describe:: RmByTau (type: double, class: IzhikevichNrn)
+
+   Hidden coefficient of input current term (I) in Izhikevich model. Defaults
+   to 1e9 Ohm/s.
+
+.. describe:: Vm (type: double, class: IzhikevichNrn)
+
+   Membrane potential, equivalent to v in Izhikevich equation.
+
+.. describe:: Vmax (type: double, class: IzhikevichNrn)
+
+   Maximum membrane potential. Membrane potential is reset to c whenever
+   it reaches Vmax. NOTE: Izhikevich model specifies the PEAK voltage, rather
+   than THRSHOLD voltage. The threshold depends on the previous history.
+
+.. describe:: a (type: double, class: IzhikevichNrn)
+
+   Parameter a in Izhikevich model. Unit is s^{-1}
+
+.. describe:: accommodating (type: bool, class: IzhikevichNrn)
+
+   True if this neuron is an accommodating one. The equation for recovery
+   variable u is special in this case.
+
+.. describe:: alpha (type: double, class: IzhikevichNrn)
+
+   Coefficient of v^2 in Izhikevich equation. Defaults to 0.04 in physiological
+   unit. In SI it should be 40000.0. Unit is V^-1 s^{-1}
+
+.. describe:: b (type: double, class: IzhikevichNrn)
+
+   Parameter b in Izhikevich model. Unit is s^{-1}
+
+.. describe:: beta (type: double, class: IzhikevichNrn)
+
+   Coefficient of v in Izhikevich model. Defaults to 5 in physiological
+   unit, 5000.0 for SI units. Unit is s^{-1}
+
+.. describe:: c (type: double, class: IzhikevichNrn)
+
+   Reset potential. Membrane potential is reset to c whenever it reaches
+   Vmax.
+
+.. describe:: children (type: vector<Id>, class: IzhikevichNrn)
+
+   vector of ObjIds listing all children of current object
+
+.. describe:: className (type: string, class: IzhikevichNrn)
+
+   Class Name of object
+
+.. describe:: d (type: double, class: IzhikevichNrn)
+
+   Parameter d in Izhikevich model. Unit is V/s.
+
+.. describe:: destFields (type: vector<string>, class: IzhikevichNrn)
+
+   List of all destination fields on Element, that is, fieldsthat are accessed
+   as Element functions.
+
+.. describe:: dt (type: double, class: IzhikevichNrn)
+
+   Timestep used for this Element. Zero if not scheduled.
+
+.. describe:: fieldIndex (type: unsigned int, class: IzhikevichNrn)
+
+   For a FieldElement: field Index of self.For a regular Element: zero.
+
+.. describe:: gamma (type: double, class: IzhikevichNrn)
+
+   Constant term in Izhikevich model. Defaults to 140 in both physiological
+   and SI units. unit is V/s.
+
+.. describe:: idValue (type: unsigned int, class: IzhikevichNrn)
+
+   Object id of self, converted to an unsigned int.
+
+.. describe:: index (type: unsigned int, class: IzhikevichNrn)
+
+   For a FieldElement: Object index of parent.For a regular Element: Object
+   index (dataId) of self.
+
+.. describe:: initU (type: double, class: IzhikevichNrn)
+
+   Initial value of u.
+
+.. describe:: initVm (type: double, class: IzhikevichNrn)
+
+   Initial membrane potential. Unit is V.
+
+.. describe:: inject (type: double, class: IzhikevichNrn)
+
+   External current injection into the neuron
+
+.. describe:: me (type: ObjId, class: IzhikevichNrn)
+
+   ObjId for current object
+
+.. describe:: msgIn (type: vector<ObjId>, class: IzhikevichNrn)
+
+   Messages coming in to this Element
+
+.. describe:: msgOut (type: vector<ObjId>, class: IzhikevichNrn)
+
+   Messages going out from this Element
+
+.. describe:: name (type: string, class: IzhikevichNrn)
+
+   Name of object
+
+.. describe:: numData (type: unsigned int, class: IzhikevichNrn)
+
+   # of Data entries on Element.Note that on a FieldElement this does NOT
+   refer to field entries,but to the number of DataEntries on the parent
+   of the FieldElement.
+
+.. describe:: numField (type: unsigned int, class: IzhikevichNrn)
+
+   For a FieldElement: number of entries of self.For a regular Element:
+   One.
+
+.. describe:: parent (type: ObjId, class: IzhikevichNrn)
+
+   Parent ObjId for current object
+
+.. describe:: path (type: string, class: IzhikevichNrn)
+
+   text path for object
+
+.. describe:: sourceFields (type: vector<string>, class: IzhikevichNrn)
+
+   List of all source fields on Element, that is fields that can act as
+   message sources.
+
+.. describe:: this (type: 7Neutral, class: IzhikevichNrn)
+
+   Access function for entire object
+
+.. describe:: tick (type: int, class: IzhikevichNrn)
+
+   Clock tick for this Element for periodic execution in the main simulation
+   event loop. A default is normally assigned, based on object class, but
+   one can override to any value between 0 and 19. Assigning to -1 means
+   that the object is disabled and will not be called during simulation
+   execution The actual timestep (dt) belonging to a clock tick is defined
+   by the Clock object.
+
+.. describe:: u (type: double, class: IzhikevichNrn)
+
+   Parameter u in Izhikevich equation. Unit is V/s
+
+.. describe:: u0 (type: double, class: IzhikevichNrn)
+
+   This is used for accommodating neurons where recovery variables u is
+   computed as: u += tau*a*(b*(Vm-u0))
+
+.. describe:: valueFields (type: vector<string>, class: IzhikevichNrn)
+
+   List of all value fields on Element.These fields are accessed through
+   the assignment operations in the Python interface.These fields may also
+   be accessed as functions through the set<FieldName> and get<FieldName>
+   commands.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Lookup Attributes:
+------------------
+
+.. describe:: isA (type: string,bool, class: IzhikevichNrn)
+
+   Returns true if the current object is derived from the specified the
+   specified class
+
+.. describe:: msgDestFunctions (type: string,vector<string>, class: IzhikevichNrn)
+
+   Matching function names for each ObjId receiving a msg from the specified
+   SrcFinfo
+
+.. describe:: msgDests (type: string,vector<ObjId>, class: IzhikevichNrn)
+
+   ObjIds receiving messages from the specified SrcFinfo
+
+.. describe:: neighbors (type: string,vector<Id>, class: IzhikevichNrn)
+
+   Ids of Elements connected this Element on specified field.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Src Attributes:
+---------------
+
+.. describe:: VmOut (type: double, class: IzhikevichNrn)
+
+   Sends out Vm
+
+.. describe:: childOut (type: int, class: IzhikevichNrn)
+
+   Message to child Elements
+
+.. describe:: spikeOut (type: double, class: IzhikevichNrn)
+
+   Sends out spike events
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Dest Attributes:
+----------------
+
+.. describe:: aDest (type: double, class: IzhikevichNrn)
+
+   Destination message modify parameter a at runtime.
+
+.. describe:: bDest (type: double, class: IzhikevichNrn)
+
+   Destination message to modify parameter b at runtime
+
+.. describe:: cDest (type: double, class: IzhikevichNrn)
+
+   Destination message to modify parameter c at runtime.
+
+.. describe:: dDest (type: double, class: IzhikevichNrn)
+
+   Destination message to modify parameter d at runtime.
+
+.. describe:: getA (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getAccommodating (type: vector<bool>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getAlpha (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getB (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getBeta (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getC (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getChildren (type: vector<vector<Id>>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getD (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDestFields (type: vector<vector<string>>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDt (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getFieldIndex (type: vector<unsigned int>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getGamma (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIdValue (type: vector<unsigned int>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIm (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIndex (type: vector<unsigned int>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getInitU (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getInitVm (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getInject (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIsA (type: bool, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMe (type: vector<ObjId>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDestFunctions (type: vector<string>, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDests (type: vector<ObjId>, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNeighbors (type: vector<Id>, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumData (type: vector<unsigned int>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumField (type: vector<unsigned int>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getParent (type: vector<ObjId>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getRmByTau (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getSourceFields (type: vector<vector<string>>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getTick (type: PSt6vectorIiSaIiEE, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getU (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getU0 (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getValueFields (type: vector<vector<string>>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getVm (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getVmax (type: vector<double>*, class: IzhikevichNrn)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: handleChannel (type: double,double, class: IzhikevichNrn)
+
+   Handles conductance and reversal potential arguments from Channel
+
+.. describe:: injectMsg (type: double, class: IzhikevichNrn)
+
+   Injection current into the neuron.
+
+.. describe:: notifyAddMsgDest (type: ObjId, class: IzhikevichNrn)
+
+   Called when a message is created, current object is dest. Arg is msgId.
+
+.. describe:: notifyAddMsgSrc (type: ObjId, class: IzhikevichNrn)
+
+   Called when a message is created, current object is src. Arg is msgId.
+
+.. describe:: notifyCopy (type: ObjId, class: IzhikevichNrn)
+
+   Called when object is copied. Arg is original.
+
+.. describe:: notifyCreate (type: ObjId, class: IzhikevichNrn)
+
+   Called when object is created. Arg is parent.
+
+.. describe:: notifyDestroy (type: void, class: IzhikevichNrn)
+
+   Called when object is destroyed.
+
+.. describe:: notifyMove (type: ObjId, class: IzhikevichNrn)
+
+   Called when object is moved. Arg is new parent.
+
+.. describe:: parentMsg (type: int, class: IzhikevichNrn)
+
+   Message from Parent Element(s)
+
+.. describe:: process (type: const ProcInfo*, class: IzhikevichNrn)
+
+   Handles process call
+
+.. describe:: reinit (type: const ProcInfo*, class: IzhikevichNrn)
+
+   Handles reinit call
+
+.. describe:: setA (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setAccommodating (type: bool, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setAlpha (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setB (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setBeta (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setC (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setD (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setGamma (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setInitU (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setInitVm (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setInject (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setName (type: string, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setNumData (type: unsigned int, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setNumField (type: unsigned int, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setRmByTau (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setThis (type: 7Neutral, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setTick (type: int, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setU0 (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setVm (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+.. describe:: setVmax (type: double, class: IzhikevichNrn)
+
+   Assigns field value.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Shared Attributes:
+------------------
+
+.. describe:: channel (type: void, class: IzhikevichNrn)
+
+   This is a shared message from a IzhikevichNrn to channels.The first entry
+   is a MsgDest for the info coming from the channel. It expects Gk and
+   Ek from the channel as args. The second entry is a MsgSrc sending Vm
+
+.. describe:: proc (type: void, class: IzhikevichNrn)
+
+   Shared message to receive Process message from scheduler
+
+
+Attributes inherited from Neutral:
+----------------------------------
+

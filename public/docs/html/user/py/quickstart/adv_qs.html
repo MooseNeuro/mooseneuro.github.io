@@ -1,0 +1,818 @@
+<!doctype html>
+<html class="no-js" lang="English" data-content_root="../../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../../genindex.html"><link rel="search" title="Search" href="../../../search.html"><link rel="next" title="Teaching Tutorials" href="../Tutorials/adv_tut.html"><link rel="prev" title="Advanced" href="../../../advanced.html">
+        <link rel="prefetch" href="../../../_static/moose_logo.png" as="image">
+
+    <!-- Generated with Sphinx 9.0.4 and Furo 2025.12.19 -->
+        <title>Getting started with python scripting for MOOSE - MOOSE Kalakand 4.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0ba51fa9" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  --color-brand-primary: #41729f;
+  --color-brand-content: #41729f;
+  --color-sidebar-background: #ffffff;
+  --color-sidebar-background-border: #c3e0e5;
+  --color-sidebar-brand-text: #274472;
+  --color-sidebar-search-foreground: #274472;
+  --color-sidebar-search-background: #f5f9fc;
+  --color-sidebar-search-background--focus: #e8f2f8;
+  --color-sidebar-search-border: #c3e0e5;
+  --color-sidebar-search-icon: #5885af;
+  --color-sidebar-link-text: #41729f;
+  --color-sidebar-link-text--top-level: #274472;
+  --color-sidebar-item-background--hover: #f5f9fc;
+  --color-sidebar-item-background--current: transparent;
+  --color-sidebar-caption-text: #5885af;
+  --color-highlight-on-target: transparent;
+  --color-background-secondary: #f5f9fc;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #0d1117;
+  --color-code-foreground: #e6edf3;
+  --color-brand-primary: #5885af;
+  --color-brand-content: #7aafd4;
+  --color-sidebar-background: #1a1c1e;
+  --color-sidebar-background-border: #2d2f31;
+  --color-sidebar-link-text: rgba(255,255,255,0.75);
+  --color-sidebar-link-text--top-level: #c3e0e5;
+  --color-sidebar-item-background--hover: rgba(88,133,175,0.15);
+  --color-sidebar-item-background--current: rgba(88,133,175,0.25);
+  --color-sidebar-caption-text: rgba(195,224,229,0.5);
+  --color-highlight-on-target: transparent;
+  --color-foreground-primary: #e8e8e8;
+  --color-foreground-secondary: #aaaaaa;
+  --color-foreground-muted: #888888;
+  --color-background-primary: #131416;
+  --color-background-secondary: #1a1c1e;
+  --color-background-border: #303335;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #0d1117;
+  --color-code-foreground: #e6edf3;
+  --color-brand-primary: #5885af;
+  --color-brand-content: #7aafd4;
+  --color-sidebar-background: #1a1c1e;
+  --color-sidebar-background-border: #2d2f31;
+  --color-sidebar-link-text: rgba(255,255,255,0.75);
+  --color-sidebar-link-text--top-level: #c3e0e5;
+  --color-sidebar-item-background--hover: rgba(88,133,175,0.15);
+  --color-sidebar-item-background--current: rgba(88,133,175,0.25);
+  --color-sidebar-caption-text: rgba(195,224,229,0.5);
+  --color-highlight-on-target: transparent;
+  --color-foreground-primary: #e8e8e8;
+  --color-foreground-secondary: #aaaaaa;
+  --color-foreground-muted: #888888;
+  --color-background-primary: #131416;
+  --color-background-secondary: #1a1c1e;
+  --color-background-border: #303335;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">MOOSE Kalakand 4.2.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../index.html">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/moose_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">MOOSE Kalakand 4.2.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../introduction/introduction.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../install/index_install.html">Installation</a><input aria-label="Toggle navigation of Installation" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../install/install.html">Installing MOOSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install/install.html#installing-released-version-from-pypi-using-pip">Installing released version from PyPI using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install/install.html#installing-from-a-binary-wheel-using-pip">Installing from a binary wheel using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install/install.html#installing-from-source-code-in-github-repository">Installing from source code in Github repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install/install.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install/install.html#uninstall">Uninstall</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../install/WindowsBuild.html">Building and Installing MOOSE on Windows with MSVC</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="qs_GUI.html">Jardesigner: Graphical User Interface</a><input aria-label="Toggle navigation of Jardesigner: Graphical User Interface" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="jardesigner_intro.html">Introduction</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="jardesigner_interface.html">Interface</a><input aria-label="Toggle navigation of Interface" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jardesigner_behind_the_scenes.html">Behind the scenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jardesigner_rebuild_on_menu_close.html">Rebuild model on Menu-close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jar_workflow.html">Workflow</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="jar_handling_paths.html">Handling Paths</a><input aria-label="Toggle navigation of Handling Paths" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="jar_elec_paths.html">Electrical model paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jar_chem_paths.html">Chemical model paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="jar_molecule_paths.html">Molecule paths</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="jar_top_level_fields.html">Top-Level Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jar_quick_overview.html">Quick Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../beginner.html">Beginner</a><input aria-label="Toggle navigation of Beginner" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="beginner_qs.html">Quick Start</a><input aria-label="Toggle navigation of Quick Start" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="moose_quickstart_edited.html">Getting started with python scripting for MOOSE</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="beg_demos.html">Demonstration of basic functionalities</a><input aria-label="Toggle navigation of Demonstration of basic functionalities" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="beg_classes.html">MOOSE Classes</a><input aria-label="Toggle navigation of MOOSE Classes" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/beg_cookbook.html">Cook Book</a><input aria-label="Toggle navigation of Cook Book" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/elec_mod.html">Neuron Modeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/beg_elec_load_run.html">Load and Run simple models</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cookbook/beg_chem.html">Chemical Aspects</a><input aria-label="Toggle navigation of Chemical Aspects" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/beg_chem_load_save.html">Load - Run - Save models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/beg_chem_sim.html">Simple Examples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/beg_chem_tut.html">Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cookbook/beg_network.html">Networking</a><input aria-label="Toggle navigation of Networking" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/net_sim_eg.html">Simple Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Tutorials/beg_tut.html">Teaching Tutorials</a><input aria-label="Toggle navigation of Teaching Tutorials" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/beg_tutorial.html">Chemical Bistables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/squid.html">Squid giant axon</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/beg_network.html">Networking</a><input aria-label="Toggle navigation of Networking" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/net_sim_eg.html">Simple Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/beg_chem.html">Chemical Aspects</a><input aria-label="Toggle navigation of Chemical Aspects" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/beg_chem_load_save.html">Load - Run - Save models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/beg_chem_sim.html">Simple Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/beg_chem_tut.html">Tutorials</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../intermediate.html">Intermediate</a><input aria-label="Toggle navigation of Intermediate" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="interm_qs.html">Quick Start</a><input aria-label="Toggle navigation of Quick Start" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="interm_demos.html">Demonstration of basic functionalities</a><input aria-label="Toggle navigation of Demonstration of basic functionalities" class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="interm_classes.html">MOOSE Classes</a><input aria-label="Toggle navigation of MOOSE Classes" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" role="switch" type="checkbox"/><label for="toctree-checkbox-18"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Tutorials/interm_tut.html">Teaching Tutorials</a><input aria-label="Toggle navigation of Teaching Tutorials" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" role="switch" type="checkbox"/><label for="toctree-checkbox-19"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/mapk_tut.html">MAPK Feedback Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/interm_chem_osc_tut.html">Chemical Oscillators</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/interm_cookbook.html">Cook Book</a><input aria-label="Toggle navigation of Cook Book" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" role="switch" type="checkbox"/><label for="toctree-checkbox-20"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/interm_elec_load_run.html">Load and Run simple models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/interm_elec_sim.html">Simple Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/intern_net.html">Networking</a><input aria-label="Toggle navigation of Networking" class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" role="switch" type="checkbox"/><label for="toctree-checkbox-21"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/interm_net_sim.html">Simple Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/interm_multi.html">MultiScale Modeling</a><input aria-label="Toggle navigation of MultiScale Modeling" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" role="switch" type="checkbox"/><label for="toctree-checkbox-22"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/interm_multi_sim.html">Simple Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/interm_chem_aspects.html">Chemical Aspects</a><input aria-label="Toggle navigation of Chemical Aspects" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" role="switch" type="checkbox"/><label for="toctree-checkbox-23"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/interm_chem_sim.html">Simple Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../advanced.html">Advanced</a><input aria-label="Toggle navigation of Advanced" checked="" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" role="switch" type="checkbox"/><label for="toctree-checkbox-24"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Getting started with python scripting for MOOSE</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../Tutorials/adv_tut.html">Teaching Tutorials</a><input aria-label="Toggle navigation of Teaching Tutorials" class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" role="switch" type="checkbox"/><label for="toctree-checkbox-25"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/adv_chem_osc.html">Chemical Oscillators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Tutorials/adv_net_tut.html">Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cookbook/adv_elec_sim.html">Simple Examples</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/adv_netwrk.html">Networking</a><input aria-label="Toggle navigation of Networking" class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" role="switch" type="checkbox"/><label for="toctree-checkbox-26"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/adv_net_sim.html">Simple Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/adv_net_tut.html">Tutorials</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/adv_mlti.html">MultiScale Modeling</a><input aria-label="Toggle navigation of MultiScale Modeling" class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" role="switch" type="checkbox"/><label for="toctree-checkbox-27"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cookbook/adv_multi.html">Simple Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cookbook/interm_chem_asp.html">Chemical Aspects</a><input aria-label="Toggle navigation of Chemical Aspects" class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" role="switch" type="checkbox"/><label for="toctree-checkbox-28"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../cookbook/interm_chem_aspects.html">Chemical Aspects</a><input aria-label="Toggle navigation of Chemical Aspects" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" role="switch" type="checkbox"/><label for="toctree-checkbox-29"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../cookbook/interm_chem_sim.html">Simple Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../doxygen.html">Doxygen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../known_issues.html">Known issues</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">What's New</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../LegacyFeatures/legacy.html">Legacy Features</a><input aria-label="Toggle navigation of Legacy Features" class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" role="switch" type="checkbox"/><label for="toctree-checkbox-30"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../LegacyFeatures/legacy_GUI.html">MOOSE GUI</a><input aria-label="Toggle navigation of MOOSE GUI" class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" role="switch" type="checkbox"/><label for="toctree-checkbox-31"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../LegacyFeatures/elec_GUI.html">Neuronal simulations in MOOSEGUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../LegacyFeatures/chem_GUI.html">Interface for chemical kinetic models in MOOSEGUI</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../LegacyFeatures/index_rd.html">Rdesignuer</a><input aria-label="Toggle navigation of Rdesignuer" class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" role="switch" type="checkbox"/><label for="toctree-checkbox-32"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../LegacyFeatures/rdes.html"><strong>Rdesigneur: Building multiscale models</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../LegacyFeatures/multi_rdes.html">Rdesigneur Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../references/index_ref.html">References</a><input aria-label="Toggle navigation of References" class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" role="switch" type="checkbox"/><label for="toctree-checkbox-33"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/moose_functions.html">MOOSE Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../references/moose_classes.html">Class Hierarchy</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../../_sources/user/py/quickstart/adv_qs.rst.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="getting-started-with-python-scripting-for-moose">
+<h1><a class="toc-backref" href="#id7" role="doc-backlink">Getting started with python scripting for MOOSE</a><a class="headerlink" href="#getting-started-with-python-scripting-for-moose" title="Link to this heading">¶</a></h1>
+<nav class="contents this-will-duplicate-information-and-it-is-still-useful-here" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#getting-started-with-python-scripting-for-moose" id="id7">Getting started with python scripting for MOOSE</a></p>
+<ul>
+<li><p><a class="reference internal" href="#scheduling" id="id8">Scheduling</a></p></li>
+<li><p><a class="reference internal" href="#running-the-simulation" id="id9">Running the simulation</a></p></li>
+<li><p><a class="reference internal" href="#some-more-details" id="id10">Some more details</a></p>
+<ul>
+<li><p><a class="reference internal" href="#vec-melement-and-element" id="id11"><code class="docutils literal notranslate"><span class="pre">vec</span></code>, <code class="docutils literal notranslate"><span class="pre">melement</span></code> and <code class="docutils literal notranslate"><span class="pre">element</span></code></a></p></li>
+<li><p><a class="reference internal" href="#finfos" id="id12"><code class="docutils literal notranslate"><span class="pre">Finfos</span></code></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#moving-on" id="id13">Moving on</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../../_images/Gallery_Moose_Multiscale.png"><img alt="**multiple scales in moose**" height="540" src="../../../_images/Gallery_Moose_Multiscale.png" width="833" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>Multiple scales can be modelled and simulated in MOOSE</em></span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This document describes how to use the <code class="docutils literal notranslate"><span class="pre">moose</span></code> module in Python scripts or in an interactive Python shell. It aims to give you enough overview to help you start scripting using MOOSE and extract further information that may be required for advanced work. Knowledge of Python or programming in general will be helpful. In order to simulate existing models in one of the supported formats, you may Use Jardesigner, theweb-based platform. You may load a model file in JSON format using the <code class="docutils literal notranslate"><span class="pre">Load</span> <span class="pre">Model</span></code>  option in the menu. You may then proceed to run the model after setting up the parameters. The results are available in the <code class="docutils literal notranslate"><span class="pre">Graph</span></code> option in the display panel. The Jardesigner web platform is equipped with its own documentation, provided as an option in the menu. If you are looking for recipes for specific tasks, take a look at <code class="docutils literal notranslate"><span class="pre">Cookbook</span></code>. The example code in the boxes can be entered in a Python shell.</p>
+<p>MOOSE is based on an object-based approach. Biological concepts are mapped into classes, and a model is built by creating instances of these classes and connecting them by messages. MOOSE Numerical classes aredesigned using efficient data structures and algorithms to handle complex computations with high efficiency. Solver classes in MOOSE seamlessly handle stochastic and deterministic computations arising in biochemistry, reaction-diffusion systems, and even multicompartment neuronal models.</p>
+<p>MOOSE provides support for several model formats, including SBML, NeuroML, GENESIS kkit, and cell.p for models, HDF5 and NSDF for data writing. MOOSE uses SI units for all calculations.</p>
+<p>Contents:</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">local<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+<dt class="field-even">depth<span class="colon">:</span></dt>
+<dd class="field-even"><p>1</p>
+</dd>
+</dl>
+</div></blockquote>
+<section id="scheduling">
+<span id="quickstart-scheduling"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">Scheduling</a><a class="headerlink" href="#scheduling" title="Link to this heading">¶</a></h2>
+<p>With the model all set up, we have to schedule the
+simulation. Different components in a model may have different rates
+of update. For example, the dynamics of electrical components require
+the update intervals to be of the order 0.01 ms whereas chemical
+components can be as slow as 1 s. Also, the results may depend on the
+sequence of the updates of different components. These issues are
+addressed in MOOSE using a clock-based update scheme. Each model
+component is scheduled on a clock tick (think of multiple hands of a
+clock ticking at different intervals and the object being updated at
+each tick of the corresponding hand). The scheduling also guarantees
+the correct sequencing of operations. For example, your Table objects
+should always be scheduled <em>after</em> the computations that they are
+recording, otherwise they will miss the outcome of the latest calculation.</p>
+<p>MOOSE has a central clock element (<code class="docutils literal notranslate"><span class="pre">/clock</span></code>) to manage
+time. Clock has a set of <code class="docutils literal notranslate"><span class="pre">Tick</span></code> elements under it that take care of
+advancing the state of each element with time as the simulation
+progresses. Every element to be included in a simulation must be
+assigned a tick. Each tick can have a different ticking interval
+(<code class="docutils literal notranslate"><span class="pre">dt</span></code>) that allows different elements to be updated at different
+rates.</p>
+<p>By default, every object is assigned a clock tick with reasonable
+default timesteps as soon it is created. There are 32 available clock
+ticks. In most simulations you need only a few.</p>
+<p>If you want fine control over the scheduling, there are three things
+you can do.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Alter the <cite>tick</cite> field on the object</p></li>
+<li><p>Alter the <cite>dt</cite> associated with a given tick, using the
+<strong>moose.setClock( tick, newdt)</strong> command</p></li>
+<li><p>Go through a wildcard path of objects reassigning there clock ticks,
+using <strong>moose.useClock( path, newtick, function)</strong>.</p></li>
+</ul>
+</div></blockquote>
+<p>Here we discuss these in more detail.</p>
+<p><strong>Altering the 'tick' field</strong></p>
+<p>Every object knows which tick and dt it uses:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">moose</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span> <span class="s1">&#39;/a&#39;</span> <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">tick</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">dt</span><span class="p">)</span>
+<span class="go">8 0.0001</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tick</span></code> field on every object can be changed, and the object will
+adopt whatever clock dt is used for that tick. The <code class="docutils literal notranslate"><span class="pre">dt</span></code> field is
+readonly, because changing it would have side-effects on every object
+associated with the current tick.</p>
+<p>Ticks <strong>-1</strong> and <strong>-2</strong> are special: They both tell the object that it is
+disabled (not scheduled for any operations). An object with a
+tick of <strong>-1</strong> will be left alone entirely. A tick of <strong>-2</strong> is used in
+solvers to indicate that should the solver be removed, the object will
+revert to its default tick.</p>
+<p><strong>Altering the dt associated with a given tick</strong></p>
+<p>We initialize the ticks and set their <code class="docutils literal notranslate"><span class="pre">dt</span></code> values using the
+<code class="docutils literal notranslate"><span class="pre">setClock</span></code> function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">setClock</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.025e-3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">setClock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.025e-3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">setClock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.25e-3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will initialize tick #0 and tick #1 with <code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">25</span></code> Î¼s and tick #2
+with <code class="docutils literal notranslate"><span class="pre">dt</span> <span class="pre">=</span> <span class="pre">250</span></code> Î¼s. Thus all the elements scheduled on ticks #0 and 1
+will be updated every 25 Î¼s and those on tick #2 every 250 Î¼s. We use
+the faster clocks for the model components where finer timescale is
+required for numerical accuracy and the slower clock to sample the
+values of <code class="docutils literal notranslate"><span class="pre">Vm</span></code>.</p>
+<p>Note that if you alter the dt associated with a given tick, this will
+affect the update time for <em>all</em> the objects using that clock tick. If
+you're unsure that you want to do this, use one of the vacant ticks.</p>
+<p><strong>Assigning clock ticks to all objects in a wildcard path</strong></p>
+<p>To assign tick #2 to the table for recording <code class="docutils literal notranslate"><span class="pre">Vm</span></code>, we pass its
+whole path to the <code class="docutils literal notranslate"><span class="pre">useClock</span></code> function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">useClock</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;/data/soma_Vm&#39;</span><span class="p">,</span> <span class="s1">&#39;process&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Read this as &quot;use tick # 2 on the element at path <code class="docutils literal notranslate"><span class="pre">/data/soma_Vm</span></code> to
+call its <code class="docutils literal notranslate"><span class="pre">process</span></code> method at every step&quot;. Every class that is supposed
+to update its state or take some action during simulation implements a
+<code class="docutils literal notranslate"><span class="pre">process</span></code> method. And in most cases that is the method we want the
+ticks to call at every time step. A less common method is <code class="docutils literal notranslate"><span class="pre">init</span></code>,
+which is implemented in some classes to interleave actions or updates
+that must be executed in a specific order <a class="footnote-reference brackets" href="#id5" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>. The <code class="docutils literal notranslate"><span class="pre">Compartment</span></code>
+class is one such case where a neuronal compartment has to know the
+<code class="docutils literal notranslate"><span class="pre">Vm</span></code> of its neighboring compartments before it can calculate its
+<code class="docutils literal notranslate"><span class="pre">Vm</span></code> for the next step. This is done with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">useClock</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">soma</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;init&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here we used the <code class="docutils literal notranslate"><span class="pre">path</span></code> field instead of writing the path explicitly.</p>
+<p>Next we assign tick #1 to process method of everything under <code class="docutils literal notranslate"><span class="pre">/model</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">useClock</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;/model/##&#39;</span><span class="p">,</span> <span class="s1">&#39;process&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here the second argument is an example of wild-card path. The <code class="docutils literal notranslate"><span class="pre">##</span></code>
+matches everything under the path preceding it at any depth. Thus if we
+had some other objects under <code class="docutils literal notranslate"><span class="pre">/model/soma</span></code>, <code class="docutils literal notranslate"><span class="pre">process</span></code> method of
+those would also have been scheduled on tick #1. This is very useful for
+complex models where it is tedious to scheduled each element
+individually. In this case we could have used <code class="docutils literal notranslate"><span class="pre">/model/#</span></code> as well for
+the path. This is a single level wild-card which matches only the
+children of <code class="docutils literal notranslate"><span class="pre">/model</span></code> but does not go farther down in the hierarchy.</p>
+</section>
+<section id="running-the-simulation">
+<span id="quickstart-running"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">Running the simulation</a><a class="headerlink" href="#running-the-simulation" title="Link to this heading">¶</a></h2>
+<p>Once the model is all set up, we can put the model to its
+initial state using</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">reinit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You may remember that we had changed initVm from <code class="docutils literal notranslate"><span class="pre">-0.06</span></code> to <code class="docutils literal notranslate"><span class="pre">-0.07</span></code>.
+The reinit call we initialize <code class="docutils literal notranslate"><span class="pre">Vm</span></code> to that value. You can verify that</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">soma</span><span class="o">.</span><span class="n">Vm</span><span class="p">)</span>
+<span class="go">-0.07</span>
+</pre></div>
+</div>
+<p>Finally, we run the simulation for 300 ms</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">moose</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mf">300e-3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The data will be recorded by the <code class="docutils literal notranslate"><span class="pre">soma_vm</span></code> table, which is referenced
+by the variable <code class="docutils literal notranslate"><span class="pre">vmtab</span></code>. The <code class="docutils literal notranslate"><span class="pre">Table</span></code> class provides a numpy array
+interface to its content. The field is <code class="docutils literal notranslate"><span class="pre">vector</span></code>. So you can easily plot
+the membrane potential using the <a class="reference external" href="https://matplotlib.org/">matplotlib</a>
+library.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">pylab</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">300e-3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vmtab</span><span class="o">.</span><span class="n">vector</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">vmtab</span><span class="o">.</span><span class="n">vector</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pylab</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The first line imports the pylab submodule from matplotlib. This useful
+for interactive plotting. The second line creates the time points to
+match our simulation time and length of the recorded data. The third
+line plots the <code class="docutils literal notranslate"><span class="pre">Vm</span></code> and the fourth line makes it visible. Does the
+plot match your expectation?</p>
+</section>
+<section id="some-more-details">
+<span id="quickstart-details"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink">Some more details</a><a class="headerlink" href="#some-more-details" title="Link to this heading">¶</a></h2>
+<section id="vec-melement-and-element">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">vec</span></code>, <code class="docutils literal notranslate"><span class="pre">melement</span></code> and <code class="docutils literal notranslate"><span class="pre">element</span></code></a><a class="headerlink" href="#vec-melement-and-element" title="Link to this heading">¶</a></h3>
+<p>MOOSE elements are instances of the class <code class="docutils literal notranslate"><span class="pre">melement</span></code>. <code class="docutils literal notranslate"><span class="pre">Compartment</span></code>,
+<code class="docutils literal notranslate"><span class="pre">PulseGen</span></code> and other MOOSE classes are derived classes of
+<code class="docutils literal notranslate"><span class="pre">melement</span></code>. All <code class="docutils literal notranslate"><span class="pre">melement</span></code> instances are contained in array-like
+structures called <code class="docutils literal notranslate"><span class="pre">vec</span></code>. Each <code class="docutils literal notranslate"><span class="pre">vec</span></code> object has a numerical
+<code class="docutils literal notranslate"><span class="pre">id_</span></code> field uniquely identifying it. An <code class="docutils literal notranslate"><span class="pre">vec</span></code> can have one or
+more elements. You can create an array of elements</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">comp_array</span> <span class="o">=</span> <span class="n">moose</span><span class="o">.</span><span class="n">vec</span><span class="p">(</span><span class="s1">&#39;/model/comp&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;Compartment&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This tells MOOSE to create an <code class="docutils literal notranslate"><span class="pre">vec</span></code> of 3 <code class="docutils literal notranslate"><span class="pre">Compartment</span></code> elements
+with path <code class="docutils literal notranslate"><span class="pre">/model/comp</span></code>. For <code class="docutils literal notranslate"><span class="pre">vec</span></code> objects with multiple
+elements, the index in the <code class="docutils literal notranslate"><span class="pre">vec</span></code> is part of the element path.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">comp_array</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">comp_array</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>shows that <code class="docutils literal notranslate"><span class="pre">comp_array</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">vec</span></code> class. You can
+loop through the elements in an <code class="docutils literal notranslate"><span class="pre">vec</span></code> like a Python list</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="n">comp_array</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="nb">print</span><span class="p">(</span><span class="n">comp</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">comp</span><span class="p">))</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+<p>shows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">comp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;moose.Compartment&#39;</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">comp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;moose.Compartment&#39;</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">comp</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;moose.Compartment&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Thus elements are instances of class <code class="docutils literal notranslate"><span class="pre">melement</span></code>. All elements in an
+<code class="docutils literal notranslate"><span class="pre">vec</span></code> share the <code class="docutils literal notranslate"><span class="pre">id_</span></code> of the <code class="docutils literal notranslate"><span class="pre">vec</span></code> which can retrieved by
+<code class="docutils literal notranslate"><span class="pre">melement.getId()</span></code>.</p>
+<p>A frequent use case is that after loading a model from a file one knows
+the paths of various model components but does not know the appropriate
+class name for them. For this scenario there is a function called
+<code class="docutils literal notranslate"><span class="pre">element</span></code> which converts (&quot;casts&quot; in programming jargon) a path or any
+moose object to its proper MOOSE class. You can create additional
+references to <code class="docutils literal notranslate"><span class="pre">soma</span></code> in the example this way</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">moose</span><span class="o">.</span><span class="n">element</span><span class="p">(</span><span class="s1">&#39;/model/soma&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any MOOSE class can be extended in Python. But any additional attributes
+added in Python are invisible to MOOSE. So those can be used for
+functionalities at the Python level only. You can see
+<code class="docutils literal notranslate"><span class="pre">moose-examples/squid/squid.py</span></code> for an example.</p>
+</section>
+<section id="finfos">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><code class="docutils literal notranslate"><span class="pre">Finfos</span></code></a><a class="headerlink" href="#finfos" title="Link to this heading">¶</a></h3>
+<p>The following kinds of <code class="docutils literal notranslate"><span class="pre">Finfo</span></code> are accessible in Python</p>
+<ul class="simple">
+<li><p><strong>``valueFinfo``</strong> : simple values. For each readable <code class="docutils literal notranslate"><span class="pre">valueFinfo</span></code>
+<code class="docutils literal notranslate"><span class="pre">XYZ</span></code> there is a <code class="docutils literal notranslate"><span class="pre">destFinfo</span></code> <code class="docutils literal notranslate"><span class="pre">getXYZ</span></code> that can be used for
+reading the value at run time. If <code class="docutils literal notranslate"><span class="pre">XYZ</span></code> is writable then there will
+also be <code class="docutils literal notranslate"><span class="pre">destFinfo</span></code> to set it: <code class="docutils literal notranslate"><span class="pre">setXYZ</span></code>. Example:
+<code class="docutils literal notranslate"><span class="pre">Compartment.Rm</span></code></p></li>
+<li><p><strong>``lookupFinfo``</strong> : lookup tables. These fields act like Python
+dictionaries but iteration is not supported. Example:
+<code class="docutils literal notranslate"><span class="pre">Neutral.neighbors</span></code>.</p></li>
+<li><p><strong>``srcFinfo``</strong> : source of a message. Example:
+<code class="docutils literal notranslate"><span class="pre">PulseGen.output</span></code>.</p></li>
+<li><p><strong>``destFinfo``</strong> : destination of a message. Example:
+<code class="docutils literal notranslate"><span class="pre">Compartment.injectMsg</span></code>. Apart from being used in setting up
+messages, these are accessible as functions from Python.
+<code class="docutils literal notranslate"><span class="pre">HHGate.setupAlpha</span></code> is an example.</p></li>
+<li><p><strong>``sharedFinfo``</strong> : a composition of source and destination fields.
+Example: <code class="docutils literal notranslate"><span class="pre">Compartment.channel</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="moving-on">
+<span id="quickstart-moving-on"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Moving on</a><a class="headerlink" href="#moving-on" title="Link to this heading">¶</a></h2>
+<p>Now you know the basics of pymoose and how to access the help
+system. You can figure out how to do specific things by looking at the
+'cookbook`.  In addition, the <code class="docutils literal notranslate"><span class="pre">moose-examples/snippets</span></code> directory
+in your MOOSE installation has small executable python scripts that
+show usage of specific classes or functionalities. Beyond that you can
+browse the code in the <code class="docutils literal notranslate"><span class="pre">moose-examples</span></code> directory to see some more complex
+models.</p>
+<p>MOOSE is backward compatible with GENESIS and most GENESIS classes have
+been reimplemented in MOOSE. There is slight change in naming (MOOSE
+uses CamelCase), and setting up messages are different. But <a class="reference external" href="http://www.genesis-sim.org/GENESIS/Hyperdoc/Manual.html">GENESIS
+documentation</a>
+is still a good source for documentation on classes that have been
+ported from GENESIS.</p>
+<p>If the built-in MOOSE classes do not satisfy your needs entirely, you
+are welcome to add new classes to MOOSE. The API documentation will
+help you get started.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>To list the classes only, use <code class="docutils literal notranslate"><span class="pre">moose.le('/classes')</span></code></p>
+</aside>
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>MOOSE is unit agnostic and things should work fine as long as you use
+values all converted to a consistent unit system.</p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></span>
+<p>This apparently convoluted implementation is for performance reason.
+Can you figure out why? <em>Hint: the table is driven by a slower clock
+than the compartment.</em></p>
+</aside>
+<aside class="footnote brackets" id="id5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">4</a><span class="fn-bracket">]</span></span>
+<p>In principle any function available in a MOOSE class can be executed
+periodically this way as long as that class exposes the function for
+scheduling following the MOOSE API. So you have to consult the class'
+documentation for any nonstandard methods that can be scheduled this
+way.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../Tutorials/adv_tut.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Teaching Tutorials</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../../../advanced.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Advanced</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2006-2026, Upinder Singh Bhalla, Niraj Dudani, Subhasis Ray, Aditya Gilra,Harsha Rani, Aviral Goel, Dilawar Singh,Malav Shah, Dhruva Gowda Storz
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Getting started with python scripting for MOOSE</a><ul>
+<li><a class="reference internal" href="#scheduling">Scheduling</a></li>
+<li><a class="reference internal" href="#running-the-simulation">Running the simulation</a></li>
+<li><a class="reference internal" href="#some-more-details">Some more details</a><ul>
+<li><a class="reference internal" href="#vec-melement-and-element"><code class="docutils literal notranslate"><span class="pre">vec</span></code>, <code class="docutils literal notranslate"><span class="pre">melement</span></code> and <code class="docutils literal notranslate"><span class="pre">element</span></code></a></li>
+<li><a class="reference internal" href="#finfos"><code class="docutils literal notranslate"><span class="pre">Finfos</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#moving-on">Moving on</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=c2a7f565"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/custom.js?v=1f83c2a5"></script>
+    </body>
+</html>

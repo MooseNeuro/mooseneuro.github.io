@@ -1,0 +1,60 @@
+/* ── MOOSE docs — Furo theme customisation ──────────────── */
+
+/* Top padding — Blender docs style */
+.sidebar-drawer {
+  padding-top: 1rem;
+}
+
+.sidebar-container {
+  padding-top: 1rem;
+}
+
+.sidebar-scroll {
+  padding-top: 1rem;
+}
+
+.page .content {
+  padding-top: 1rem;
+}
+
+/* Inline TOC (.. contents:: directive) — clean style, no error box */
+nav.contents.local {
+  background: transparent !important;
+  border-left: 3px solid #c3e0e5;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+
+nav.contents.local p.topic-title {
+  display: none;
+}
+
+/* Remove background from section headings */
+h1, h2, h3, h4,
+section > h1, section > h2, section > h3, section > h4 {
+  background: transparent !important;
+}
+
+/* Code blocks — dark, modern */
+.highlight,
+.highlight pre,
+div.highlight pre {
+  border-radius: 6px;
+}
+
+.highlight {
+  margin: 1rem 0;
+}
+
+.copybtn {
+    visibility: visible !important;
+    background: transparent !important;
+    border: 1px solid white;
+    border-radius: 6px;
+    padding: 4px;
+    transition: all 0.2s ease;
+}
+
+.copybtn:hover {
+    background: var(--color-background-secondary);
+}

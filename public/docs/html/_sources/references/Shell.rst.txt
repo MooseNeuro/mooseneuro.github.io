@@ -1,0 +1,367 @@
+Shell
+=====
+
+
+
+
+
+Author:
+-------
+
+
+
+Attributes:
+-----------
+
+
+
+Value Attributes:
+-----------------
+
+.. describe:: children (type: vector<Id>, class: Shell)
+
+   vector of ObjIds listing all children of current object
+
+.. describe:: className (type: string, class: Shell)
+
+   Class Name of object
+
+.. describe:: destFields (type: vector<string>, class: Shell)
+
+   List of all destination fields on Element, that is, fieldsthat are accessed
+   as Element functions.
+
+.. describe:: dt (type: double, class: Shell)
+
+   Timestep used for this Element. Zero if not scheduled.
+
+.. describe:: fieldIndex (type: unsigned int, class: Shell)
+
+   For a FieldElement: field Index of self.For a regular Element: zero.
+
+.. describe:: idValue (type: unsigned int, class: Shell)
+
+   Object id of self, converted to an unsigned int.
+
+.. describe:: index (type: unsigned int, class: Shell)
+
+   For a FieldElement: Object index of parent.For a regular Element: Object
+   index (dataId) of self.
+
+.. describe:: me (type: ObjId, class: Shell)
+
+   ObjId for current object
+
+.. describe:: msgIn (type: vector<ObjId>, class: Shell)
+
+   Messages coming in to this Element
+
+.. describe:: msgOut (type: vector<ObjId>, class: Shell)
+
+   Messages going out from this Element
+
+.. describe:: name (type: string, class: Shell)
+
+   Name of object
+
+.. describe:: numData (type: unsigned int, class: Shell)
+
+   # of Data entries on Element.Note that on a FieldElement this does NOT
+   refer to field entries,but to the number of DataEntries on the parent
+   of the FieldElement.
+
+.. describe:: numField (type: unsigned int, class: Shell)
+
+   For a FieldElement: number of entries of self.For a regular Element:
+   One.
+
+.. describe:: parent (type: ObjId, class: Shell)
+
+   Parent ObjId for current object
+
+.. describe:: path (type: string, class: Shell)
+
+   text path for object
+
+.. describe:: sourceFields (type: vector<string>, class: Shell)
+
+   List of all source fields on Element, that is fields that can act as
+   message sources.
+
+.. describe:: this (type: 7Neutral, class: Shell)
+
+   Access function for entire object
+
+.. describe:: tick (type: int, class: Shell)
+
+   Clock tick for this Element for periodic execution in the main simulation
+   event loop. A default is normally assigned, based on object class, but
+   one can override to any value between 0 and 19. Assigning to -1 means
+   that the object is disabled and will not be called during simulation
+   execution The actual timestep (dt) belonging to a clock tick is defined
+   by the Clock object.
+
+.. describe:: valueFields (type: vector<string>, class: Shell)
+
+   List of all value fields on Element.These fields are accessed through
+   the assignment operations in the Python interface.These fields may also
+   be accessed as functions through the set<FieldName> and get<FieldName>
+   commands.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Lookup Attributes:
+------------------
+
+.. describe:: isA (type: string,bool, class: Shell)
+
+   Returns true if the current object is derived from the specified the
+   specified class
+
+.. describe:: msgDestFunctions (type: string,vector<string>, class: Shell)
+
+   Matching function names for each ObjId receiving a msg from the specified
+   SrcFinfo
+
+.. describe:: msgDests (type: string,vector<ObjId>, class: Shell)
+
+   ObjIds receiving messages from the specified SrcFinfo
+
+.. describe:: neighbors (type: string,vector<Id>, class: Shell)
+
+   Ids of Elements connected this Element on specified field.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Src Attributes:
+---------------
+
+.. describe:: childOut (type: int, class: Shell)
+
+   Message to child Elements
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
+
+Dest Attributes:
+----------------
+
+.. describe:: addMsg (type: string,ObjId,string,ObjId,string,unsigned int, class: Shell)
+
+   Makes a msg. Arguments are: msgtype, src object, src field, dest object,
+   dest field
+
+.. describe:: copy (type: vector<ObjId>,string,unsigned int,bool,bool, class: Shell)
+
+   handleCopy( vector< Id > args, string newName, unsigned int nCopies,
+   bool toGlobal, bool copyExtMsgs ): The vector< Id > has Id orig, Id newParent,
+   Id newElm. This function copies an Element and all its children to a
+   new parent. May also expand out the original into nCopies copies. Normally
+   all messages within the copy tree are also copied. If the flag copyExtMsgs
+   is true, then all msgs going out are also copied.
+
+.. describe:: create (type: string,ObjId,Id,string,11NodeBalance,unsigned int, class: Shell)
+
+   create( class, parent, newElm, name, numData, isGlobal )
+
+.. describe:: delete (type: ObjId, class: Shell)
+
+   When applied to a regular object, this function operates on the Id (element)
+   specified by the ObjId argument. The function deletes the entire object
+   array on this Id, including all dataEntries on it,all its messages, and
+   all its children. The DataIndex here is ignored, and all dataEntries
+   are destroyed. When applied to a message: Destroys only that one specific
+   message identified by the full ObjId. Args: ObjId
+
+.. describe:: getChildren (type: vector<vector<Id>>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getClassName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDestFields (type: vector<vector<string>>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getDt (type: vector<double>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getFieldIndex (type: vector<unsigned int>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIdValue (type: vector<unsigned int>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIndex (type: vector<unsigned int>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getIsA (type: bool, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMe (type: vector<ObjId>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDestFunctions (type: vector<string>, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgDests (type: vector<ObjId>, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgIn (type: vector<vector<ObjId>>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getMsgOut (type: vector<vector<ObjId>>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getName (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNeighbors (type: vector<Id>, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumData (type: vector<unsigned int>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getNumField (type: vector<unsigned int>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getParent (type: vector<ObjId>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getPath (type: PSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getSourceFields (type: vector<vector<string>>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getThis (type: PSt6vectorI7NeutralSaIS0_EE, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getTick (type: PSt6vectorIiSaIiEE, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: getValueFields (type: vector<vector<string>>*, class: Shell)
+
+   Requests field value. The requesting Element must provide a handler for
+   the returned value.
+
+.. describe:: move (type: Id,ObjId, class: Shell)
+
+   handleMove( Id orig, Id newParent ): moves an Element to a new parent
+
+.. describe:: notifyAddMsgDest (type: ObjId, class: Shell)
+
+   Called when a message is created, current object is dest. Arg is msgId.
+
+.. describe:: notifyAddMsgSrc (type: ObjId, class: Shell)
+
+   Called when a message is created, current object is src. Arg is msgId.
+
+.. describe:: notifyCopy (type: ObjId, class: Shell)
+
+   Called when object is copied. Arg is original.
+
+.. describe:: notifyCreate (type: ObjId, class: Shell)
+
+   Called when object is created. Arg is parent.
+
+.. describe:: notifyDestroy (type: void, class: Shell)
+
+   Called when object is destroyed.
+
+.. describe:: notifyMove (type: ObjId, class: Shell)
+
+   Called when object is moved. Arg is new parent.
+
+.. describe:: parentMsg (type: int, class: Shell)
+
+   Message from Parent Element(s)
+
+.. describe:: quit (type: void, class: Shell)
+
+   Stops simulation running and quits the simulator
+
+.. describe:: setName (type: string, class: Shell)
+
+   Assigns field value.
+
+.. describe:: setNumData (type: unsigned int, class: Shell)
+
+   Assigns field value.
+
+.. describe:: setNumField (type: unsigned int, class: Shell)
+
+   Assigns field value.
+
+.. describe:: setThis (type: 7Neutral, class: Shell)
+
+   Assigns field value.
+
+.. describe:: setTick (type: int, class: Shell)
+
+   Assigns field value.
+
+.. describe:: setclock (type: unsigned int,double, class: Shell)
+
+   Assigns clock ticks. Args: tick#, dt
+
+.. describe:: useClock (type: string,string,unsigned int,unsigned int, class: Shell)
+
+   Deals with assignment of path to a given clock. Arguments: path, field,
+   tick number.
+
+
+Attributes inherited from Neutral:
+----------------------------------
+
