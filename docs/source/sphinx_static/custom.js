@@ -1,3 +1,9 @@
+// Make the sidebar logo link back to the main website
+document.addEventListener("DOMContentLoaded", function () {
+  var logoLink = document.querySelector(".sidebar-brand a, .sidebar-logo-container a");
+  if (logoLink) logoLink.href = "https://mooseneuro.org";
+});
+
 // Remove Furo's inline TOC error message (injected before nav.contents.local)
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("nav.contents.local").forEach(function (nav) {
