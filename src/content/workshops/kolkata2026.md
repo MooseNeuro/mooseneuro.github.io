@@ -6,7 +6,7 @@ description: |
 
 url: ""
 image: "/assets/workshops/kolkata2026_flyer.png"
-carouselheading: "MOOSE 2026: Multiscale Computational Modelling in Neuroscience and Systems Biology"
+carouselheading: "Multiscale Computational Modelling in Neuroscience and Systems Biology, 5th - 8th October 2026, Kolkata, India"
 pubDate: 2026-04-28
 ---
 
@@ -139,6 +139,25 @@ Coming Soon.
 
 - Prof. Upinder Bhalla (NCBS-TIFR, Bengaluru)
 - Dr. Subhasis Ray (CHINTA, TCG CREST, Kolkata)
+
+## Funders
+
+<div class="not-prose" style="display:flex;flex-wrap:wrap;gap:2rem;align-items:center;margin:1rem 0;">
+  <div style="width:200px;height:80px;display:flex;align-items:center;justify-content:center;">
+    <img src="/assets/funders/The_Kavli_Foundation_Logo_Blue_Red.png" alt="The Kavli Foundation" style="max-width:100%;max-height:100%;object-fit:contain;" />
+  </div>
+</div>
+
+## Supported By
+
+<div class="not-prose" style="display:flex;flex-direction:column;gap:1.5rem;margin:1rem 0;">
+  <div style="width:200px;height:80px;display:flex;align-items:center;justify-content:center;">
+    <img src="/assets/supportedBy/NCBS-Logo.jpg" alt="NCBS" style="max-width:100%;max-height:100%;object-fit:contain;" />
+  </div>
+  <div style="width:200px;height:80px;display:flex;align-items:center;justify-content:center;">
+    <img src="/assets/supportedBy/chinta_logo.png" alt="CHINTA" style="max-width:100%;max-height:100%;object-fit:contain;" />
+  </div>
+</div>
 
 ## Contact Information
 
