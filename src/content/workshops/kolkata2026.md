@@ -5,16 +5,16 @@ description: |
     <b>MOOSE 2026</b> is an immersive four-day international workshop dedicated to multiscale computational modelling in neuroscience and systems biology. Building on the success of previous editions, <b>MOOSE 2026</b> expands both in scale and scope, offering a rigorous and comprehensive training experience spanning the full hierarchy of neural organisation from subcellular signalling to network-scale neural computation. <b>MOOSE2026</b> aims to provide a structured pathway into the modelling of complex biological neural systems from molecules to neural networks.
 
 url: ""
-image: "/assets/workshops/kolkata2026_flyer.png"
+image: "/assets/workshops/Kolkata2026_flyer_70dpi.png"
 carouselheading: "Multiscale Computational Modelling in Neuroscience and Systems Biology, 5th - 8th October 2026, Kolkata, India"
 pubDate: 2026-04-28
 ---
 
-## Date: 5th – 8th October, 2026
+## Date: 5th - 8th October, 2026
 
 ## Venue:
 
-CHINTA, TCG CREST, Bengal Eco Intelligent Park Ln, EM Block, Sector V, Bidhannagar, Kolkata, West Bengal 700091
+CHINTA, TCG CREST, Bengal Eco Intelligent Park, Block EM, Sector V, Salt Lake, Kolkata, West Bengal, India, PIN: 700091
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.101014122415!2d88.42473697453391!3d22.575324979489817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275b0941c4b39%3A0xeac679d61b1f6e92!2sBengal%20Eco%20Intelligent%20Park%2C%20EM%20Block%2C%20Sector%20V%2C%20Bidhannagar%2C%20Kolkata%2C%20West%20Bengal%20700091!5e0!3m2!1sen!2sin!4v1746460503923!5m2!1sen!2sin" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
