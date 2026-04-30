@@ -1,7 +1,6 @@
 ---
-title: "Multiscale Modelling with MOOSE, From Molecules to Neural Networks"
+title: "Multiscale Modelling with MOOSE, October 5th - 8th, 2026, at CHINTA, Kolkata, India"
 description: |
-
     <b>MOOSE 2026</b> is an immersive four-day international workshop dedicated to multiscale computational modelling in neuroscience and systems biology. Building on the success of previous editions, <b>MOOSE 2026</b> expands both in scale and scope, offering a rigorous and comprehensive training experience spanning the full hierarchy of neural organisation from subcellular signalling to network-scale neural computation. <b>MOOSE2026</b> aims to provide a structured pathway into the modelling of complex biological neural systems from molecules to neural networks.
 
 url: ""
@@ -22,7 +21,9 @@ CHINTA, TCG CREST, Bengal Eco Intelligent Park, Block EM, Sector V, Salt Lake, K
 
 ## Application Deadline: 31st May 2026, 23:59 IST
 
-## About the Workshop
+## About the 
+
+**Multiscale Modelling with MOOSE** *From Molecules to Neural Networks*
 
 **MOOSE 2026** is an immersive four-day international workshop dedicated to multiscale computational modelling in neuroscience and systems biology. Building on the success of previous editions, **MOOSE 2026** expands both in scale and scope, offering a rigorous and comprehensive training experience spanning the full hierarchy of neural organisation from subcellular signalling to network-scale neural computation. **MOOSE 2026** aims to provide a structured pathway into the modelling of complex biological neural systems from molecules to neural networks.
 
