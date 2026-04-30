@@ -21,7 +21,7 @@ CHINTA, TCG CREST, Bengal Eco Intelligent Park, Block EM, Sector V, Salt Lake, K
 
 ## Application Deadline: 31st May 2026, 23:59 IST
 
-## About the 
+## About the Workshop
 
 **Multiscale Modelling with MOOSE** *From Molecules to Neural Networks*
 
