@@ -1,12 +1,12 @@
 ---
-title: "Multiscale Computational Modelling in Neuroscience and Systems Biology"
+title: "Multiscale Modelling with MOOSE, From Molecules to Neural Networks"
 description: |
 
     <b>MOOSE 2026</b> is an immersive four-day international workshop dedicated to multiscale computational modelling in neuroscience and systems biology. Building on the success of previous editions, <b>MOOSE 2026</b> expands both in scale and scope, offering a rigorous and comprehensive training experience spanning the full hierarchy of neural organisation from subcellular signalling to network-scale neural computation. <b>MOOSE2026</b> aims to provide a structured pathway into the modelling of complex biological neural systems from molecules to neural networks.
 
 url: ""
 image: "/assets/workshops/Kolkata2026_flyer_70dpi.png"
-carouselheading: "Multiscale Computational Modelling in Neuroscience and Systems Biology, 5th - 8th October 2026, Kolkata, India"
+carouselheading: "Multiscale Modelling with MOOSE, From Molecules to Neural Networks, 5th - 8th October 2026, Kolkata, India"
 pubDate: 2026-04-28
 ---
 
