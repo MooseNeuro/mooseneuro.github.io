@@ -86,8 +86,8 @@ For detailed platform instructions, see:
    <https://github.com/MooseNeuro/moose-core/blob/master/docs/source/install/UbuntuBuild.md>`__
  - **macOS:** `AppleM1Build.md
    <https://github.com/MooseNeuro/moose-core/blob/master/docs/source/install/AppleM1Build.md>`__
- - **Windows:** `WindowsBuild.rst
-   <https://github.com/MooseNeuro/moose-core/blob/master/docs/source/install/index_install.rst>`__
+ - **Windows:** `WindowsBuild.md
+   <https://github.com/MooseNeuro/moose-core/blob/master/docs/source/install/index_install.md>`__
   
 Installation commands
 """"""""""""""""""""""
