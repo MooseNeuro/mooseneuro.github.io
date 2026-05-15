@@ -18,7 +18,7 @@ Each voltage dependent ion channel, present on the membrane, is modelled as a vo
 
 Neurons fire action potentials / spikes (sharp rise and fall of membrane potential V\ :sub:`m`\ ) due to voltage dependent channels. These result in opening of excitatory / inhibitory synaptic channels (conductances with batteries, similar to voltage gated channels) on other connected neurons in the network.
 
-MOOSE can handle large networks of detailed neurons, each with complicated channel dynamics. Further, MOOSE can integrate chemical signalling with electrical activity. Creating and simulating multiscale modelscab obviously be achieved with PyMOOSE scripting. Presently, such multiscale models can now be simulated in the web-based GUI `Jardesigner <https://jardesigner.mooseneuro.org/>`_. 
+MOOSE can handle large networks of detailed neurons, each with complicated channel dynamics. Further, MOOSE can integrate chemical signalling with electrical activity. Creating and simulating multiscale modelscab obviously be achieved with PyMOOSE scripting. Presently, such multiscale models can now be simulated in the web-based GUI `Jardesigner <https://www.jardesigner.org/>`_. 
 
 To understand channel kinetics and neuronal action potentials, run the Squid Axon demo installed along with MOOSEGUI and consult its help/tutorial.
 

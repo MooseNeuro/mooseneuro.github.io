@@ -35,5 +35,5 @@ All these can now be achieved using the Jardesigner GUI without having to code f
 It  has options for setting up a 3D model and simulating it. Standard file formats for saving models are available, too.
 Using Jardesigner, one can compactly and quickly put together quite complex multiscale models.
 
-The interface can be accessed at `<https://jardesigner.mooseneuro.org>`__
+The interface can be accessed at `<https://www.jardesigner.org>`__
 This document explains how to use the Jardesigner GUI to build and run multiscale neuronal models.
