@@ -23,6 +23,13 @@ const relatedNews = allNews
 
 <BaseLayout title={news_item.data.title}>
   <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+    {news_item.data.image && (
+      <img
+        src={news_item.data.image}
+        alt={news_item.data.title}
+        class="absolute inset-0 -z-10 h-full w-full object-cover opacity-30"
+      />
+    )}
     <div class="mx-auto max-w-7xl px-6 h-[5rem] lg:px-8">
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h1 class="text-5xl font-semibold text-white sm:text-7xl">News</h1>

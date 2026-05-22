@@ -16,42 +16,37 @@ const sortedNews = news.sort(
     <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-10">
       {
         sortedNews.map((newsItem) => (
-          <li class="h-full">
-            <div class="rounded-2xl border border-gray-200 bg-white shadow-md hover:shadow-lg transition-shadow h-full flex flex-col">
-              <div class="p-6 flex flex-col flex-grow">
-                <h3 class="text-2xl font-semibold text-gray-900 mb-3">
-                  <a href={`/news/${newsItem.id}/`}>{newsItem.data.title}</a>
-                </h3>
-
-                <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
-                  <time datetime={newsItem.data.date.toISOString()}>
-                    {formatDate(newsItem.data.date)}
-                  </time>
-                </div>
-
-                <div class="border-t border-gray-200 mb-4" />
-
-                <a
-                  href={`/news/${newsItem.id}/`}
-                  class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors"
-                >
-                  Read more
-                  <svg
-                    class="ml-1 h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </a>
+          <li>
+            <a href={`/news/${newsItem.id}/`} class="block h-full rounded-2xl border border-gray-200 bg-white shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+              <div class="relative h-44 w-full overflow-hidden">
+                {newsItem.data.image ? (
+                  <img
+                    src={newsItem.data.image}
+                    alt={newsItem.data.title}
+                    class="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-gradient-to-br from-brand-secondary to-brand-tertiary" />
+                )}
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
               </div>
-            </div>
+              <div class="p-5 flex flex-col gap-2">
+                <h3 class="text-lg font-semibold text-gray-900 leading-snug line-clamp-2">
+                  {newsItem.data.title}
+                </h3>
+                <time class="text-sm text-gray-500" datetime={newsItem.data.date.toISOString()}>
+                  {formatDate(newsItem.data.date)}
+                </time>
+                <div class="border-t border-gray-100 pt-3 mt-1">
+                  <span class="inline-flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-800 transition-colors">
+                    Read more
+                    <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
           </li>
         ))
       }
