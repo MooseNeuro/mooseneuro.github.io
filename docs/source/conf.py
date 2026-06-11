@@ -272,7 +272,9 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+# Include the release (codename + version) so the version shows under the
+# logo in the Furo sidebar.
+html_title = f'MOOSE {release}'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None

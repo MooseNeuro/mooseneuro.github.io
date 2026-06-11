@@ -1,6 +1,7 @@
 [submodule "moose-core"]
 	path = docs/moose-core
 	url = https://github.com/MooseNeuro/moose-core.git
+	branch = master
 [submodule "docs/moose-examples"]
 	path = docs/moose-examples
 	url = https://github.com/MooseNeuro/moose-examples.git
