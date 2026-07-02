@@ -245,7 +245,13 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="introduction/introduction.html">Introduction</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="install/index_install.html">Installation</a><input aria-label="Toggle navigation of Installation" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="install/index_install.html">Installation</a><input aria-label="Toggle navigation of Installation" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html">Installing MOOSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#installing-released-version-from-pypi-using-pip">Installing released version from PyPI using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#installing-from-a-binary-wheel-using-pip">Installing from a binary wheel using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#installing-from-source-code-in-github-repository">Installing from source code in Github repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install/install.html#uninstall">Uninstall</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="user/py/quickstart/qs_GUI.html">Jardesigner: Graphical User Interface</a><input aria-label="Toggle navigation of Jardesigner: Graphical User Interface" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -390,7 +396,10 @@
 <li class="toctree-l2"><a class="reference internal" href="references/moose_classes.html">Class Hierarchy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="database_resources.html">Resources</a><input aria-label="Toggle navigation of Resources" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="database_resources.html">Resources</a><input aria-label="Toggle navigation of Resources" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="references/moose_channels.html">moose.channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references/moose_models.html">moose.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="references/moose_morphologies.html">moose.morphologies</a></li>
 </ul>
 </li>
 </ul>
@@ -581,6 +590,8 @@
         </ul></li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="references/moose_morphologies.html#moose.morphologies.distance_from_soma">distance_from_soma() (in module moose.morphologies)</a>
+</li>
         <li><a href="user/py/quickstart/classes_demos.html#traub_naf.do_iclamp">do_iclamp() (in module traub_naf)</a>, <a href="user/py/quickstart/interm_classes.html#traub_naf.do_iclamp">[1]</a>
 </li>
         <li><a href="user/py/quickstart/classes_demos.html#traub_naf.do_vclamp">do_vclamp() (in module traub_naf)</a>, <a href="user/py/quickstart/interm_classes.html#traub_naf.do_vclamp">[1]</a>
@@ -592,6 +603,10 @@
 <section id="E" class="genindex-section">
   <h2>E</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="references/moose_morphologies.html#moose.morphologies.entries">entries() (in module moose.morphologies)</a>
+</li>
+    </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="user/py/cookbook/net_sim_eg.html#randomspike.example">example() (in module randomspike)</a>
 </li>
@@ -659,10 +674,16 @@
         </ul></li>
         <li><a href="user/py/cookbook/elec_sim_eg.html#gapjunction.gapjunction_demo">gapjunction_demo() (in module gapjunction)</a>
 </li>
-        <li><a href="user/py/cookbook/chem_sim_eg.html#findChemSteadyState.getState">getState() (in module findChemSteadyState)</a>
+        <li><a href="references/moose_morphologies.html#moose.morphologies.get">get() (in module moose.morphologies)</a>
+</li>
+        <li><a href="references/moose_channels.html#moose.channels.get_expressions">get_expressions() (in module moose.channels)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="references/moose_channels.html#moose.channels.get_icg_id">get_icg_id() (in module moose.channels)</a>
+</li>
+        <li><a href="user/py/cookbook/chem_sim_eg.html#findChemSteadyState.getState">getState() (in module findChemSteadyState)</a>
+</li>
         <li>
     GraupnerBrunel2012_STDPfromCaPlasticity
 
@@ -700,6 +721,10 @@
   <h2>I</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="references/moose_channels.html#moose.channels.info">info() (in module moose.channels)</a>
+</li>
+        <li><a href="references/moose_channels.html#moose.channels.insert">insert() (in module moose.channels)</a>
+</li>
         <li>
     insertSpines
 
@@ -738,6 +763,24 @@
   <h2>L</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="references/moose_models.html#moose.models.list">list() (in module moose.models)</a>
+
+        <ul>
+          <li><a href="references/moose_morphologies.html#moose.morphologies.list">(in module moose.morphologies)</a>
+</li>
+        </ul></li>
+        <li><a href="references/moose_channels.html#moose.channels.list_ion_classes">list_ion_classes() (in module moose.channels)</a>
+</li>
+        <li><a href="references/moose_channels.html#moose.channels.load">load() (in module moose.channels)</a>
+
+        <ul>
+          <li><a href="references/moose_models.html#moose.models.load">(in module moose.models)</a>
+</li>
+          <li><a href="references/moose_morphologies.html#moose.morphologies.load">(in module moose.morphologies)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     loadCspaceModel
 
@@ -752,8 +795,6 @@
           <li><a href="user/py/cookbook/chem_load_save.html#module-loadKineticModel">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     loadSbmlmodel
 
@@ -893,6 +934,8 @@
         </ul></li>
         <li><a href="user/py/cookbook/net_sim_eg.html#STDP.make_neuron_spike">make_neuron_spike() (in module STDP)</a>
 </li>
+        <li><a href="references/moose_channels.html#moose.channels.make_prototype">make_prototype() (in module moose.channels)</a>
+</li>
         <li><a href="user/py/cookbook/net_sim_eg.html#compartment_net.make_synapses">make_synapses() (in module compartment_net)</a>
 
         <ul>
@@ -917,8 +960,6 @@
           <li><a href="user/py/cookbook/chem_sim_eg.html#TuringOneDim.makeModel">(in module TuringOneDim)</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     mapkFB
 
@@ -989,6 +1030,24 @@
           <li><a href="user/py/cookbook/chem_load_save.html#module-loadSbmlmodel">loadSbmlmodel</a>
 </li>
           <li><a href="user/py/cookbook/chem_sim_eg.html#module-mapkFB">mapkFB</a>
+</li>
+          <li><a href="references/moose_channels.html#module-moose.channels">moose.channels</a>
+</li>
+          <li><a href="references/moose_chemMerge.html#module-moose.chemMerge">moose.chemMerge</a>
+</li>
+          <li><a href="references/moose_chemUtil.html#module-moose.chemUtil">moose.chemUtil</a>
+</li>
+          <li><a href="references/moose_genesis.html#module-moose.genesis">moose.genesis</a>
+</li>
+          <li><a href="references/moose_models.html#module-moose.models">moose.models</a>
+</li>
+          <li><a href="references/moose_morphologies.html#module-moose.morphologies">moose.morphologies</a>
+</li>
+          <li><a href="references/moose_neuroml.html#module-moose.neuroml">moose.neuroml</a>
+</li>
+          <li><a href="references/moose_neuroml2.html#module-moose.neuroml2">moose.neuroml2</a>
+</li>
+          <li><a href="references/moose_SBML.html#module-moose.SBML">moose.SBML</a>
 </li>
           <li><a href="user/py/cookbook/elec_load_run.html#module-neuronFromDotp">neuronFromDotp</a>
 </li>
@@ -1063,6 +1122,73 @@
           <li><a href="user/py/quickstart/moose_quickstart_edited.html#module-vectors">vectors</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    moose.channels
+
+        <ul>
+          <li><a href="references/moose_channels.html#module-moose.channels">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.chemMerge
+
+        <ul>
+          <li><a href="references/moose_chemMerge.html#module-moose.chemMerge">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.chemUtil
+
+        <ul>
+          <li><a href="references/moose_chemUtil.html#module-moose.chemUtil">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.genesis
+
+        <ul>
+          <li><a href="references/moose_genesis.html#module-moose.genesis">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.models
+
+        <ul>
+          <li><a href="references/moose_models.html#module-moose.models">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.morphologies
+
+        <ul>
+          <li><a href="references/moose_morphologies.html#module-moose.morphologies">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.neuroml
+
+        <ul>
+          <li><a href="references/moose_neuroml.html#module-moose.neuroml">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.neuroml2
+
+        <ul>
+          <li><a href="references/moose_neuroml2.html#module-moose.neuroml2">module</a>
+</li>
+        </ul></li>
+        <li>
+    moose.SBML
+
+        <ul>
+          <li><a href="references/moose_SBML.html#module-moose.SBML">module</a>
+</li>
+        </ul></li>
+        <li><a href="references/moose_morphologies.html#moose.morphologies.MorphologyResult">MorphologyResult (class in moose.morphologies)</a>
+</li>
     </ul></td>
   </tr></table>
 </section>
@@ -1256,6 +1382,8 @@
           <li><a href="user/py/cookbook/chem_sim_eg.html#module-scriptKineticSolver">module</a>
 </li>
         </ul></li>
+        <li><a href="references/moose_channels.html#moose.channels.search">search() (in module moose.channels)</a>
+</li>
         <li><a href="user/py/quickstart/classes_demos.html#traub_naf.setup_electronics">setup_electronics() (in module traub_naf)</a>, <a href="user/py/quickstart/interm_classes.html#traub_naf.setup_electronics">[1]</a>
 </li>
         <li><a href="user/py/cookbook/net_sim_eg.html#twocells.setup_experiment">setup_experiment() (in module twocells)</a>
@@ -1295,6 +1423,8 @@
           <li><a href="user/py/cookbook/chem_sim_eg.html#module-strongBis">module</a>
 </li>
         </ul></li>
+        <li><a href="references/moose_morphologies.html#moose.morphologies.surface_area">surface_area() (in module moose.morphologies)</a>
+</li>
         <li>
     switchKineticSolvers
 

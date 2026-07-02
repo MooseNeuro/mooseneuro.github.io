@@ -247,7 +247,13 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul>
 <li class="toctree-l1"><a class="reference internal" href="../introduction/introduction.html">Introduction</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="index_install.html">Installation</a><input aria-label="Toggle navigation of Installation" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="index_install.html">Installation</a><input aria-label="Toggle navigation of Installation" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html">Installing MOOSE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-released-version-from-pypi-using-pip">Installing released version from PyPI using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-from-a-binary-wheel-using-pip">Installing from a binary wheel using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#installing-from-source-code-in-github-repository">Installing from source code in Github repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#uninstall">Uninstall</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../user/py/quickstart/qs_GUI.html">Jardesigner: Graphical User Interface</a><input aria-label="Toggle navigation of Jardesigner: Graphical User Interface" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -392,7 +398,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../references/moose_classes.html">Class Hierarchy</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../database_resources.html">Resources</a><input aria-label="Toggle navigation of Resources" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="simple">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../database_resources.html">Resources</a><input aria-label="Toggle navigation of Resources" class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" role="switch" type="checkbox"/><label for="toctree-checkbox-34"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../references/moose_channels.html">moose.channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../references/moose_models.html">moose.models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../references/moose_morphologies.html">moose.morphologies</a></li>
 </ul>
 </li>
 </ul>
@@ -435,486 +444,124 @@
         <article role="main" id="furo-main-content">
           <section id="building-moose-on-ubuntu-possibly-in-wsl">
 <h1>Building MOOSE on Ubuntu (possibly in WSL)<a class="headerlink" href="#building-moose-on-ubuntu-possibly-in-wsl" title="Link to this heading">¶</a></h1>
-<p>This guide covers building MOOSE from source on Ubuntu Linux, including Windows Subsystem for Linux (WSL). MOOSE 4.2.0 uses <strong>nanobind</strong> for Python bindings, which is automatically downloaded during the build process - no manual installation required.</p>
-<section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
-<section id="install-gnu-build-tools">
-<h3>0. Install GNU build tools<a class="headerlink" href="#install-gnu-build-tools" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential
+<ol class="arabic simple" start="0">
+<li><p>Install GNU build tools</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span>
 </pre></div>
 </div>
-<p>This installs essential compilation tools including <code class="docutils literal notranslate"><span class="pre">gcc</span></code>, <code class="docutils literal notranslate"><span class="pre">g++</span></code>, and <code class="docutils literal notranslate"><span class="pre">make</span></code>.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="option-a-building-with-system-python">
-<h2>Option A: Building with System Python<a class="headerlink" href="#option-a-building-with-system-python" title="Link to this heading">¶</a></h2>
-<p>Use this method if you want to use your system's Python installation.</p>
-<section id="install-the-dependencies">
-<h3>1. Install the dependencies<a class="headerlink" href="#install-the-dependencies" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build dependencies</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ninja<span class="w"> </span>meson<span class="w"> </span>pkg-config<span class="w"> </span>python-pip<span class="w"> </span>python-numpy<span class="w"> </span>libgsl-dev<span class="w"> </span>g++<span class="w"> </span>libhdf5-dev<span class="w"> </span>libz-dev
-
-<span class="c1"># Python build tools</span>
-pip<span class="w"> </span>install<span class="w"> </span>meson-python
-
-<span class="c1"># Runtime dependencies (required for MOOSE to work)</span>
-pip<span class="w"> </span>install<span class="w"> </span>pyneuroml<span class="w"> </span>python-libsbml<span class="w"> </span>pint<span class="w"> </span>scipy<span class="w"> </span>vpython
+<section id="building-with-system-python">
+<h2>Building with system Python<a class="headerlink" href="#building-with-system-python" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Install the dependencies</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">ninja</span> <span class="n">meson</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">python</span><span class="o">-</span><span class="n">numpy</span> <span class="n">libgsl</span><span class="o">-</span><span class="n">dev</span> <span class="n">g</span><span class="o">++</span> <span class="n">pybind11</span> <span class="n">libz</span><span class="o">-</span><span class="n">dev</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">meson</span><span class="o">-</span><span class="n">python</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">libsbml</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">pyneuroml</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">vpython</span>
 </pre></div>
 </div>
-<p><strong>Explanation of dependencies:</strong></p>
-<div class="table-wrapper colwidths-auto docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Package</p></th>
-<th class="head"><p>Purpose</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ninja</span></code></p></td>
-<td><p>Fast build system used by meson</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">meson</span></code></p></td>
-<td><p>Build configuration system</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pkg-config</span></code></p></td>
-<td><p>Helps find installed libraries</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">libgsl-dev</span></code></p></td>
-<td><p>GNU Scientific Library (numerical computations)</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">libhdf5-dev</span></code></p></td>
-<td><p>HDF5 library (data storage)</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">libz-dev</span></code></p></td>
-<td><p>Compression library</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pyneuroml</span></code></p></td>
-<td><p>NeuroML2 model support</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">python-libsbml</span></code></p></td>
-<td><p>SBML model support</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pint</span></code></p></td>
-<td><p>Unit handling for NeuroML2</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code></p></td>
-<td><p>Scientific computing for NeuroML2</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="install-pymoose-from-github">
-<h3>2. Install pymoose from GitHub<a class="headerlink" href="#install-pymoose-from-github" title="Link to this heading">¶</a></h3>
-<p>The simplest way to install is directly from the repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/MooseNeuro/moose-core<span class="w"> </span>--user
-</pre></div>
-</div>
-<p>This command downloads, builds, and installs MOOSE in one step.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="option-b-building-with-conda-mamba-micromamba-recommended">
-<h2>Option B: Building with Conda/Mamba/Micromamba (Recommended)<a class="headerlink" href="#option-b-building-with-conda-mamba-micromamba-recommended" title="Link to this heading">¶</a></h2>
-<p>This method provides better isolation and dependency management.</p>
-<section id="install-conda-or-variants">
-<h3>1. Install conda or variants<a class="headerlink" href="#install-conda-or-variants" title="Link to this heading">¶</a></h3>
-<p>Install conda, mamba, or micromamba. See https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html</p>
-<p><strong>Note:</strong> In all commands below, <code class="docutils literal notranslate"><span class="pre">micromamba</span></code> can be replaced by <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">mamba</span></code>.</p>
-</section>
-<section id="create-an-environment-with-required-packages">
-<h3>2. Create an environment with required packages<a class="headerlink" href="#create-an-environment-with-required-packages" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>moose<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.13<span class="w"> </span>ninja<span class="w"> </span>meson<span class="w"> </span>meson-python<span class="w"> </span>gsl<span class="w"> </span>hdf5<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>vpython<span class="w"> </span>doxygen<span class="w"> </span>pkg-config<span class="w"> </span>pint<span class="w"> </span>scipy<span class="w"> </span>pyneuroml<span class="w"> </span>python-libsbml<span class="w"> </span>-c<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-<p><strong>Explanation of packages:</strong></p>
-<div class="table-wrapper colwidths-auto docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Category</p></th>
-<th class="head"><p>Packages</p></th>
-<th class="head"><p>Purpose</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Build tools</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">ninja</span></code>, <code class="docutils literal notranslate"><span class="pre">meson</span></code>, <code class="docutils literal notranslate"><span class="pre">meson-python</span></code></p></td>
-<td><p>Build system</p></td>
-</tr>
-<tr class="row-odd"><td><p>Core libraries</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">gsl</span></code>, <code class="docutils literal notranslate"><span class="pre">hdf5</span></code></p></td>
-<td><p>Numerical computation, data storage</p></td>
-</tr>
-<tr class="row-even"><td><p>Python packages</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">vpython</span></code></p></td>
-<td><p>Data handling, visualization</p></td>
-</tr>
-<tr class="row-odd"><td><p>NeuroML2 support</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">pint</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, <code class="docutils literal notranslate"><span class="pre">pyneuroml</span></code></p></td>
-<td><p>Model import</p></td>
-</tr>
-<tr class="row-even"><td><p>SBML support</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">python-libsbml</span></code></p></td>
-<td><p>Model import</p></td>
-</tr>
-<tr class="row-odd"><td><p>Documentation</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">doxygen</span></code></p></td>
-<td><p>API documentation</p></td>
-</tr>
-<tr class="row-even"><td><p>Utilities</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">pkg-config</span></code></p></td>
-<td><p>Library detection</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="activate-the-environment">
-<h3>3. Activate the environment<a class="headerlink" href="#activate-the-environment" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>activate<span class="w"> </span>moose
+<ol class="arabic simple" start="2">
+<li><p>Now use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to download and install <code class="docutils literal notranslate"><span class="pre">pymoose</span></code> from the <a class="reference external" href="https://github.com/MooseNeuro/moose-core">github repository</a>.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install git+https://github.com/MooseNeuro/moose-core --user
 </pre></div>
 </div>
 </section>
+<section id="building-with-conda-or-variants">
+<h2>Building with conda or variants<a class="headerlink" href="#building-with-conda-or-variants" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Install conda/mamba/micromamba (in all the commands below <code class="docutils literal notranslate"><span class="pre">conda</span></code> can be replaced by <code class="docutils literal notranslate"><span class="pre">mamba</span></code> or <code class="docutils literal notranslate"><span class="pre">micromamba</span></code> respectively). See https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html to find how to install conda or its variants.</p></li>
+<li><p>Create an environment with required packages</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">moose</span> <span class="n">ninja</span> <span class="n">meson</span> <span class="n">meson</span><span class="o">-</span><span class="n">python</span> <span class="n">gsl</span> <span class="n">hdf5</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">vpython</span> <span class="n">doxygen</span> <span class="n">pybind11</span><span class="p">[</span><span class="k">global</span><span class="p">]</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Activate the environment</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">moose</span>
+</pre></div>
+</div>
 </section>
-<hr class="docutils" />
 <section id="after-the-above-steps-for-both-system-python-and-conda-environment">
 <h2>After the above steps, for both system Python and conda environment<a class="headerlink" href="#after-the-above-steps-for-both-system-python-and-conda-environment" title="Link to this heading">¶</a></h2>
-<section id="clone-the-source-code">
-<h3>4. Clone the source code<a class="headerlink" href="#clone-the-source-code" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/MooseNeuro/moose-core<span class="w"> </span>--depth<span class="w"> </span><span class="m">50</span>
-<span class="nb">cd</span><span class="w"> </span>moose-core
+<ol class="arabic simple" start="4">
+<li><p>Clone <code class="docutils literal notranslate"><span class="pre">moose-core</span></code> source code using git</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ git clone https://github.com/MooseNeuro/moose-core --depth 50 
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">--depth</span> <span class="pre">50</span></code> flag downloads only the last 50 commits, making the download faster.</p>
-</section>
-<section id="build-moose">
-<h3>5. Build MOOSE<a class="headerlink" href="#build-moose" title="Link to this heading">¶</a></h3>
-<p>There are two ways to build: using <code class="docutils literal notranslate"><span class="pre">pip</span></code> (simple) or using <code class="docutils literal notranslate"><span class="pre">meson</span></code> directly (more control).</p>
-<section id="method-1-using-pip-simple">
-<h4>Method 1: Using pip (Simple)<a class="headerlink" href="#method-1-using-pip-simple" title="Link to this heading">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
-</pre></div>
-</div>
-<p>This handles everything automatically: configuration, compilation, and installation.</p>
-<p>For user-local installation (no sudo required):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>--user
-</pre></div>
-</div>
-<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">pip</span></code> builds <code class="docutils literal notranslate"><span class="pre">pymoose</span></code> with default options - it runs <code class="docutils literal notranslate"><span class="pre">meson</span></code> behind the scene. If you are developing MOOSE, want to build it with different options, or need to test and profile it, the <code class="docutils literal notranslate"><span class="pre">meson</span></code> and <code class="docutils literal notranslate"><span class="pre">ninja</span></code> based flow (Method 2) is recommended.</p>
-</section>
-<section id="method-2-using-meson-more-control">
-<h4>Method 2: Using meson (More Control)<a class="headerlink" href="#method-2-using-meson-more-control" title="Link to this heading">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1: Configure the build</span>
-meson<span class="w"> </span>setup<span class="w"> </span>--wipe<span class="w"> </span>_build<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$CONDA_PREFIX</span><span class="w"> </span>-Duse_mpi<span class="o">=</span><span class="nb">false</span><span class="w"> </span>-Dbuildtype<span class="o">=</span>release
+<ol class="arabic simple" start="5">
+<li><p>Build moose</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">moose</span><span class="o">-</span><span class="n">core</span>
 
-<span class="c1"># Step 2: Compile the code</span>
-meson<span class="w"> </span>compile<span class="w"> </span>-v<span class="w"> </span>-C<span class="w"> </span>_build
-
-<span class="c1"># Step 3: Install to your environment</span>
-meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> </span>_build
+<span class="n">meson</span> <span class="n">setup</span> <span class="o">--</span><span class="n">wipe</span> <span class="n">_build</span> <span class="o">-</span><span class="n">Duse_mpi</span><span class="o">=</span><span class="n">false</span> <span class="o">-</span><span class="n">Dbuildtype</span><span class="o">=</span><span class="n">release</span>
+<span class="n">meson</span> <span class="nb">compile</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">C</span> <span class="n">_build</span> 
+<span class="n">meson</span> <span class="n">install</span> <span class="o">-</span><span class="n">C</span> <span class="n">_build</span>
 </pre></div>
 </div>
-<p>This will install <code class="docutils literal notranslate"><span class="pre">moose</span></code> module inside your environment's default module installation (usually <code class="docutils literal notranslate"><span class="pre">site-packages</span></code>) directory. This requires write permission on the target directory. See below for custom location installation if you don't have write permission.</p>
-<p><strong>Note:</strong> You can also use <code class="docutils literal notranslate"><span class="pre">ninja</span> <span class="pre">-v</span> <span class="pre">-C</span> <span class="pre">_build</span></code> instead of <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">compile</span> <span class="pre">-v</span> <span class="pre">-C</span> <span class="pre">_build</span></code> - both are equivalent. The <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">compile</span></code> command calls ninja internally.</p>
-<p><strong>What each command does:</strong></p>
-<div class="table-wrapper colwidths-auto docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Command</p></th>
-<th class="head"><p>Purpose</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span></code></p></td>
-<td><p>Configures the build, finds dependencies, downloads nanobind</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">compile</span></code></p></td>
-<td><p>Compiles all C++ source files and creates the Python module</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">install</span></code></p></td>
-<td><p>Copies the built module to your Python environment</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>What each option means:</strong></p>
-<div class="table-wrapper colwidths-auto docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Option</p></th>
-<th class="head"><p>Meaning</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--wipe</span></code></p></td>
-<td><p>Clean any previous build configuration</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">_build</span></code></p></td>
-<td><p>Directory where build files are stored</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--prefix=$CONDA_PREFIX</span></code></p></td>
-<td><p>Install to conda environment (not system-wide)</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-Duse_mpi=false</span></code></p></td>
-<td><p>Disable MPI support (not needed for most users)</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=release</span></code></p></td>
-<td><p>Optimized build for best performance</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-v</span></code></p></td>
-<td><p>Verbose output (see what's happening)</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-C</span> <span class="pre">_build</span></code></p></td>
-<td><p>Use the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-</section>
-<section id="verify-the-installation">
-<h3>6. Verify the installation<a class="headerlink" href="#verify-the-installation" title="Link to this heading">¶</a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import moose; print(&#39;Version:&#39;, moose.__version__); print(&#39;File:&#39;, moose.__file__)&quot;</span>
+<p>This will install <code class="docutils literal notranslate"><span class="pre">moose</span></code> module inside your environment's default module installation (usually <code class="docutils literal notranslate"><span class="pre">site-packages</span></code>) directory. This  requires write permission on the target directory. See below for local installation.</p>
+<p>For standard installation you can also simply run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span></code> (for system-wide installation if you have the permission) or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span> <span class="pre">--user</span></code> (for local installation) in the <code class="docutils literal notranslate"><span class="pre">moose-core</span></code> directory.</p>
+<p>Meson provides many builtin options: https://mesonbuild.com/Builtin-options.html. Meson options are supplied in the command line to <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span></code> in the format <code class="docutils literal notranslate"><span class="pre">-Doption=value</span></code>.</p>
+<ul>
+<li><p><strong>Installation prefix</strong>
+To install MOOSE in a custom location, you can pass the <code class="docutils literal notranslate"><span class="pre">--prefix</span></code> argument to <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span></code>. For example, if you are in the <code class="docutils literal notranslate"><span class="pre">moose-core</span></code> directory, and want to have it installed in <code class="docutils literal notranslate"><span class="pre">_build_install</span></code> subdirectory, you can use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>meson setup --wipe _build --prefix=`pwd`/_build_install -Duse_mpi=false -Dbuildtype=release
 </pre></div>
 </div>
-<p>Expected output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Version</span><span class="p">:</span> <span class="mf">4.2.0</span>
-<span class="n">File</span><span class="p">:</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">moose</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+<p>But then to let Python find this custom location, you must add the directory containing <code class="docutils literal notranslate"><span class="pre">moose</span></code> under <code class="docutils literal notranslate"><span class="pre">_build_install</span></code> in your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable. In <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell, this would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;$PYTHONPATH:`pwd`/_buid_install/Lib/site-packages&quot;</span>
 </pre></div>
 </div>
-<p>Quick functionality test:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import moose; c = moose.Compartment(&#39;/c&#39;); print(&#39;dt:&#39;, c.dt); moose.le()&quot;</span>
+</li>
+<li><p><strong>Buildtype</strong></p>
+<p>If you want a developement build with debug enabled, pass <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debug</span></code> in the <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span> <span class="pre">...</span></code> command line.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>meson setup --wipe _build --prefix=`pwd`/_build_install -Duse_mpi=false -Dbuildtype=debug -Ddebug=true
 </pre></div>
 </div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="advanced-build-options">
-<h2>Advanced Build Options<a class="headerlink" href="#advanced-build-options" title="Link to this heading">¶</a></h2>
-<p>Meson provides many builtin options: https://mesonbuild.com/Builtin-options.html</p>
-<p>Meson options are supplied in the command line to <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span></code> in the format <code class="docutils literal notranslate"><span class="pre">-Doption=value</span></code>.</p>
-<section id="installation-prefix-custom-location">
-<h3>Installation Prefix (Custom Location)<a class="headerlink" href="#installation-prefix-custom-location" title="Link to this heading">¶</a></h3>
-<p>To install MOOSE in a custom location instead of site-packages, you can pass the <code class="docutils literal notranslate"><span class="pre">--prefix</span></code> argument to <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span></code>. For example, if you are in the <code class="docutils literal notranslate"><span class="pre">moose-core</span></code> directory and want to have it installed in <code class="docutils literal notranslate"><span class="pre">_build_install</span></code> subdirectory, you can use:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>meson<span class="w"> </span>setup<span class="w"> </span>--wipe<span class="w"> </span>_build<span class="w"> </span>--prefix<span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/_build_install<span class="w"> </span>-Duse_mpi<span class="o">=</span><span class="nb">false</span><span class="w"> </span>-Dbuildtype<span class="o">=</span>release
-meson<span class="w"> </span>compile<span class="w"> </span>-v<span class="w"> </span>-C<span class="w"> </span>_build
-meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> </span>_build
-</pre></div>
-</div>
-<p>This will build MOOSE in <code class="docutils literal notranslate"><span class="pre">moose-core/_build</span></code> directory and install it as a Python package in the <code class="docutils literal notranslate"><span class="pre">moose-core/_build_install</span></code> directory.</p>
-<p><strong>Important:</strong> Python won't find this custom location automatically. You must add the directory containing <code class="docutils literal notranslate"><span class="pre">moose</span></code> under <code class="docutils literal notranslate"><span class="pre">_build_install</span></code> in your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> environment variable. In <code class="docutils literal notranslate"><span class="pre">bash</span></code> shell, this would be:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYTHONPATH</span><span class="s2">:`pwd`/_build_install/lib/python3.13/site-packages&quot;</span>
-</pre></div>
-</div>
-<p><strong>Note:</strong> Replace <code class="docutils literal notranslate"><span class="pre">python3.13</span></code> with your Python version (e.g., <code class="docutils literal notranslate"><span class="pre">python3.11</span></code>, <code class="docutils literal notranslate"><span class="pre">python3.12</span></code>).</p>
-<p>To make this permanent, add the export line to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file.</p>
-</section>
-<section id="build-types">
-<h3>Build Types<a class="headerlink" href="#build-types" title="Link to this heading">¶</a></h3>
-<div class="table-wrapper colwidths-auto docutils container">
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Build Type</p></th>
-<th class="head"><p>Command</p></th>
-<th class="head"><p>Use For</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Release</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=release</span></code></p></td>
-<td><p>Normal use (fastest)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Debug</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debug</span></code></p></td>
-<td><p>Finding bugs (slowest)</p></td>
-</tr>
-<tr class="row-even"><td><p>Debug Optimized</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debugoptimized</span></code></p></td>
-<td><p>Profiling</p></td>
-</tr>
-<tr class="row-odd"><td><p>Min Size</p></td>
-<td><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=minsize</span></code></p></td>
-<td><p>Smallest binary size</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>Release build</strong> (default, recommended):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>meson<span class="w"> </span>setup<span class="w"> </span>--wipe<span class="w"> </span>_build<span class="w"> </span>-Duse_mpi<span class="o">=</span><span class="nb">false</span><span class="w"> </span>-Dbuildtype<span class="o">=</span>release
-</pre></div>
-</div>
-<p><strong>Debug build</strong> (for development):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>meson<span class="w"> </span>setup<span class="w"> </span>--wipe<span class="w"> </span>_build<span class="w"> </span>--prefix<span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/_build_install<span class="w"> </span>-Duse_mpi<span class="o">=</span><span class="nb">false</span><span class="w"> </span>-Dbuildtype<span class="o">=</span>debug<span class="w"> </span>-Ddebug<span class="o">=</span><span class="nb">true</span>
-</pre></div>
-</div>
-<p>You can either use <code class="docutils literal notranslate"><span class="pre">buildtype</span></code> option alone or use the two options <code class="docutils literal notranslate"><span class="pre">debug</span></code> and <code class="docutils literal notranslate"><span class="pre">optimization</span></code> for finer grained control over the build.</p>
-<p>According to meson documentation:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debug</span></code> creates a debug build with optimization level 0 (passes <code class="docutils literal notranslate"><span class="pre">-O0</span> <span class="pre">-g</span></code> to GCC)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debugoptimized</span></code> creates a debug build with optimization level 2 (equivalent to <code class="docutils literal notranslate"><span class="pre">-Ddebug=true</span> <span class="pre">-Doptimization=2</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=release</span></code> creates a release build with optimization level 3 (equivalent to <code class="docutils literal notranslate"><span class="pre">-Ddebug=false</span> <span class="pre">-Doptimization=3</span></code>)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-Dbuildtype=minsize</span></code> creates a release build with space optimization (passes <code class="docutils literal notranslate"><span class="pre">-Os</span></code> to GCC)</p></li>
+<p>You can either use <code class="docutils literal notranslate"><span class="pre">buildtype</span></code> option alone or use the two options <code class="docutils literal notranslate"><span class="pre">debug</span></code> and <code class="docutils literal notranslate"><span class="pre">optimization</span></code> for finer grained control over the build. According to <code class="docutils literal notranslate"><span class="pre">meson</span></code> documentation <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debug</span></code> will create a debug build with optimization level 0 (i.e., no optimization, passing <code class="docutils literal notranslate"><span class="pre">-O0</span> <span class="pre">-g</span></code> to GCC), <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debugoptimized</span></code>  will create a debug build with optimization level 2 (equivalent to <code class="docutils literal notranslate"><span class="pre">-Ddebug=true</span> <span class="pre">-Doptimization=2</span></code>), <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=release</span></code> will create a release build with optimization level 3 (equivalent to <code class="docutils literal notranslate"><span class="pre">-Ddebug=false</span> <span class="pre">-Doptimization=3</span></code>), and <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=minsize</span></code> will create a release build with space optimization (passing <code class="docutils literal notranslate"><span class="pre">-Os</span></code> to GCC).</p>
+</li>
+<li><p><strong>Optimization level</strong></p>
+<p>To set optimization level, pass <code class="docutils literal notranslate"><span class="pre">-Doptimization=level</span></code>, where level can be <code class="docutils literal notranslate"><span class="pre">plain</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p>
+</li>
 </ul>
-</section>
-<section id="optimization-level">
-<h3>Optimization Level<a class="headerlink" href="#optimization-level" title="Link to this heading">¶</a></h3>
-<p>To set a specific optimization level:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>meson<span class="w"> </span>setup<span class="w"> </span>--wipe<span class="w"> </span>_build<span class="w"> </span>-Duse_mpi<span class="o">=</span><span class="nb">false</span><span class="w"> </span>-Doptimization<span class="o">=</span><span class="m">2</span>
+<ol class="arabic simple" start="6">
+<li><p>For a Python development build so that your edits to the Python source code are included, run:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">build</span><span class="o">-</span><span class="n">isolation</span> <span class="o">--</span><span class="n">editable</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>Available levels: <code class="docutils literal notranslate"><span class="pre">plain</span></code>, <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code></p>
-<p>For more meson options, see: https://mesonbuild.com/Builtin-options.html</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="development-workflow">
-<h2>Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading">¶</a></h2>
-<section id="editable-install-for-python-development">
-<h3>Editable Install (for Python Development)<a class="headerlink" href="#editable-install-for-python-development" title="Link to this heading">¶</a></h3>
-<p>If you're modifying MOOSE's Python code and want changes to take effect immediately:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-build-isolation<span class="w"> </span>--editable<span class="w"> </span>.
+<ol class="arabic simple" start="7">
+<li><p>To build a wheel (for distribution), run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">wheel</span></code> command in the <code class="docutils literal notranslate"><span class="pre">moose-core</span></code> directory:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">pip</span> <span class="n">wheel</span> <span class="o">-</span><span class="n">w</span> <span class="n">dist</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>This creates a &quot;development mode&quot; installation where your edits to Python source files are immediately reflected without reinstalling.</p>
-</section>
-<section id="building-a-wheel-for-distribution">
-<h3>Building a Wheel (for Distribution)<a class="headerlink" href="#building-a-wheel-for-distribution" title="Link to this heading">¶</a></h3>
-<p>To build a wheel (for distribution), run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">wheel</span></code> command in the <code class="docutils literal notranslate"><span class="pre">moose-core</span></code> directory:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>wheel<span class="w"> </span>-w<span class="w"> </span>dist<span class="w"> </span>.
-</pre></div>
-</div>
-<p>This will create the <code class="docutils literal notranslate"><span class="pre">pymoose-{version}-{python}-{abi}-{os}_{arch}.whl</span></code> wheel file in the <code class="docutils literal notranslate"><span class="pre">moose-core/dist</span></code> directory. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dist</span><span class="o">/</span><span class="n">pymoose</span><span class="o">-</span><span class="mf">4.2.0</span><span class="o">-</span><span class="n">cp313</span><span class="o">-</span><span class="n">cp313</span><span class="o">-</span><span class="n">linux_x86_64</span><span class="o">.</span><span class="n">whl</span>
-</pre></div>
-</div>
-<p>This can be installed with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>dist/pymoose-4.2.0-cp313-cp313-linux_x86_64.whl
+<p>This weel create the <code class="docutils literal notranslate"><span class="pre">pymoose-{version}-{python}-{abi}-{os}_{arch}.whl</span></code> wheel file in the <code class="docutils literal notranslate"><span class="pre">moose-core/dist</span></code> directory. This can installed with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">dist</span><span class="o">/</span><span class="n">pymoose</span><span class="o">-</span><span class="p">{</span><span class="n">version</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">python</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">abi</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">os</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">arch</span><span class="p">}</span><span class="o">.</span><span class="n">whl</span>
 </pre></div>
 </div>
 </section>
-<section id="clean-rebuild">
-<h3>Clean Rebuild<a class="headerlink" href="#clean-rebuild" title="Link to this heading">¶</a></h3>
-<p>To do a clean rebuild, delete the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory and the generated <code class="docutils literal notranslate"><span class="pre">_build_install/</span></code> directory (if using custom prefix) and continue the steps starting with <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span> <span class="pre">...</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>_build<span class="w"> </span>_build_install
-meson<span class="w"> </span>setup<span class="w"> </span>--wipe<span class="w"> </span>_build<span class="w"> </span>--prefix<span class="o">=</span><span class="nv">$CONDA_PREFIX</span><span class="w"> </span>-Duse_mpi<span class="o">=</span><span class="nb">false</span><span class="w"> </span>-Dbuildtype<span class="o">=</span>release
-meson<span class="w"> </span>compile<span class="w"> </span>-v<span class="w"> </span>-C<span class="w"> </span>_build
-meson<span class="w"> </span>install<span class="w"> </span>-C<span class="w"> </span>_build
+<section id="development-build-with-meson-and-ninja">
+<h2>Development build with <code class="docutils literal notranslate"><span class="pre">meson</span></code> and <code class="docutils literal notranslate"><span class="pre">ninja</span></code><a class="headerlink" href="#development-build-with-meson-and-ninja" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code>  builds <code class="docutils literal notranslate"><span class="pre">pymoose</span></code> with default options, it runs <code class="docutils literal notranslate"><span class="pre">meson</span></code> behind the scene.
+If you are developing moose, want to build it with different options, or need to test
+and profile it, <code class="docutils literal notranslate"><span class="pre">meson</span></code> and <code class="docutils literal notranslate"><span class="pre">ninja</span></code> based flow is recommended.</p>
+<p>Install the required dependencies and download the latest source code of moose
+from github.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    $ git clone https://github.com/MooseNeuro/moose-core --depth 50 
+    $ cd moose-core
+    $ meson setup --wipe _build --prefix=`pwd`/_build_install -Duse_mpi=false -Dbuildtype=release
+    $ ninja -v -C _build 
+	$ meson install -C _build
 </pre></div>
 </div>
-<p>To make a debug build, replace the option <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=release</span></code> with <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debug</span></code>.</p>
-</section>
-</section>
-<hr class="docutils" />
-<section id="how-the-build-works">
-<h2>How the Build Works<a class="headerlink" href="#how-the-build-works" title="Link to this heading">¶</a></h2>
-<p>Understanding what happens during the build process:</p>
-<section id="step-1-meson-setup">
-<h3>Step 1: meson setup<a class="headerlink" href="#step-1-meson-setup" title="Link to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────────────────┐
-│                     meson setup                             │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  1. Reads meson.build configuration file                    │
-│  2. Detects your system (OS, CPU, compilers)                │
-│  3. Finds dependencies (GSL, HDF5)                          │
-│  4. Downloads nanobind automatically (for Python bindings)  │
-│  5. Generates ninja build files in _build/                  │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-</pre></div>
-</div>
-</section>
-<section id="step-2-meson-compile">
-<h3>Step 2: meson compile<a class="headerlink" href="#step-2-meson-compile" title="Link to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────────────────┐
-│                    meson compile                            │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  1. Compiles each .cpp file to .o (object file)             │
-│  2. Links all object files together                         │
-│  3. Creates _moose.cpython-3xx-xxx.so (Python module)       │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-</pre></div>
-</div>
-</section>
-<section id="step-3-meson-install">
-<h3>Step 3: meson install<a class="headerlink" href="#step-3-meson-install" title="Link to this heading">¶</a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>┌─────────────────────────────────────────────────────────────┐
-│                    meson install                            │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  1. Copies _moose.cpython-3xx.so to site-packages/moose/    │
-│  2. Copies Python files (*.py) to site-packages/moose/      │
-│  3. Compiles Python files to .pyc (bytecode)                │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-</pre></div>
-</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
-<section id="error-no-module-named-neuroml-or-no-module-named-pyneuroml">
-<h3>Error: &quot;No module named 'neuroml'&quot; or &quot;No module named 'pyneuroml'&quot;<a class="headerlink" href="#error-no-module-named-neuroml-or-no-module-named-pyneuroml" title="Link to this heading">¶</a></h3>
-<p><strong>Cause:</strong> Missing runtime dependency.</p>
-<p><strong>Solution:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>pyneuroml
-</pre></div>
-</div>
-</section>
-<section id="error-could-not-find-dependency-gsl">
-<h3>Error: &quot;Could not find dependency gsl&quot;<a class="headerlink" href="#error-could-not-find-dependency-gsl" title="Link to this heading">¶</a></h3>
-<p><strong>Cause:</strong> GSL library not installed.</p>
-<p><strong>Solution:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubuntu/Debian</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libgsl-dev
-
-<span class="c1"># Conda</span>
-conda<span class="w"> </span>install<span class="w"> </span>gsl<span class="w"> </span>-c<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-</section>
-<section id="error-could-not-find-dependency-hdf5">
-<h3>Error: &quot;Could not find dependency hdf5&quot;<a class="headerlink" href="#error-could-not-find-dependency-hdf5" title="Link to this heading">¶</a></h3>
-<p><strong>Cause:</strong> HDF5 library not installed.</p>
-<p><strong>Solution:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubuntu/Debian</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libhdf5-dev
-
-<span class="c1"># Conda</span>
-conda<span class="w"> </span>install<span class="w"> </span>hdf5<span class="w"> </span>-c<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-</section>
-<section id="error-permission-denied-during-install">
-<h3>Error: &quot;Permission denied&quot; during install<a class="headerlink" href="#error-permission-denied-during-install" title="Link to this heading">¶</a></h3>
-<p><strong>Cause:</strong> Trying to install to system location without sudo.</p>
-<p><strong>Solution:</strong> Either use <code class="docutils literal notranslate"><span class="pre">--prefix=$CONDA_PREFIX</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">.</span> <span class="pre">--user</span></code></p>
-</section>
-<section id="error-ninja-command-not-found">
-<h3>Error: &quot;ninja: command not found&quot;<a class="headerlink" href="#error-ninja-command-not-found" title="Link to this heading">¶</a></h3>
-<p><strong>Cause:</strong> Ninja build system not installed.</p>
-<p><strong>Solution:</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubuntu/Debian</span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ninja
-
-<span class="c1"># Conda</span>
-conda<span class="w"> </span>install<span class="w"> </span>ninja<span class="w"> </span>-c<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><strong>nanobind:</strong> MOOSE 4.2.0 uses nanobind for Python bindings (replacing pybind11). This is fetched automatically by meson during build - no manual installation required.</p></li>
-<li><p><strong>NeuroML2 support:</strong> Requires <code class="docutils literal notranslate"><span class="pre">pyneuroml</span></code>, <code class="docutils literal notranslate"><span class="pre">pint</span></code>, and <code class="docutils literal notranslate"><span class="pre">scipy</span></code> packages.</p></li>
-<li><p><strong>SBML support:</strong> Requires <code class="docutils literal notranslate"><span class="pre">python-libsbml</span></code> package.</p></li>
-</ul>
+<p>This will build moose in <code class="docutils literal notranslate"><span class="pre">moose-core/_build</span></code> directory and install it as a Python package in the <code class="docutils literal notranslate"><span class="pre">moose-core/_build_install</span></code> directory.</p>
+<p>To do a clean rebuild, delete the <code class="docutils literal notranslate"><span class="pre">_build</span></code> directory and the generated <code class="docutils literal notranslate"><span class="pre">_build_install/</span></code> directory and continue the steps above starting with <code class="docutils literal notranslate"><span class="pre">meson</span> <span class="pre">setup</span> <span class="pre">...</span></code>.</p>
+<p>To make in debug mode replace the option <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=release</span></code> with <code class="docutils literal notranslate"><span class="pre">-Dbuildtype=debug</span></code></p>
 </section>
 </section>
 
@@ -956,58 +603,10 @@ conda<span class="w"> </span>install<span class="w"> </span>ninja<span class="w"
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Building MOOSE on Ubuntu (possibly in WSL)</a><ul>
-<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
-<li><a class="reference internal" href="#install-gnu-build-tools">0. Install GNU build tools</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#option-a-building-with-system-python">Option A: Building with System Python</a><ul>
-<li><a class="reference internal" href="#install-the-dependencies">1. Install the dependencies</a></li>
-<li><a class="reference internal" href="#install-pymoose-from-github">2. Install pymoose from GitHub</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#option-b-building-with-conda-mamba-micromamba-recommended">Option B: Building with Conda/Mamba/Micromamba (Recommended)</a><ul>
-<li><a class="reference internal" href="#install-conda-or-variants">1. Install conda or variants</a></li>
-<li><a class="reference internal" href="#create-an-environment-with-required-packages">2. Create an environment with required packages</a></li>
-<li><a class="reference internal" href="#activate-the-environment">3. Activate the environment</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#after-the-above-steps-for-both-system-python-and-conda-environment">After the above steps, for both system Python and conda environment</a><ul>
-<li><a class="reference internal" href="#clone-the-source-code">4. Clone the source code</a></li>
-<li><a class="reference internal" href="#build-moose">5. Build MOOSE</a><ul>
-<li><a class="reference internal" href="#method-1-using-pip-simple">Method 1: Using pip (Simple)</a></li>
-<li><a class="reference internal" href="#method-2-using-meson-more-control">Method 2: Using meson (More Control)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#verify-the-installation">6. Verify the installation</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#advanced-build-options">Advanced Build Options</a><ul>
-<li><a class="reference internal" href="#installation-prefix-custom-location">Installation Prefix (Custom Location)</a></li>
-<li><a class="reference internal" href="#build-types">Build Types</a></li>
-<li><a class="reference internal" href="#optimization-level">Optimization Level</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#development-workflow">Development Workflow</a><ul>
-<li><a class="reference internal" href="#editable-install-for-python-development">Editable Install (for Python Development)</a></li>
-<li><a class="reference internal" href="#building-a-wheel-for-distribution">Building a Wheel (for Distribution)</a></li>
-<li><a class="reference internal" href="#clean-rebuild">Clean Rebuild</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#how-the-build-works">How the Build Works</a><ul>
-<li><a class="reference internal" href="#step-1-meson-setup">Step 1: meson setup</a></li>
-<li><a class="reference internal" href="#step-2-meson-compile">Step 2: meson compile</a></li>
-<li><a class="reference internal" href="#step-3-meson-install">Step 3: meson install</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
-<li><a class="reference internal" href="#error-no-module-named-neuroml-or-no-module-named-pyneuroml">Error: &quot;No module named 'neuroml'&quot; or &quot;No module named 'pyneuroml'&quot;</a></li>
-<li><a class="reference internal" href="#error-could-not-find-dependency-gsl">Error: &quot;Could not find dependency gsl&quot;</a></li>
-<li><a class="reference internal" href="#error-could-not-find-dependency-hdf5">Error: &quot;Could not find dependency hdf5&quot;</a></li>
-<li><a class="reference internal" href="#error-permission-denied-during-install">Error: &quot;Permission denied&quot; during install</a></li>
-<li><a class="reference internal" href="#error-ninja-command-not-found">Error: &quot;ninja: command not found&quot;</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#notes">Notes</a></li>
+<li><a class="reference internal" href="#building-with-system-python">Building with system Python</a></li>
+<li><a class="reference internal" href="#building-with-conda-or-variants">Building with conda or variants</a></li>
+<li><a class="reference internal" href="#after-the-above-steps-for-both-system-python-and-conda-environment">After the above steps, for both system Python and conda environment</a></li>
+<li><a class="reference internal" href="#development-build-with-meson-and-ninja">Development build with <code class="docutils literal notranslate"><span class="pre">meson</span></code> and <code class="docutils literal notranslate"><span class="pre">ninja</span></code></a></li>
 </ul>
 </li>
 </ul>
