@@ -84,9 +84,6 @@ jobs:
           MOOSE_EXAMPLES_PATH: ${{ github.workspace }}/docs/moose-examples
         run: sphinx-build -b html docs/source public/docs/html
 
-      - name: Add CNAME for docs subdomain
-        run: echo "docs.mooseneuro.org" > public/docs/html/CNAME
-
       - name: Commit and push built docs
         run: |
           git config user.name "github-actions[bot]"

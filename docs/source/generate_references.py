@@ -246,6 +246,9 @@ def generate():
         else:
             print(f"  WARNING: {fname} not found in moose-core at {src}")
 
+    # Generate autodoc stubs for Python subpackages (e.g. moose.channels)
+    for submodule_name in get_python_submodules(moose_core):
+        generate_submodule_rst(submodule_name, OUT_DIR)
 
     # Strip :doc:`ClassName` links in moose_classes.rst for classes that
     # have no generated RST file (pymoose returned no doc for them).
