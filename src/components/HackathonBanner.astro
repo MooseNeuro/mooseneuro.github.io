@@ -1,0 +1,148 @@
+---
+// Promo banner for the MOOSE Hackathon 2026 problem statement.
+// Used on the landing page (full-bleed, flush under the hero) and on /news (boxed card).
+// Remove both usages once the hackathon closes.
+interface Props {
+  /** Edge-to-edge with no rounding, so it sits flush against the hero. */
+  fullBleed?: boolean;
+}
+
+const { fullBleed = false } = Astro.props;
+
+// Plain spike raster: one row per neuron, irregular firing, no structure that
+// stands in for the answer. Spike times come from a deterministic hash rather
+// than Math.random(), so the markup is identical on every build.
+const WIDTH = 560;
+const HEIGHT = 220;
+const ROW_TOP = 12;
+const ROW_PITCH = 16;
+const ROWS = 13;
+
+const hash = (a: number, b: number) => {
+  const n = Math.sin(a * 127.1 + b * 311.7) * 43758.5453;
+  return n - Math.floor(n);
+};
+
+const rasterRows = Array.from({ length: ROWS }, (_, row) => {
+  const ticks: number[] = [];
+  let x = hash(row, 0) * 24;
+  let step = 0;
+  while (x < WIDTH) {
+    ticks.push(x);
+    // A refractory floor plus a variable gap, which is what an ordinary
+    // irregularly-firing raster looks like.
+    x += 9 + hash(row, ++step) * 26;
+  }
+  return {
+    y: ROW_TOP + row * ROW_PITCH,
+    // Slight per-row opacity variation keeps the field from looking printed.
+    opacity: 0.68 + hash(row, 99) * 0.32,
+    ticks,
+  };
+});
+---
+
+<a
+  href="/news/hackathon2026/"
+  class:list={[
+    "group relative block overflow-hidden shadow-md transition-shadow hover:shadow-xl",
+    // Full-bleed starts at black so it continues straight out of the hero
+    // video's dark overlay, with no seam at the join.
+    fullBleed
+      ? "border-b border-indigo-500/20 bg-gradient-to-b from-black via-gray-900 to-brand-tertiary"
+      : "mx-10 rounded-2xl border border-indigo-200 bg-gradient-to-br from-gray-900 to-brand-tertiary",
+  ]}
+>
+  <!-- Decorative glows -->
+  <div
+    class="pointer-events-none absolute -top-28 -left-20 h-80 w-80 rounded-full bg-indigo-500/25 blur-3xl"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-32 right-1/3 h-80 w-80 rounded-full bg-sky-400/15 blur-3xl"
+  >
+  </div>
+
+  <!-- Spike raster art -->
+  <svg
+    class="pointer-events-none absolute inset-y-0 right-0 h-full w-[70%] opacity-70 md:w-[55%]"
+    viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+    preserveAspectRatio="xMaxYMid slice"
+    fill="none"
+    aria-hidden="true"
+  >
+    <defs>
+      <linearGradient id="hb-fade" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#fff" stop-opacity="0" />
+        <stop offset="45%" stop-color="#fff" stop-opacity="0.75" />
+        <stop offset="100%" stop-color="#fff" stop-opacity="1" />
+      </linearGradient>
+      <mask id="hb-mask">
+        <rect width={WIDTH} height={HEIGHT} fill="url(#hb-fade)" />
+      </mask>
+    </defs>
+
+    <g mask="url(#hb-mask)">
+      {
+        rasterRows.map((row) => (
+          <g opacity={row.opacity}>
+            {row.ticks.map((x) => (
+              <rect
+                x={x}
+                y={row.y}
+                width="2.5"
+                height="9"
+                rx="1.25"
+                fill="#38bdf8"
+              />
+            ))}
+          </g>
+        ))
+      }
+    </g>
+  </svg>
+
+  <div
+    class:list={[
+      "relative flex flex-col gap-6 md:flex-row md:items-center",
+      fullBleed
+        ? "mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-16 lg:px-8"
+        : "p-8",
+    ]}
+  >
+    <div class="flex flex-1 flex-col gap-3">
+      <span
+        class="inline-flex items-center gap-2 self-start rounded-full border border-indigo-400/40 bg-indigo-500/15 px-3 py-1 text-xs font-semibold tracking-wider text-indigo-200 uppercase"
+      >
+        <span class="relative flex h-2.5 w-2.5">
+          <span
+            class="absolute inline-flex h-full w-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] rounded-full bg-green-500 opacity-75 motion-reduce:animate-none"
+          ></span>
+          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-600"></span>
+        </span>
+        {fullBleed ? "Hackathon open now" : "Open now"}
+      </span>
+      <h2 class="text-2xl leading-snug font-bold text-white md:text-3xl">
+        MOOSE Hackathon 2026 - Neuromorphic Oscillatorr
+      </h2>
+      <div class="flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400">
+        <span>Starts 15 Aug, 10:00am IST</span>
+        <span>Closes 30 Aug, 11:59pm IST</span>
+      </div>
+    </div>
+    <span
+      class="inline-flex shrink-0 items-center rounded-lg bg-indigo-500 px-5 py-3 text-sm font-semibold text-white transition-colors group-hover:bg-indigo-600"
+    >
+      View the challenge
+      <svg
+        class="ml-2 h-4 w-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </span>
+  </div>
+</a>

@@ -1,0 +1,1065 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+// Submission form. Paste the form URL here once it is live. The Submit step
+// renders a link when this is set, and a "coming soon" note while it is empty.
+const SUBMISSION_FORM_URL = "https://forms.gle/tFnPUknXHUAgmhhA9";
+---
+
+<BaseLayout
+  title="MOOSE Hackathon 2026 — Problem Statement"
+  description="MOOSE Hackathon 2026 individual track: build a clockless neuromorphic pacemaker in MOOSE within a 100-neuron budget."
+  url="https://mooseneuro.org/news/hackathon2026"
+  ogType="article"
+>
+  <style is:inline>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap");
+  </style>
+
+  <div class="hack-page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner p-12">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"><span class="ping"></span></span>
+            Hackathon open now
+          </div>
+          <h1>MOOSE Hackathon 2026</h1>
+          <p class="tagline">
+            Fire up your synapses. Build a model, and let your simulation do the
+            talking.
+          </p>
+          <div class="meta-row">
+            <div class="meta-pill">
+              <span class="label">Hackathon starts</span>
+              <span class="value mono">15 Aug, 10:00am IST</span>
+            </div>
+            <div class="meta-pill">
+              <span class="label">Hackathon closes</span>
+              <span class="value mono">30 Aug, 11:59pm IST</span>
+            </div>
+            <div class="meta-pill">
+              <span class="label">Submission</span>
+              <span class="value mono">Individual · GitHub</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+      <div class="breadcrumb-inner">
+        <a href="/news">All News</a>
+        <span>/</span>
+        <span class="current">MOOSE Hackathon 2026 — Problem Statement</span>
+      </div>
+    </div>
+
+    <!-- LAYOUT -->
+    <div class="layout">
+      <!-- MAIN: PROBLEM -->
+      <main class="card problem-card">
+        <div class="kicker">Problem statement</div>
+        <h2 class="problem-title">Neuromorphic Oscillatorr</h2>
+
+        <div class="section">
+          <h2 class="section-h">
+            <span class="icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><rect x="4" y="4" width="16" height="16" rx="2"></rect><path
+                  d="M9 9h6v6H9z"></path><path
+                  d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"
+                ></path></svg
+              >
+            </span>
+            The Scenario
+          </h2>
+          <p>
+            A leading semiconductor firm is developing an ultra-low-power,
+            implantable neuromorphic chip designed to serve as a neonatal
+            cardiac pacemaker. Instead of using power-hungry, traditional
+            digital microcontrollers that rely on high-frequency clock crystals,
+            this chip utilizes a hardware network of sub-threshold analog
+            artificial spiking neurons. To validate the silicon layout and
+            stress-test the circuit dynamics before committing to an expensive
+            chip fabrication run (tape-out), your team must design, simulate,
+            and optimize this analog network architecture within the MOOSE
+            engine.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-h">
+            <span class="icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><circle cx="12" cy="12" r="9"></circle><path d="M8 12h8M12 8v8"
+                ></path></svg
+              >
+            </span>
+            The Objective
+          </h2>
+          <p>
+            Your goal is to construct a population-based, neuromorphic
+            oscillator in MOOSE that functions as a highly dependable silicon
+            macro-pulse generator. The network must be divided into two
+            distinct, competing pools of circuits (representing opposing phases
+            of a clock cycle or cardiac muscle pulse). When Pool A is highly
+            active, it must completely suppress Pool B, and vice versa. This
+            mutual, alternating hardware tug-of-war must create a stable,
+            rhythmic anti-phase pattern, functioning as an ultra-reliable,
+            clockless pacemaker.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-h">
+            <span class="icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path
+                  d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 16.5 6.5 19.5l1-6.3L3 8.9 9 8z"
+                ></path></svg
+              >
+            </span>
+            Rules &amp; Constraints
+          </h2>
+
+          <div class="constraint">
+            <div class="c-icon">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"></path></svg
+              >
+            </div>
+            <div class="c-body">
+              <strong>Tonic bias only</strong>
+              <p>
+                The driving input bias current (inject) entering your electronic
+                neurons must be completely static and constant. The input bias
+                cannot oscillate. You are forbidden from using external
+                electronic sine waves, function generators, or digital clock
+                pulses to force the rhythm. The oscillation must emerge purely
+                from the internal non-linear equations and feedback loops of the
+                silicon layout.
+              </p>
+            </div>
+          </div>
+
+          <div class="constraint">
+            <div class="c-icon">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path d="M12 3v18M6 8h4M6 16h4M14 8h4M14 16h4"></path></svg
+              >
+            </div>
+            <div class="c-body">
+              <strong>Dale's Law compliance</strong>
+              <p>
+                A single neuron circuit cannot express both excitatory and
+                inhibitory behaviors. If a hardware sub-population is designated
+                as Excitatory (E), it can only form forward excitatory synapse
+                lines (<span class="mono">exc_syn</span>). If it is Inhibitory
+                (I), it can only form inhibitory synapse lines (<span
+                  class="mono">inh_syn</span
+                >). You could budget for inhibitory neurons in each Pool from
+                within the 100 neuron budget.
+              </p>
+            </div>
+          </div>
+
+          <div class="constraint">
+            <div class="c-icon">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><rect x="7" y="7" width="10" height="10" rx="1"></rect><path
+                  d="M9 3v2M15 3v2M9 19v2M15 19v2M3 9h2M3 15h2M19 9h2M19 15h2"
+                ></path></svg
+              >
+            </div>
+            <div class="c-body">
+              <strong>The 100-neuron silicon budget</strong>
+              <p>
+                To minimize power consumption and silicon real estate on the
+                chip, your entire neuromorphic core has a strict ceiling of
+                exactly 100 neuron circuits total.
+              </p>
+              <div class="budget-grid" aria-hidden="true">
+                {Array.from({ length: 100 }).map(() => <span />)}
+              </div>
+            </div>
+          </div>
+
+          <div class="constraint">
+            <div class="c-icon">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><rect x="5" y="11" width="14" height="9" rx="1.5"></rect><path
+                  d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg
+              >
+            </div>
+            <div class="c-body">
+              <strong>Fixed hardwired connectome</strong>
+              <p>
+                Once your synaptic routing matrix (the hardwired lines linking
+                the circuits) is established at millisecond zero, you cannot
+                alter routing paths, rewire gates, or change weights during
+                runtime to alter the chip's behavior.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" style="margin-bottom:0;">
+          <h2 class="section-h">
+            <span class="icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                ><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="9"
+                ></circle></svg
+              >
+            </span>
+            Submission Requirements
+          </h2>
+          <p>
+            Participants must submit the link to their GitHub repository. The
+            repository must contain:
+          </p>
+          <ul class="req-list">
+            <li>
+              <span class="check">✓</span> The script(s) used to implement the model.
+            </li>
+            <li>
+              <span class="check">✓</span> A descriptive README file explaining the
+              model, methodology, and how to run the code.
+            </li>
+            <li>
+              <span class="check">✓</span> Output graphs of the neuronal subpopulations,
+              such as raster plots or voltage traces — saved as PNG images and included
+              in the README for reference.
+            </li>
+          </ul>
+        </div>
+
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="card side-card">
+          <h3><span class="em">📅</span> Key Dates</h3>
+          <div class="date-row">
+            <span class="d-label">Registration closed</span>
+            <span class="d-value past">14 Aug, 11:59pm IST</span>
+          </div>
+          <div class="date-row">
+            <span class="d-label">Hackathon starts</span>
+            <span class="d-value">15 Aug, 10:00am IST</span>
+          </div>
+          <div class="date-row">
+            <span class="d-label">Hackathon closes</span>
+            <span class="d-value">30 Aug, 11:59pm IST</span>
+          </div>
+          <div class="countdown" id="countdown">
+            <div class="cd-unit">
+              <div class="cd-num" id="cd-d">–</div>
+              <div class="cd-lbl">Days</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="cd-h">–</div>
+              <div class="cd-lbl">Hrs</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="cd-m">–</div>
+              <div class="cd-lbl">Min</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="cd-s">–</div>
+              <div class="cd-lbl">Sec</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card side-card">
+          <h3><span class="em">🏆</span> Prizes</h3>
+          <p class="prize-body">
+            <strong>Top 3 winners</strong> and <strong>2 runner-ups</strong> receive
+            a certificate plus MOOSE merchandise. All participants who successfully
+            complete the hackathon receive MOOSE merchandise.
+          </p>
+        </div>
+
+        <div class="card side-card">
+          <h3><span class="em">🔗</span> Resources</h3>
+          <div class="resource-chips">
+            <a href="/">Website</a>
+            <a href="/docs/html/">Docs</a>
+            <a
+              href="https://github.com/MooseNeuro/moose-examples"
+              target="_blank"
+              rel="noopener">Examples</a
+            >
+            <a
+              href="https://github.com/MooseNeuro/moose-notebooks"
+              target="_blank"
+              rel="noopener">Notebooks</a
+            >
+            <a
+              href="https://github.com/MooseNeuro/moose-core"
+              target="_blank"
+              rel="noopener">moose-core</a
+            >
+            <a
+              href="https://github.com/MooseNeuro/jardesigner"
+              target="_blank"
+              rel="noopener">Jardesigner</a
+            >
+          </div>
+        </div>
+
+        <div class="card side-card">
+          <h3><span class="em">🚀</span> How to Submit</h3>
+          <ol class="steps">
+            <li>
+              <div class="s-title">Write &amp; test</div>
+              <div class="s-desc">
+                Notebook(s) must run top-to-bottom via <span class="mono"
+                  >Run All</span
+                >, no manual steps. Add a short markdown cell above each step
+                explaining it.
+              </div>
+            </li>
+            <li>
+              <div class="s-title">Push to GitHub</div>
+              <div class="s-desc">
+                Public repo named <span class="mono">moose2026hackathon</span> holding
+                your notebook(s), data files, and <span class="mono"
+                  >README.md</span
+                >. Include everything the notebook needs and reference it with
+                relative paths.
+              </div>
+            </li>
+            <li>
+              <div class="s-title">README</div>
+              <div class="s-desc">
+                Judges use this to gauge your understanding, so be precise:
+                problem statement, approach, step-by-step, dependencies, file
+                structure, how to run, expected output, closing remark.
+              </div>
+            </li>
+            <li>
+              <div class="s-title">Submit</div>
+              <div class="s-desc">
+                Paste your repository URL into the{" "}
+                {
+                  SUBMISSION_FORM_URL ? (
+                    <a
+                      class="s-form-link"
+                      href={SUBMISSION_FORM_URL}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      Submission form
+                    </a>
+                  ) : (
+                    "submission form"
+                  )
+                }
+                {
+                  !SUBMISSION_FORM_URL && (
+                    <span class="s-form-soon">Form link coming soon.</span>
+                  )
+                }
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="card side-card">
+          <h3><span class="em">📋</span> Rules</h3>
+          <ul class="rules-list">
+            <li><span class="bullet">·</span> Individual submissions only.</li>
+            <li><span class="bullet">·</span> Repo must be public.</li>
+            <li>
+              <span class="bullet">·</span> Late fixes after the deadline don't count
+              toward the top 5.
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .hack-page {
+    --bg-hero: #111827;
+    --bg-hero-glow: rgba(99, 102, 241, 0.28);
+    --accent: #6366f1;
+    --accent-dark: #4338ca;
+    --accent-soft: #eef0fe;
+    --violet: #8b5cf6;
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+    --bg-subtle: #f9fafb;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+    --good: #16a34a;
+
+    font-family:
+      "Inter",
+      -apple-system,
+      BlinkMacSystemFont,
+      sans-serif;
+    color: var(--text-primary);
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hack-page *,
+  .hack-page *::before,
+  .hack-page *::after {
+    box-sizing: border-box;
+  }
+  .mono {
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  }
+  .hack-page a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    background: var(--bg-hero);
+    overflow: hidden;
+    padding: 76px 32px 56px;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -140px;
+    left: -80px;
+    width: 620px;
+    height: 620px;
+    background: radial-gradient(
+      circle,
+      var(--bg-hero-glow) 0%,
+      rgba(99, 102, 241, 0) 70%
+    );
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #c7d2fe;
+    background: rgba(99, 102, 241, 0.14);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .eyebrow .dot {
+    position: relative;
+    display: inline-flex;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16a34a;
+  }
+  /* Expanding ring, matching the live indicator on the promo banners */
+  .eyebrow .dot .ping {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #22c55e;
+    opacity: 0.75;
+    animation: dotPing 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes dotPing {
+    75%,
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+  .hero h1 {
+    color: #fff;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero p.tagline {
+    color: #c2cbde;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 28px;
+    max-width: 560px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .meta-pill {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: rgba(15, 20, 33, 0.72);
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 10px 16px;
+  }
+  .meta-pill .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #a3aec7;
+  }
+  .meta-pill .value {
+    font-size: 14px;
+    color: #f1f3fb;
+    font-weight: 600;
+  }
+  .meta-pill .value.mono {
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .hero h1 {
+      font-size: 40px;
+    }
+  }
+
+  /* ---------- BREADCRUMB ---------- */
+  .breadcrumb {
+    background: var(--bg-subtle);
+    border-bottom: 1px solid var(--card-border);
+    padding: 14px 32px;
+  }
+  .breadcrumb-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .breadcrumb-inner .current {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+  .breadcrumb-inner a:hover {
+    color: var(--accent-dark);
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .layout {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 32px 80px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 32px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: 1fr;
+      padding: 28px 20px 64px;
+    }
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.06),
+      0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  }
+
+  /* ---------- PROBLEM (MAIN) ---------- */
+  .problem-card {
+    padding: 36px 40px 44px;
+  }
+  @media (max-width: 600px) {
+    .problem-card {
+      padding: 26px 20px 32px;
+    }
+  }
+
+  .kicker {
+    color: var(--accent);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .problem-title {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .spec-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    margin-bottom: 32px;
+  }
+  .spec {
+    flex: 1;
+    min-width: 140px;
+    padding: 12px 18px;
+    border-right: 1px solid var(--card-border);
+  }
+  .spec:last-child {
+    border-right: none;
+  }
+  .spec .spec-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .spec .spec-value {
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+  @media (max-width: 600px) {
+    .spec {
+      flex: 1 1 50%;
+      border-right: none;
+      border-bottom: 1px solid var(--card-border);
+    }
+  }
+
+  h2.section-h {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0 0 14px;
+    padding-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h2.section-h .icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section {
+    margin-bottom: 34px;
+  }
+  .section p {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #27324a;
+    margin: 0 0 14px;
+  }
+  .section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .constraint {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-top: 1px solid #eef0f4;
+  }
+  .constraint:first-of-type {
+    border-top: none;
+    padding-top: 4px;
+  }
+  .constraint .c-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    flex-shrink: 0;
+    background: #f4f2ff;
+    color: var(--violet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .constraint .c-body strong {
+    display: block;
+    font-size: 14.5px;
+    margin-bottom: 4px;
+  }
+  .constraint .c-body p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 3px;
+    max-width: 260px;
+    margin-top: 10px;
+  }
+  .budget-grid span {
+    width: 100%;
+    padding-bottom: 100%;
+    border-radius: 2px;
+    background: #e3e0ff;
+    display: block;
+  }
+
+  .req-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .req-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #27324a;
+    padding: 10px 0;
+    border-top: 1px solid #eef0f4;
+  }
+  .req-list li:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .req-list .check {
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    background: #ecfdf3;
+    color: var(--good);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* ---------- SIDEBAR ---------- */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 84px;
+  }
+  .side-card {
+    padding: 22px 22px 24px;
+  }
+  .side-card h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .side-card h3 .em {
+    font-size: 15px;
+  }
+
+  .date-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 0;
+    border-top: 1px solid #eef0f4;
+  }
+  .date-row:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+  .date-row .d-label {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+  }
+  .date-row .d-value {
+    font-size: 13.5px;
+    font-weight: 600;
+    text-align: right;
+  }
+  .date-row .d-value.past {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: #d1d5db;
+  }
+
+  .countdown {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #111827, #1e2338);
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+  }
+  .countdown .cd-unit {
+    text-align: center;
+    flex: 1;
+  }
+  .countdown .cd-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .countdown .cd-lbl {
+    font-size: 9.5px;
+    color: #8b93ad;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+
+  .prize-body {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+  .prize-body strong {
+    color: var(--text-primary);
+  }
+
+  .resource-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .resource-chips a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+    border: 1px solid #dfe1fb;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .resource-chips a:hover {
+    background: #e2e4fd;
+  }
+
+  .steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: step;
+  }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0 0 16px 30px;
+    margin-bottom: 2px;
+  }
+  .steps li:last-child {
+    padding-bottom: 0;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: "IBM Plex Mono", monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .steps li::after {
+    content: "";
+    position: absolute;
+    left: 9.5px;
+    top: 22px;
+    bottom: -2px;
+    width: 1px;
+    background: #e5e7eb;
+  }
+  .steps li:last-child::after {
+    display: none;
+  }
+  .steps li .s-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .steps li .s-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  /* Button sitting inside the sentence, so the step still reads as one line
+     of instruction but the target is unmistakable. */
+  .steps li .s-form-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 11px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .steps li .s-form-link:hover {
+    background: var(--accent-dark);
+  }
+  .steps li .s-form-soon {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 10px;
+    border: 1px dashed #dfe1fb;
+    border-radius: 8px;
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  .rules-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rules-list li {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 8px 0;
+    border-top: 1px solid #eef0f4;
+    display: flex;
+    gap: 8px;
+  }
+  .rules-list li:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+  .rules-list li .bullet {
+    color: var(--violet);
+    font-weight: 700;
+  }
+
+  .hack-page ::selection {
+    background: #c7d2fe;
+  }
+  .hack-page :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pool.a,
+    .pool.b,
+    .eyebrow .dot .ping {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Live countdown to hackathon deadline: 30 Aug 2026, 23:59:59 IST (UTC+5:30)
+  const deadline = new Date("2026-08-30T23:59:59+05:30").getTime();
+  const els = {
+    d: document.getElementById("cd-d"),
+    h: document.getElementById("cd-h"),
+    m: document.getElementById("cd-m"),
+    s: document.getElementById("cd-s"),
+  };
+  function tick() {
+    if (!els.d || !els.h || !els.m || !els.s) return;
+    let diff = deadline - Date.now();
+    if (diff < 0) diff = 0;
+    const pad = (n: number) => String(n).padStart(2, "0");
+    els.d.textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24)));
+    els.h.textContent = pad(Math.floor((diff / (1000 * 60 * 60)) % 24));
+    els.m.textContent = pad(Math.floor((diff / (1000 * 60)) % 60));
+    els.s.textContent = pad(Math.floor((diff / 1000) % 60));
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
