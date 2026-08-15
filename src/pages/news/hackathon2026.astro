@@ -12,9 +12,14 @@ const SUBMISSION_FORM_URL = "https://forms.gle/tFnPUknXHUAgmhhA9";
   url="https://mooseneuro.org/news/hackathon2026"
   ogType="article"
 >
-  <style is:inline>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap");
-  </style>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap"
+    />
+  </Fragment>
 
   <div class="hack-page">
     <!-- HERO -->
@@ -62,7 +67,7 @@ const SUBMISSION_FORM_URL = "https://forms.gle/tFnPUknXHUAgmhhA9";
       <!-- MAIN: PROBLEM -->
       <main class="card problem-card">
         <div class="kicker">Problem statement</div>
-        <h2 class="problem-title">Neuromorphic Oscillatorr</h2>
+        <h2 class="problem-title">Neuromorphic Oscillator</h2>
 
         <div class="section">
           <h2 class="section-h">

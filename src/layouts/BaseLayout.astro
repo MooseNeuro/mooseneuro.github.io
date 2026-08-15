@@ -77,6 +77,12 @@ const fullTitle = `${SITE_TITLE} | ${title}`;
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
     <title>{fullTitle}</title>
+    {
+      /* Pages needing their own head tags (fonts, etc.) pass them as a
+         Fragment with slot="head". Astro does not hoist tags out of page
+         bodies, so a <link> written in page content would land mid-document. */
+    }
+    <slot name="head" />
   </head>
   <body>
     <Navbar client:only="react" transparentOnTop={transparentNav} />
