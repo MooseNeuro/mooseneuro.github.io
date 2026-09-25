@@ -20,7 +20,7 @@ interface Props {
 
 const { entry, showCredit = true, class: className = "" } = Astro.props;
 const { image, overlay, credit, title } = entry.data;
-const showLogo = overlay?.logo ?? true;
+const showLogo = overlay?.logo ?? false;
 const hasText = Boolean(
   overlay?.kicker || overlay?.heading || overlay?.subheading,
 );
